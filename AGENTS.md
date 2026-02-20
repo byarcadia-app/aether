@@ -35,6 +35,11 @@ src/
 │   ├── colors.ts               # HSLA color tokens + NativeWind vars
 │   └── utils.ts                # Color palette merging utilities
 ├── ui/
+│   ├── buttons/
+│   │   ├── shared/              # AnimatedPressable, PressableHighlight, usePressableAnimation
+│   │   ├── button/              # Button, ButtonLabel, ButtonShimmer
+│   │   ├── glass-button/        # GlassButton (iOS 26+ LiquidGlass + fallback)
+│   │   └── highlight-tappable/  # HighlightTappable
 │   ├── icons/
 │   │   ├── icon-symbol.tsx     # SF Symbol component (iOS, expo-symbols)
 │   │   ├── icon-symbol.types.ts # IconSymbol prop types

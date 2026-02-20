@@ -15,6 +15,7 @@ Named after the Greek primordial deity of light and the pure upper air that gods
 - **Typography** — Heading, Text, Caption components following iOS HIG sizing
 - **Layout** — VStack, HStack polymorphic flexbox primitives
 - **Icons** — IconSymbol with SF Symbols (iOS), theme color integration, separate entrypoint
+- **Buttons** — Button (5 variants, shimmer, loading), GlassButton (iOS 26+ Liquid Glass), HighlightTappable
 - **React Navigation** — theme integration hook
 - **Inter Font** — built-in font loading for the Inter family
 - **Utilities** — class-name merging (`cn`, `cnx`) and HSLA color manipulation
@@ -263,6 +264,106 @@ import { VStack, HStack } from "@arcadia/aether";
 | `className` | `string` | — | Tailwind classes (merged with layout base) |
 | `...props` | — | — | All props of the `as` component |
 
+### Button
+
+Full-featured button with 5 variants, 3 sizes, loading state, shimmer animation, and haptic feedback.
+
+```tsx
+import { Button, ButtonLabel } from "@arcadia/aether";
+
+<Button onPress={() => {}}>Press me</Button>
+<Button variant="secondary" size="lg" onPress={() => {}}>Secondary</Button>
+<Button variant="outline" isLoading={true} onPress={() => {}}>Loading...</Button>
+<Button variant="destructive" disabled={true} onPress={() => {}}>Disabled</Button>
+<Button withShimmer={true} onPress={() => {}}>Shimmer</Button>
+
+{/* With ButtonLabel for explicit styling */}
+<Button onPress={() => {}}>
+  <ButtonLabel>Styled Label</ButtonLabel>
+</Button>
+```
+
+| Prop | Values | Default |
+|------|--------|---------|
+| `variant` | `primary` \| `secondary` \| `outline` \| `ghost` \| `destructive` | `primary` |
+| `size` | `sm` \| `md` \| `lg` | `md` |
+| `isIconOnly` | `boolean` | `false` |
+| `isRounded` | `boolean` | `false` |
+| `disabled` | `boolean` | `false` |
+| `isLoading` | `boolean` | `false` |
+| `withShimmer` | `boolean` | `false` |
+| `haptics` | `boolean` \| `"light"` \| `"medium"` \| `"heavy"` \| `"rigid"` \| `"soft"` | — |
+| `children` | `ReactNode` \| `(context) => ReactNode` | required |
+
+### GlassButton
+
+iOS 26+ Liquid Glass button with automatic fallback to glass styling. Requires `@callstack/liquid-glass` (optional peer dependency).
+
+```tsx
+import { GlassButton } from "@arcadia/aether";
+
+{/* Icon button (back/close) */}
+<GlassButton size="icon" accessibilityLabel="Go back" onPress={() => {}}>
+  ←
+</GlassButton>
+
+{/* Floating action button */}
+<GlassButton size="fab" accessibilityLabel="Add new" onPress={() => {}}>
+  +
+</GlassButton>
+
+{/* Force fallback (no LiquidGlass) */}
+<GlassButton size="icon" useLiquidGlass={false} accessibilityLabel="Close" onPress={() => {}}>
+  ×
+</GlassButton>
+```
+
+| Prop | Values | Default |
+|------|--------|---------|
+| `size` | `icon` \| `fab` \| `badge` | `icon` |
+| `effect` | `regular` \| `clear` | per size |
+| `colorScheme` | `system` \| `light` \| `dark` | `system` |
+| `disabled` | `boolean` | `false` |
+| `useLiquidGlass` | `boolean` | `true` |
+| `haptics` | `boolean` \| `HapticFeedbackStyle` | `true` |
+| `accessibilityLabel` | `string` | required |
+| `tintColor` | `ColorValue` | — |
+
+> **Optional dependency**: Install `@callstack/liquid-glass` for native iOS 26+ Liquid Glass effect. Falls back to glass styling automatically if not installed.
+
+### HighlightTappable
+
+Lightweight pressable with highlight overlay and optional scale animation. Ideal for list rows and tappable cards.
+
+```tsx
+import { HighlightTappable } from "@arcadia/aether";
+
+{/* List row pattern */}
+<HighlightTappable onPress={() => {}} className="px-4 py-3">
+  <Text>Settings</Text>
+</HighlightTappable>
+
+{/* With scale animation */}
+<HighlightTappable enableScale={true} onPress={() => {}}>
+  <Text>Press me</Text>
+</HighlightTappable>
+
+{/* Custom highlight color */}
+<HighlightTappable highlightColor="primary" highlightOpacity={0.3} onPress={() => {}}>
+  <Text>Custom highlight</Text>
+</HighlightTappable>
+```
+
+| Prop | Values | Default |
+|------|--------|---------|
+| `disabled` | `boolean` | `false` |
+| `className` | `string` | — |
+| `highlightColor` | `ThemeColor` | `"muted"` |
+| `highlightOpacity` | `number` (0-1) | `1` |
+| `haptics` | `boolean` \| `HapticFeedbackStyle` | — |
+| `enableScale` | `boolean` | `false` |
+| `scaleValue` | `number` (0-1) | `0.98` |
+
 ## Icons
 
 Install `expo-symbols` (iOS only — SF Symbols):
@@ -412,6 +513,7 @@ pnpm example:ios      # Run on iOS simulator
 | React | >= 18 |
 | React Native | >= 0.72 |
 | NativeWind | >= 4 |
+| react-native-reanimated | >= 3 |
 | Tailwind CSS | ^3.3.5 |
 | @expo-google-fonts/inter | >= 0.4.2 |
 | Expo | recommended |
