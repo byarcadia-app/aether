@@ -76,16 +76,32 @@ export const CustomWeight: Story = {
     return (
       <View className="gap-6 p-4">
         <View className="gap-2">
-          <Heading variant={1} weight="regular">Level 1 - Regular</Heading>
-          <Heading variant={1} weight="medium">Level 1 - Medium</Heading>
-          <Heading variant={1} weight="semibold">Level 1 - SemiBold</Heading>
-          <Heading variant={1} weight="bold">Level 1 - Bold (default)</Heading>
+          <Heading variant={1} weight="regular">
+            Level 1 - Regular
+          </Heading>
+          <Heading variant={1} weight="medium">
+            Level 1 - Medium
+          </Heading>
+          <Heading variant={1} weight="semibold">
+            Level 1 - SemiBold
+          </Heading>
+          <Heading variant={1} weight="bold">
+            Level 1 - Bold (default)
+          </Heading>
         </View>
         <View className="gap-2">
-          <Heading variant={4} weight="regular">Level 4 - Regular</Heading>
-          <Heading variant={4} weight="medium">Level 4 - Medium</Heading>
-          <Heading variant={4} weight="semibold">Level 4 - SemiBold (default)</Heading>
-          <Heading variant={4} weight="bold">Level 4 - Bold</Heading>
+          <Heading variant={4} weight="regular">
+            Level 4 - Regular
+          </Heading>
+          <Heading variant={4} weight="medium">
+            Level 4 - Medium
+          </Heading>
+          <Heading variant={4} weight="semibold">
+            Level 4 - SemiBold (default)
+          </Heading>
+          <Heading variant={4} weight="bold">
+            Level 4 - Bold
+          </Heading>
         </View>
       </View>
     );
@@ -96,13 +112,27 @@ export const Colors: Story = {
   render() {
     return (
       <View className="gap-2 p-4">
-        <Heading variant={3} color="default">Default</Heading>
-        <Heading variant={3} color="primary">Primary</Heading>
-        <Heading variant={3} color="muted">Muted</Heading>
-        <Heading variant={3} color="success">Success</Heading>
-        <Heading variant={3} color="warning">Warning</Heading>
-        <Heading variant={3} color="danger">Danger</Heading>
-        <Heading variant={3} color="info">Info</Heading>
+        <Heading variant={3} color="default">
+          Default
+        </Heading>
+        <Heading variant={3} color="primary">
+          Primary
+        </Heading>
+        <Heading variant={3} color="muted">
+          Muted
+        </Heading>
+        <Heading variant={3} color="success">
+          Success
+        </Heading>
+        <Heading variant={3} color="warning">
+          Warning
+        </Heading>
+        <Heading variant={3} color="danger">
+          Danger
+        </Heading>
+        <Heading variant={3} color="info">
+          Info
+        </Heading>
       </View>
     );
   },

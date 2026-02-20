@@ -58,7 +58,12 @@ export const FallbackMode: Story = {
   render() {
     return (
       <View className="p-4">
-        <GlassButton size="fab" useLiquidGlass={false} accessibilityLabel="Add new item" onPress={() => {}}>
+        <GlassButton
+          size="fab"
+          useLiquidGlass={false}
+          accessibilityLabel="Add new item"
+          onPress={() => {}}
+        >
           +
         </GlassButton>
       </View>

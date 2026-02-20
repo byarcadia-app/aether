@@ -13,7 +13,10 @@ export const Default: Story = {
   render() {
     return (
       <VStack className="p-4">
-        <HighlightTappable onPress={() => console.log("Tapped")} className="rounded-lg bg-surface p-4">
+        <HighlightTappable
+          onPress={() => console.log("Tapped")}
+          className="rounded-lg bg-surface p-4"
+        >
           <HStack className="items-center justify-between">
             <Text>Tap me</Text>
             <Text color="muted">→</Text>
@@ -28,7 +31,11 @@ export const WithScale: Story = {
   render() {
     return (
       <VStack className="p-4">
-        <HighlightTappable enableScale={true} onPress={() => console.log("Scaled")} className="rounded-lg bg-surface p-4">
+        <HighlightTappable
+          enableScale={true}
+          onPress={() => console.log("Scaled")}
+          className="rounded-lg bg-surface p-4"
+        >
           <HStack className="items-center justify-center">
             <Text>Scale on press</Text>
           </HStack>
@@ -62,13 +69,19 @@ export const ListItems: Story = {
     return (
       <VStack className="p-4">
         <VStack className="gap-0">
-          <HighlightTappable onPress={() => console.log("Settings")} className="bg-surface p-4 border-b border-border">
+          <HighlightTappable
+            onPress={() => console.log("Settings")}
+            className="bg-surface p-4 border-b border-border"
+          >
             <HStack className="items-center justify-between">
               <Text>Settings</Text>
               <Text color="muted">→</Text>
             </HStack>
           </HighlightTappable>
-          <HighlightTappable onPress={() => console.log("Profile")} className="bg-surface p-4 border-b border-border">
+          <HighlightTappable
+            onPress={() => console.log("Profile")}
+            className="bg-surface p-4 border-b border-border"
+          >
             <HStack className="items-center justify-between">
               <Text>Profile</Text>
               <Text color="muted">→</Text>

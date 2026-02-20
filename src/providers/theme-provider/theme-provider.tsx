@@ -76,9 +76,5 @@ export const ThemeProvider = ({ children, colorPalette }: ThemeProviderProps) =>
       ? darkNativewindVars
       : lightNativewindVars;
 
-  return (
-    <View style={[{ flex: 1 }, nativewindTheme]}>
-      {children}
-    </View>
-  );
+  return <View style={[{ flex: 1 }, nativewindTheme]}>{children}</View>;
 };

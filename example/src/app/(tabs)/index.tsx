@@ -15,27 +15,22 @@ export default function HomeScreen() {
   return (
     <ScrollView className="flex-1 bg-background">
       <View className="p-6">
-        <Text className="text-3xl font-interBold text-foreground mb-2">
-          Aether UI
-        </Text>
+        <Text className="text-3xl font-interBold text-foreground mb-2">Aether UI</Text>
         <Text className="text-base font-inter text-muted-foreground mb-8">
           Example App — Library Configuration Showcase
         </Text>
 
-        <Text className="text-lg font-interSemiBold text-foreground mb-4">
-          Theme Color Tokens
-        </Text>
+        <Text className="text-lg font-interSemiBold text-foreground mb-4">Theme Color Tokens</Text>
         <Text className="text-sm font-inter text-muted-foreground mb-4">
-          These swatches verify that the aether tailwind preset is active and NativeWind is processing classes correctly.
+          These swatches verify that the aether tailwind preset is active and NativeWind is
+          processing classes correctly.
         </Text>
 
         <View className="gap-3">
           {COLOR_TOKENS.map(({ label, className }) => (
             <View key={label} className="flex-row items-center gap-3">
               <View className={`w-10 h-10 rounded-lg ${className}`} />
-              <Text className="text-sm font-interMedium text-foreground">
-                {label}
-              </Text>
+              <Text className="text-sm font-interMedium text-foreground">{label}</Text>
             </View>
           ))}
         </View>

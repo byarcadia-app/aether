@@ -59,14 +59,8 @@ npm install @callstack/liquid-glass
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/@arcadia/aether/dist/**/*.{js,mjs}",
-  ],
-  presets: [
-    require("nativewind/preset"),
-    require("@arcadia/aether/tailwind-preset").preset,
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./node_modules/@arcadia/aether/dist/**/*.{js,mjs}"],
+  presets: [require("nativewind/preset"), require("@arcadia/aether/tailwind-preset").preset],
   theme: {
     extend: {},
   },
@@ -88,10 +82,7 @@ module.exports = {
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: [
-      ["babel-preset-expo", { jsxImportSource: "nativewind" }],
-      "nativewind/babel",
-    ],
+    presets: [["babel-preset-expo", { jsxImportSource: "nativewind" }], "nativewind/babel"],
   };
 };
 ```
@@ -176,10 +167,10 @@ Root provider. Composes ThemeProvider (CSS variable injection) and TextComponent
 </AetherProvider>
 ```
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `textConfig` | `TextProviderProps` | Global text accessibility settings |
-| `colorPalette` | `ColorPaletteConfig` | Light/dark color overrides |
+| Prop           | Type                 | Description                        |
+| -------------- | -------------------- | ---------------------------------- |
+| `textConfig`   | `TextProviderProps`  | Global text accessibility settings |
+| `colorPalette` | `ColorPaletteConfig` | Light/dark color overrides         |
 
 ### Heading
 
@@ -194,11 +185,11 @@ import { Heading } from "@arcadia/aether";
 <Heading variant={4}>Title 3</Heading>
 ```
 
-| Prop | Values | Default |
-|------|--------|---------|
-| `variant` | `1` \| `2` \| `3` \| `4` | `1` |
-| `weight` | `regular` \| `medium` \| `semibold` \| `bold` | per iOS spec |
-| `color` | `default` \| `primary` \| `secondary` \| `muted` \| `success` \| `warning` \| `danger` \| `info` \| `inherit` | `default` |
+| Prop      | Values                                                                                                        | Default      |
+| --------- | ------------------------------------------------------------------------------------------------------------- | ------------ |
+| `variant` | `1` \| `2` \| `3` \| `4`                                                                                      | `1`          |
+| `weight`  | `regular` \| `medium` \| `semibold` \| `bold`                                                                 | per iOS spec |
+| `color`   | `default` \| `primary` \| `secondary` \| `muted` \| `success` \| `warning` \| `danger` \| `info` \| `inherit` | `default`    |
 
 ### Text
 
@@ -218,11 +209,11 @@ import { Text } from "@arcadia/aether";
 </View>
 ```
 
-| Prop | Values | Default |
-|------|--------|---------|
-| `variant` | `headline` \| `body` \| `callout` \| `subhead` \| `footnote` | `body` |
-| `weight` | `regular` \| `medium` \| `semibold` \| `bold` | per iOS spec |
-| `color` | base colors + `primary-foreground` \| `secondary-foreground` \| `success-foreground` \| `warning-foreground` \| `danger-foreground` \| `info-foreground` | `default` |
+| Prop      | Values                                                                                                                                                   | Default      |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `variant` | `headline` \| `body` \| `callout` \| `subhead` \| `footnote`                                                                                             | `body`       |
+| `weight`  | `regular` \| `medium` \| `semibold` \| `bold`                                                                                                            | per iOS spec |
+| `color`   | base colors + `primary-foreground` \| `secondary-foreground` \| `success-foreground` \| `warning-foreground` \| `danger-foreground` \| `info-foreground` | `default`    |
 
 ### Caption
 
@@ -235,11 +226,11 @@ import { Caption } from "@arcadia/aether";
 <Caption variant="sm" color="success">Active</Caption>
 ```
 
-| Prop | Values | Default |
-|------|--------|---------|
-| `variant` | `md` \| `sm` | `md` |
-| `weight` | `regular` \| `medium` \| `semibold` \| `bold` | `regular` |
-| `color` | base colors + foreground variants | `default` |
+| Prop      | Values                                        | Default   |
+| --------- | --------------------------------------------- | --------- |
+| `variant` | `md` \| `sm`                                  | `md`      |
+| `weight`  | `regular` \| `medium` \| `semibold` \| `bold` | `regular` |
+| `color`   | base colors + foreground variants             | `default` |
 
 ### VStack / HStack
 
@@ -264,11 +255,11 @@ import { VStack, HStack } from "@arcadia/aether";
 </VStack>
 ```
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `as` | `ComponentType` | `View` | Component to render as |
-| `className` | `string` | — | Tailwind classes (merged with layout base) |
-| `...props` | — | — | All props of the `as` component |
+| Prop        | Type            | Default | Description                                |
+| ----------- | --------------- | ------- | ------------------------------------------ |
+| `as`        | `ComponentType` | `View`  | Component to render as                     |
+| `className` | `string`        | —       | Tailwind classes (merged with layout base) |
+| `...props`  | —               | —       | All props of the `as` component            |
 
 ### Button
 
@@ -289,17 +280,17 @@ import { Button, ButtonLabel } from "@arcadia/aether";
 </Button>
 ```
 
-| Prop | Values | Default |
-|------|--------|---------|
-| `variant` | `primary` \| `secondary` \| `outline` \| `ghost` \| `destructive` | `primary` |
-| `size` | `sm` \| `md` \| `lg` | `md` |
-| `isIconOnly` | `boolean` | `false` |
-| `isRounded` | `boolean` | `false` |
-| `disabled` | `boolean` | `false` |
-| `isLoading` | `boolean` | `false` |
-| `withShimmer` | `boolean` | `false` |
-| `haptics` | `boolean` \| `"light"` \| `"medium"` \| `"heavy"` \| `"rigid"` \| `"soft"` | — |
-| `children` | `ReactNode` \| `(context) => ReactNode` | required |
+| Prop          | Values                                                                     | Default   |
+| ------------- | -------------------------------------------------------------------------- | --------- |
+| `variant`     | `primary` \| `secondary` \| `outline` \| `ghost` \| `destructive`          | `primary` |
+| `size`        | `sm` \| `md` \| `lg`                                                       | `md`      |
+| `isIconOnly`  | `boolean`                                                                  | `false`   |
+| `isRounded`   | `boolean`                                                                  | `false`   |
+| `disabled`    | `boolean`                                                                  | `false`   |
+| `isLoading`   | `boolean`                                                                  | `false`   |
+| `withShimmer` | `boolean`                                                                  | `false`   |
+| `haptics`     | `boolean` \| `"light"` \| `"medium"` \| `"heavy"` \| `"rigid"` \| `"soft"` | —         |
+| `children`    | `ReactNode` \| `(context) => ReactNode`                                    | required  |
 
 ### GlassButton
 
@@ -308,32 +299,38 @@ iOS 26+ Liquid Glass button with automatic fallback to glass styling. Requires `
 ```tsx
 import { GlassButton } from "@arcadia/aether";
 
-{/* Icon button (back/close) */}
+{
+  /* Icon button (back/close) */
+}
 <GlassButton size="icon" accessibilityLabel="Go back" onPress={() => {}}>
   ←
-</GlassButton>
+</GlassButton>;
 
-{/* Floating action button */}
+{
+  /* Floating action button */
+}
 <GlassButton size="fab" accessibilityLabel="Add new" onPress={() => {}}>
   +
-</GlassButton>
+</GlassButton>;
 
-{/* Force fallback (no LiquidGlass) */}
+{
+  /* Force fallback (no LiquidGlass) */
+}
 <GlassButton size="icon" useLiquidGlass={false} accessibilityLabel="Close" onPress={() => {}}>
   ×
-</GlassButton>
+</GlassButton>;
 ```
 
-| Prop | Values | Default |
-|------|--------|---------|
-| `size` | `icon` \| `fab` \| `badge` | `icon` |
-| `effect` | `regular` \| `clear` | per size |
-| `colorScheme` | `system` \| `light` \| `dark` | `system` |
-| `disabled` | `boolean` | `false` |
-| `useLiquidGlass` | `boolean` | `true` |
-| `haptics` | `boolean` \| `HapticFeedbackStyle` | `true` |
-| `accessibilityLabel` | `string` | required |
-| `tintColor` | `ColorValue` | — |
+| Prop                 | Values                             | Default  |
+| -------------------- | ---------------------------------- | -------- |
+| `size`               | `icon` \| `fab` \| `badge`         | `icon`   |
+| `effect`             | `regular` \| `clear`               | per size |
+| `colorScheme`        | `system` \| `light` \| `dark`      | `system` |
+| `disabled`           | `boolean`                          | `false`  |
+| `useLiquidGlass`     | `boolean`                          | `true`   |
+| `haptics`            | `boolean` \| `HapticFeedbackStyle` | `true`   |
+| `accessibilityLabel` | `string`                           | required |
+| `tintColor`          | `ColorValue`                       | —        |
 
 > **Required dependency**: `@callstack/liquid-glass` must be installed for GlassButton. On iOS 26+ it renders native Liquid Glass; on older iOS it automatically falls back to themed glass styling.
 
@@ -344,31 +341,37 @@ Lightweight pressable with highlight overlay and optional scale animation. Ideal
 ```tsx
 import { HighlightTappable } from "@arcadia/aether";
 
-{/* List row pattern */}
+{
+  /* List row pattern */
+}
 <HighlightTappable onPress={() => {}} className="px-4 py-3">
   <Text>Settings</Text>
-</HighlightTappable>
+</HighlightTappable>;
 
-{/* With scale animation */}
+{
+  /* With scale animation */
+}
 <HighlightTappable enableScale={true} onPress={() => {}}>
   <Text>Press me</Text>
-</HighlightTappable>
+</HighlightTappable>;
 
-{/* Custom highlight color */}
+{
+  /* Custom highlight color */
+}
 <HighlightTappable highlightColor="primary" highlightOpacity={0.3} onPress={() => {}}>
   <Text>Custom highlight</Text>
-</HighlightTappable>
+</HighlightTappable>;
 ```
 
-| Prop | Values | Default |
-|------|--------|---------|
-| `disabled` | `boolean` | `false` |
-| `className` | `string` | — |
-| `highlightColor` | `ThemeColor` | `"muted"` |
-| `highlightOpacity` | `number` (0-1) | `1` |
-| `haptics` | `boolean` \| `HapticFeedbackStyle` | — |
-| `enableScale` | `boolean` | `false` |
-| `scaleValue` | `number` (0-1) | `0.98` |
+| Prop               | Values                             | Default   |
+| ------------------ | ---------------------------------- | --------- |
+| `disabled`         | `boolean`                          | `false`   |
+| `className`        | `string`                           | —         |
+| `highlightColor`   | `ThemeColor`                       | `"muted"` |
+| `highlightOpacity` | `number` (0-1)                     | `1`       |
+| `haptics`          | `boolean` \| `HapticFeedbackStyle` | —         |
+| `enableScale`      | `boolean`                          | `false`   |
+| `scaleValue`       | `number` (0-1)                     | `0.98`    |
 
 ## Icons
 
@@ -389,13 +392,13 @@ import { IconSymbol } from "@arcadia/aether/icons";
 <IconSymbol name="star" weight="bold" size={32} colorScheme="primary" />
 ```
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `name` | `SFSymbol` | required | SF Symbol name |
-| `size` | `number` | `24` | Width and height in points |
-| `colorScheme` | `ThemeColor` | — | Semantic theme color |
-| `weight` | `SymbolWeight` | `"regular"` | Symbol weight |
-| `className` | `string` | — | Tailwind classes |
+| Prop          | Type           | Default     | Description                |
+| ------------- | -------------- | ----------- | -------------------------- |
+| `name`        | `SFSymbol`     | required    | SF Symbol name             |
+| `size`        | `number`       | `24`        | Width and height in points |
+| `colorScheme` | `ThemeColor`   | —           | Semantic theme color       |
+| `weight`      | `SymbolWeight` | `"regular"` | Symbol weight              |
+| `className`   | `string`       | —           | Tailwind classes           |
 
 ## Hooks
 
@@ -464,13 +467,7 @@ cnx("text-sm p-4", "text-lg p-8"); // -> "text-lg p-8"
 ### Color Utilities
 
 ```tsx
-import {
-  parseHsla,
-  generateHsla,
-  adjustLightness,
-  hslaToRgba,
-  withAlpha,
-} from "@arcadia/aether";
+import { parseHsla, generateHsla, adjustLightness, hslaToRgba, withAlpha } from "@arcadia/aether";
 
 parseHsla("hsla(240, 4%, 97%, 1)");
 // { hue: 240, saturation: 4, lightness: 97, alpha: 1 }
@@ -486,20 +483,20 @@ withAlpha("hsla(240, 4%, 97%, 1)", 0.5);
 
 Available as Tailwind classes (e.g., `bg-primary`, `text-danger-foreground`, `border-border`):
 
-| Token | Description |
-|-------|-------------|
-| `background` / `foreground` | Page background and default text |
-| `surface` / `surface-foreground` | Card and section backgrounds |
-| `primary` / `primary-foreground` | Brand color |
-| `secondary` / `secondary-foreground` | Secondary actions |
-| `success` / `success-foreground` | Success state |
-| `warning` / `warning-foreground` | Warning state |
-| `danger` / `danger-foreground` | Error/destructive state |
-| `info` / `info-foreground` | Informational state |
-| `muted` / `muted-foreground` | Subtle backgrounds and secondary text |
-| `border` / `input` / `ring` | UI chrome |
-| `glass` / `glass-border` / `glass-highlight` | Glassmorphism effects |
-| `tag-*` | Tag colors: coral, amber, sky, lavender, slate, mint, stone |
+| Token                                        | Description                                                 |
+| -------------------------------------------- | ----------------------------------------------------------- |
+| `background` / `foreground`                  | Page background and default text                            |
+| `surface` / `surface-foreground`             | Card and section backgrounds                                |
+| `primary` / `primary-foreground`             | Brand color                                                 |
+| `secondary` / `secondary-foreground`         | Secondary actions                                           |
+| `success` / `success-foreground`             | Success state                                               |
+| `warning` / `warning-foreground`             | Warning state                                               |
+| `danger` / `danger-foreground`               | Error/destructive state                                     |
+| `info` / `info-foreground`                   | Informational state                                         |
+| `muted` / `muted-foreground`                 | Subtle backgrounds and secondary text                       |
+| `border` / `input` / `ring`                  | UI chrome                                                   |
+| `glass` / `glass-border` / `glass-highlight` | Glassmorphism effects                                       |
+| `tag-*`                                      | Tag colors: coral, amber, sky, lavender, slate, mint, stone |
 
 All colors are HSLA-based and support custom overrides via the `colorPalette` prop on `AetherProvider`.
 
@@ -514,15 +511,16 @@ pnpm example:ios      # Run on iOS simulator
 
 ## Requirements
 
-| Dependency | Version |
-|------------|---------|
-| React | >= 18 |
-| React Native | >= 0.72 |
-| NativeWind | >= 4 |
-| react-native-reanimated | >= 3 |
-| Tailwind CSS | ^3.3.5 |
-| @expo-google-fonts/inter | >= 0.4.2 |
-| Expo | recommended |
+| Dependency               | Version     |
+| ------------------------ | ----------- |
+| React                    | >= 18       |
+| React Native             | >= 0.72     |
+| NativeWind               | >= 4        |
+| react-native-reanimated  | >= 3        |
+| @callstack/liquid-glass  | >= 0.7      |
+| Tailwind CSS             | ^3.3.5      |
+| @expo-google-fonts/inter | >= 0.4.2    |
+| Expo                     | recommended |
 
 ## License
 

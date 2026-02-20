@@ -32,65 +32,66 @@ import type { TextProps } from "./types";
  */
 
 export const textVariants = tv({
-	variants: {
-		variant: {
-			headline: "text-[17px] leading-normal", // 17pt Semibold
-			body: "text-[17px] leading-normal", // 17pt Regular
-			callout: "text-[16px] leading-relaxed", // 16pt Regular
-			subhead: "text-[15px] leading-tight", // 15pt Regular
-			footnote: "text-[13px] leading-tight", // 13pt Regular
-		},
-		weight: {
-			regular: "font-inter",
-			medium: "font-interMedium",
-			semibold: "font-interSemiBold",
-			bold: "font-interBold",
-		},
-		color: {
-			default: "text-foreground",
-			primary: "text-primary",
-			secondary: "text-secondary",
-			muted: "text-muted-foreground",
-			success: "text-success",
-			warning: "text-warning",
-			danger: "text-danger",
-			info: "text-info",
-			inherit: "text-inherit",
-			"primary-foreground": "text-primary-foreground",
-			"secondary-foreground": "text-secondary-foreground",
-			"success-foreground": "text-success-foreground",
-			"warning-foreground": "text-warning-foreground",
-			"danger-foreground": "text-danger-foreground",
-			"info-foreground": "text-info-foreground",
-		},
-	},
-	compoundVariants: [
-		// Default weights per iOS spec
-		{ variant: "headline", weight: undefined, class: "font-interSemiBold" },
-		{ variant: "body", weight: undefined, class: "font-inter" },
-		{ variant: "callout", weight: undefined, class: "font-inter" },
-		{ variant: "subhead", weight: undefined, class: "font-inter" },
-		{ variant: "footnote", weight: undefined, class: "font-inter" },
-	],
-	defaultVariants: {
-		variant: "body",
-		color: "default",
-	},
+  variants: {
+    variant: {
+      headline: "text-[17px] leading-normal", // 17pt Semibold
+      body: "text-[17px] leading-normal", // 17pt Regular
+      callout: "text-[16px] leading-relaxed", // 16pt Regular
+      subhead: "text-[15px] leading-tight", // 15pt Regular
+      footnote: "text-[13px] leading-tight", // 13pt Regular
+    },
+    weight: {
+      regular: "font-inter",
+      medium: "font-interMedium",
+      semibold: "font-interSemiBold",
+      bold: "font-interBold",
+    },
+    color: {
+      default: "text-foreground",
+      primary: "text-primary",
+      secondary: "text-secondary",
+      muted: "text-muted-foreground",
+      success: "text-success",
+      warning: "text-warning",
+      danger: "text-danger",
+      info: "text-info",
+      inherit: "text-inherit",
+      "primary-foreground": "text-primary-foreground",
+      "secondary-foreground": "text-secondary-foreground",
+      "success-foreground": "text-success-foreground",
+      "warning-foreground": "text-warning-foreground",
+      "danger-foreground": "text-danger-foreground",
+      "info-foreground": "text-info-foreground",
+    },
+  },
+  compoundVariants: [
+    // Default weights per iOS spec
+    { variant: "headline", weight: undefined, class: "font-interSemiBold" },
+    { variant: "body", weight: undefined, class: "font-inter" },
+    { variant: "callout", weight: undefined, class: "font-inter" },
+    { variant: "subhead", weight: undefined, class: "font-inter" },
+    { variant: "footnote", weight: undefined, class: "font-inter" },
+  ],
+  defaultVariants: {
+    variant: "body",
+    color: "default",
+  },
 });
 
 export function Text({ variant = "body", weight, color, children, ...props }: TextProps) {
-	return (
-		<BaseText
-			{...props}
-			className={textVariants({
-				variant,
-				weight,
-				color,
-				className: props.className,
-			})}>
-			{children}
-		</BaseText>
-	);
+  return (
+    <BaseText
+      {...props}
+      className={textVariants({
+        variant,
+        weight,
+        color,
+        className: props.className,
+      })}
+    >
+      {children}
+    </BaseText>
+  );
 }
 
 Text.displayName = "Aether.Typography.Text";

@@ -14,5 +14,5 @@ import Animated from "react-native-reanimated";
  * - style → Reanimated animated styles (transforms)
  */
 export const AnimatedPressable = Animated.createAnimatedComponent(Pressable) as React.ComponentType<
-	AnimatedProps<PressableProps>
+  AnimatedProps<PressableProps>
 >;

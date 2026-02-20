@@ -59,11 +59,7 @@ export const Nested: Story = {
 export const WithPolymorphicAs: Story = {
   render() {
     return (
-      <VStack
-        as={Pressable}
-        onPress={() => {}}
-        className="gap-2 p-4 rounded-lg bg-surface"
-      >
+      <VStack as={Pressable} onPress={() => {}} className="gap-2 p-4 rounded-lg bg-surface">
         <Text variant="headline">Clickable Stack</Text>
         <Text variant="body" color="muted">
           This VStack renders as a Pressable via the `as` prop.

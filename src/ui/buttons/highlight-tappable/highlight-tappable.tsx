@@ -24,53 +24,53 @@ import type { HighlightTappableProps } from "./types";
  * ```
  */
 export function HighlightTappable({
-	children,
-	onPress,
-	disabled = false,
-	className,
-	highlightColor = "muted",
-	haptics,
-	enableScale = false,
-	scaleValue = 0.98,
-	highlightOpacity = 1,
-	...pressableProps
+  children,
+  onPress,
+  disabled = false,
+  className,
+  highlightColor = "muted",
+  haptics,
+  enableScale = false,
+  scaleValue = 0.98,
+  highlightOpacity = 1,
+  ...pressableProps
 }: HighlightTappableProps) {
-	const handleHapticPressIn = (_event: GestureResponderEvent) => {
-		if (haptics && !disabled) {
-			const style = haptics === true ? undefined : haptics;
-			hapticsImpact(style);
-		}
-	};
+  const handleHapticPressIn = (_event: GestureResponderEvent) => {
+    if (haptics && !disabled) {
+      const style = haptics === true ? undefined : haptics;
+      hapticsImpact(style);
+    }
+  };
 
-	const { animatedStyle, isPressed, handlePressIn, handlePressOut } = usePressableAnimation(
-		{
-			isDisabled: disabled,
-			disableScale: !enableScale,
-			scaleValue,
-		},
-		handleHapticPressIn
-	);
+  const { animatedStyle, isPressed, handlePressIn, handlePressOut } = usePressableAnimation(
+    {
+      isDisabled: disabled,
+      disableScale: !enableScale,
+      scaleValue,
+    },
+    handleHapticPressIn,
+  );
 
-	return (
-		<AnimatedPressable
-			{...pressableProps}
-			style={animatedStyle}
-			onPress={onPress}
-			onPressIn={handlePressIn}
-			onPressOut={handlePressOut}
-			disabled={disabled}
-			className={cnx("overflow-hidden rounded-sm", className)}
-			accessibilityRole="button"
-		>
-			<PressableHighlight
-				isPressed={isPressed}
-				colorKey={highlightColor}
-				opacity={highlightOpacity}
-				isDisabled={disabled}
-			/>
-			{children}
-		</AnimatedPressable>
-	);
+  return (
+    <AnimatedPressable
+      {...pressableProps}
+      style={animatedStyle}
+      onPress={onPress}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      disabled={disabled}
+      className={cnx("overflow-hidden rounded-sm", className)}
+      accessibilityRole="button"
+    >
+      <PressableHighlight
+        isPressed={isPressed}
+        colorKey={highlightColor}
+        opacity={highlightOpacity}
+        isDisabled={disabled}
+      />
+      {children}
+    </AnimatedPressable>
+  );
 }
 
 HighlightTappable.displayName = "Aether.Buttons.HighlightTappable";

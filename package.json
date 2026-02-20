@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "description": "",
   "keywords": [],
+  "homepage": "https://github.com/byarcadia-app/aether#readme",
   "license": "MIT",
   "author": "Dominik Woźniak <dominik@byarcadia.app> (github.com/dominikwozniak)",
   "repository": {
     "type": "git",
     "url": "https://github.com/byarcadia-app/aether"
   },
-  "homepage": "https://github.com/byarcadia-app/aether#readme",
   "files": [
     "dist",
     "README.md"

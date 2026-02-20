@@ -60,10 +60,18 @@ export const Weights: Story = {
           <Caption weight="bold">Caption - Bold</Caption>
         </View>
         <View className="gap-2">
-          <Caption variant="sm" weight="regular">Small - Regular (default)</Caption>
-          <Caption variant="sm" weight="medium">Small - Medium</Caption>
-          <Caption variant="sm" weight="semibold">Small - SemiBold</Caption>
-          <Caption variant="sm" weight="bold">Small - Bold</Caption>
+          <Caption variant="sm" weight="regular">
+            Small - Regular (default)
+          </Caption>
+          <Caption variant="sm" weight="medium">
+            Small - Medium
+          </Caption>
+          <Caption variant="sm" weight="semibold">
+            Small - SemiBold
+          </Caption>
+          <Caption variant="sm" weight="bold">
+            Small - Bold
+          </Caption>
         </View>
       </View>
     );
@@ -110,8 +118,12 @@ export const UseCases: Story = {
 
         <View className="gap-1">
           <Caption weight="medium">Legal</Caption>
-          <Caption variant="sm" color="muted">© 2025 Company Name. All rights reserved.</Caption>
-          <Caption variant="sm" color="muted">Terms · Privacy · Licenses</Caption>
+          <Caption variant="sm" color="muted">
+            © 2025 Company Name. All rights reserved.
+          </Caption>
+          <Caption variant="sm" color="muted">
+            Terms · Privacy · Licenses
+          </Caption>
         </View>
       </View>
     );

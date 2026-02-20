@@ -9,16 +9,16 @@ import { TextComponentContext } from "../../../providers";
  * requires explicit typing to recognize it.
  */
 export type BaseTextProps = RNTextProps & {
-	/**
-	 * Ref object to access the underlying RNText instance.
-	 *
-	 * @example
-	 * ```tsx
-	 * const textRef = useRef<RNText>(null);
-	 * <BaseText ref={textRef}>Hello</BaseText>
-	 * ```
-	 */
-	ref?: React.Ref<RNText>;
+  /**
+   * Ref object to access the underlying RNText instance.
+   *
+   * @example
+   * ```tsx
+   * const textRef = useRef<RNText>(null);
+   * <BaseText ref={textRef}>Hello</BaseText>
+   * ```
+   */
+  ref?: React.Ref<RNText>;
 };
 
 /**
@@ -49,10 +49,10 @@ export type BaseTextProps = RNTextProps & {
  * ```
  */
 export const BaseText = (props: BaseTextProps) => {
-	const textComponentProps = use(TextComponentContext);
-	const mergedProps = Object.assign({}, textComponentProps, props);
+  const textComponentProps = use(TextComponentContext);
+  const mergedProps = Object.assign({}, textComponentProps, props);
 
-	return <RNText {...mergedProps} />;
+  return <RNText {...mergedProps} />;
 };
 
 BaseText.displayName = "Aether.Typography.BaseText";

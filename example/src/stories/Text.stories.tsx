@@ -29,7 +29,9 @@ export const Body: Story = {
     return (
       <View className="gap-4 p-4">
         <Text>Default body text without specifying variant.</Text>
-        <Text variant="body">Body variant explicitly set. Perfect for paragraphs and main content.</Text>
+        <Text variant="body">
+          Body variant explicitly set. Perfect for paragraphs and main content.
+        </Text>
         <Text variant="body">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua.
@@ -93,16 +95,32 @@ export const CustomWeight: Story = {
     return (
       <View className="gap-6 p-4">
         <View className="gap-2">
-          <Text variant="body" weight="regular">Body - Regular (default)</Text>
-          <Text variant="body" weight="medium">Body - Medium</Text>
-          <Text variant="body" weight="semibold">Body - SemiBold</Text>
-          <Text variant="body" weight="bold">Body - Bold</Text>
+          <Text variant="body" weight="regular">
+            Body - Regular (default)
+          </Text>
+          <Text variant="body" weight="medium">
+            Body - Medium
+          </Text>
+          <Text variant="body" weight="semibold">
+            Body - SemiBold
+          </Text>
+          <Text variant="body" weight="bold">
+            Body - Bold
+          </Text>
         </View>
         <View className="gap-2">
-          <Text variant="headline" weight="regular">Headline - Regular</Text>
-          <Text variant="headline" weight="medium">Headline - Medium</Text>
-          <Text variant="headline" weight="semibold">Headline - SemiBold (default)</Text>
-          <Text variant="headline" weight="bold">Headline - Bold</Text>
+          <Text variant="headline" weight="regular">
+            Headline - Regular
+          </Text>
+          <Text variant="headline" weight="medium">
+            Headline - Medium
+          </Text>
+          <Text variant="headline" weight="semibold">
+            Headline - SemiBold (default)
+          </Text>
+          <Text variant="headline" weight="bold">
+            Headline - Bold
+          </Text>
         </View>
       </View>
     );

@@ -7,7 +7,15 @@ export default defineConfig({
   splitting: false,
   sourcemap: true,
   clean: true,
-  external: ["react", "react-native", "nativewind", "expo-symbols", "react-native-reanimated", "expo-haptics", "@callstack/liquid-glass"],
+  external: [
+    "react",
+    "react-native",
+    "nativewind",
+    "expo-symbols",
+    "react-native-reanimated",
+    "expo-haptics",
+    "@callstack/liquid-glass",
+  ],
   treeshake: true,
   esbuildOptions(options) {
     options.jsx = "automatic";

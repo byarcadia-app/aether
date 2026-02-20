@@ -55,8 +55,10 @@ src/
 ├── icons/
 │   └── index.ts                # Entrypoint re-export for @arcadia/aether/icons
 └── utils/
+    ├── children-type-guards.ts # isTextContent(), isRenderFunction() type guards
     ├── class-names.ts          # cn() and cnx() utilities
-    └── color.ts                # HSLA parsing, conversion, manipulation
+    ├── color.ts                # HSLA parsing, conversion, manipulation
+    └── haptics.ts              # HapticFeedbackStyle type, hapticsImpact() utility
 ```
 
 Every directory has an `index.ts` barrel export. Barrel files chain upward to `src/index.ts`.
@@ -80,10 +82,16 @@ import type { ComponentProps } from "./types";
 
 export const componentVariants = tv({
   variants: {
-    variant: { /* ... */ },
-    color: { /* ... */ },
+    variant: {
+      /* ... */
+    },
+    color: {
+      /* ... */
+    },
   },
-  defaultVariants: { /* ... */ },
+  defaultVariants: {
+    /* ... */
+  },
 });
 
 export function Component({ variant, color, children, ...props }: ComponentProps) {
@@ -118,6 +126,7 @@ All styling uses Tailwind classes through NativeWind. No inline `StyleSheet` obj
 HSLA-based semantic tokens. Colors are CSS variables at runtime via NativeWind `vars()` API, and `var(--color-{token})` references in the Tailwind preset.
 
 Token categories:
+
 - **Base**: `background`, `foreground`, `surface`, `overlay`
 - **Semantic**: `primary`, `secondary`, `success`, `warning`, `danger`, `info`
 - **UI**: `muted`, `border`, `input`, `ring`
@@ -138,11 +147,11 @@ Inter via `@expo-google-fonts/inter`. Tailwind classes: `font-inter`, `font-inte
 
 Three files must stay in sync when modifying color tokens:
 
-| File | Role |
-|------|------|
-| `src/theme/colors.ts` | Raw HSLA values + NativeWind `vars()` objects |
+| File                     | Role                                          |
+| ------------------------ | --------------------------------------------- |
+| `src/theme/colors.ts`    | Raw HSLA values + NativeWind `vars()` objects |
 | `src/tailwind/preset.ts` | Tailwind config (`var(--color-*)` references) |
-| `src/theme/utils.ts` | Variable generation for custom palettes |
+| `src/theme/utils.ts`     | Variable generation for custom palettes       |
 
 Always update both `lightColors` and `darkColors` together.
 
@@ -192,13 +201,13 @@ pnpm example:ios    # Run example on iOS simulator
 
 When changing the codebase, keep documentation in sync:
 
-| Change | Documentation Action |
-|--------|---------------------|
-| New component | Add Storybook story in `example/src/stories/` |
-| New hook or utility | Update README.md API reference |
-| New color tokens | Update JSDoc header in `colors.ts`, update README.md color table |
-| Changed public API | Update README.md to reflect current exports |
-| New provider prop | Update README.md AetherProvider section |
+| Change              | Documentation Action                                             |
+| ------------------- | ---------------------------------------------------------------- |
+| New component       | Add Storybook story in `example/src/stories/`                    |
+| New hook or utility | Update README.md API reference                                   |
+| New color tokens    | Update JSDoc header in `colors.ts`, update README.md color table |
+| Changed public API  | Update README.md to reflect current exports                      |
+| New provider prop   | Update README.md AetherProvider section                          |
 
 The `README.md` is the single source of truth for consumers. If you add something to `src/index.ts`, it must appear in the README.
 
@@ -214,6 +223,7 @@ No unit test infrastructure exists yet. Verification is done through:
 ## Build Configuration
 
 tsup builds three entry points:
+
 - `src/index.ts` — main package entry
 - `src/icons/index.ts` — `@arcadia/aether/icons`
 - `src/tailwind/index.ts` — `@arcadia/aether/tailwind-preset`

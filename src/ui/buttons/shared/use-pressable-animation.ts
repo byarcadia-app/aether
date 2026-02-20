@@ -1,11 +1,11 @@
 import type { GestureResponderEvent } from "react-native";
 import type { SharedValue } from "react-native-reanimated";
 import {
-	Easing,
-	interpolate,
-	useAnimatedStyle,
-	useSharedValue,
-	withTiming,
+  Easing,
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
 } from "react-native-reanimated";
 
 // ============================================================================
@@ -16,59 +16,59 @@ import {
  * Configuration for the pressable scale animation.
  */
 export interface UsePressableAnimationConfig {
-	/**
-	 * Animation duration in milliseconds.
-	 * @default 100
-	 */
-	duration?: number;
+  /**
+   * Animation duration in milliseconds.
+   * @default 100
+   */
+  duration?: number;
 
-	/**
-	 * Scale value when pressed (0-1 range, where 1 is no scale).
-	 * @default 0.98
-	 */
-	scaleValue?: number;
+  /**
+   * Scale value when pressed (0-1 range, where 1 is no scale).
+   * @default 0.98
+   */
+  scaleValue?: number;
 
-	/**
-	 * Whether the animation is disabled.
-	 * @default false
-	 */
-	isDisabled?: boolean;
+  /**
+   * Whether the animation is disabled.
+   * @default false
+   */
+  isDisabled?: boolean;
 
-	/**
-	 * Whether to disable only the scale animation
-	 * (useful when you want highlight but no scale).
-	 * @default false
-	 */
-	disableScale?: boolean;
+  /**
+   * Whether to disable only the scale animation
+   * (useful when you want highlight but no scale).
+   * @default false
+   */
+  disableScale?: boolean;
 }
 
 /**
  * Return value from usePressableAnimation hook.
  */
 export interface UsePressableAnimationReturn {
-	/**
-	 * SharedValue indicating pressed state (0 or 1).
-	 * Can be used by PressableHighlight or other subscribers.
-	 */
-	isPressed: SharedValue<number>;
+  /**
+   * SharedValue indicating pressed state (0 or 1).
+   * Can be used by PressableHighlight or other subscribers.
+   */
+  isPressed: SharedValue<number>;
 
-	/**
-	 * Animated style object containing the scale transform.
-	 * Apply this to the style prop of AnimatedPressable.
-	 */
-	animatedStyle: { transform: { scale: number }[] };
+  /**
+   * Animated style object containing the scale transform.
+   * Apply this to the style prop of AnimatedPressable.
+   */
+  animatedStyle: { transform: { scale: number }[] };
 
-	/**
-	 * Handler for onPressIn event.
-	 * Triggers the scale-down animation.
-	 */
-	handlePressIn: (event: GestureResponderEvent) => void;
+  /**
+   * Handler for onPressIn event.
+   * Triggers the scale-down animation.
+   */
+  handlePressIn: (event: GestureResponderEvent) => void;
 
-	/**
-	 * Handler for onPressOut event.
-	 * Triggers the scale-up animation.
-	 */
-	handlePressOut: (event: GestureResponderEvent) => void;
+  /**
+   * Handler for onPressOut event.
+   * Triggers the scale-up animation.
+   */
+  handlePressOut: (event: GestureResponderEvent) => void;
 }
 
 // ============================================================================
@@ -118,52 +118,52 @@ const ANIMATION_EASING = Easing.bezier(0.25, 0.1, 0.25, 1);
  * ```
  */
 export function usePressableAnimation(
-	config?: UsePressableAnimationConfig,
-	onPressIn?: (event: GestureResponderEvent) => void,
-	onPressOut?: (event: GestureResponderEvent) => void
+  config?: UsePressableAnimationConfig,
+  onPressIn?: (event: GestureResponderEvent) => void,
+  onPressOut?: (event: GestureResponderEvent) => void,
 ): UsePressableAnimationReturn {
-	const duration = config?.duration ?? ANIMATION_DURATION;
-	const scaleValue = config?.scaleValue ?? SCALE_VALUE;
-	const isDisabled = config?.isDisabled ?? false;
-	const disableScale = config?.disableScale ?? false;
+  const duration = config?.duration ?? ANIMATION_DURATION;
+  const scaleValue = config?.scaleValue ?? SCALE_VALUE;
+  const isDisabled = config?.isDisabled ?? false;
+  const disableScale = config?.disableScale ?? false;
 
-	const scale = useSharedValue(0);
-	const isPressed = useSharedValue(0);
+  const scale = useSharedValue(0);
+  const isPressed = useSharedValue(0);
 
-	const animatedStyle = useAnimatedStyle(() => {
-		if (isDisabled || disableScale) {
-			return { transform: [{ scale: 1 }] };
-		}
+  const animatedStyle = useAnimatedStyle(() => {
+    if (isDisabled || disableScale) {
+      return { transform: [{ scale: 1 }] };
+    }
 
-		return {
-			transform: [
-				{
-					scale: interpolate(scale.value, [0, 1], [1, scaleValue]),
-				},
-			],
-		};
-	});
+    return {
+      transform: [
+        {
+          scale: interpolate(scale.value, [0, 1], [1, scaleValue]),
+        },
+      ],
+    };
+  });
 
-	const handlePressIn = (event: GestureResponderEvent) => {
-		if (!isDisabled) {
-			isPressed.value = 1;
-			scale.value = withTiming(1, { duration, easing: ANIMATION_EASING });
-		}
-		onPressIn?.(event);
-	};
+  const handlePressIn = (event: GestureResponderEvent) => {
+    if (!isDisabled) {
+      isPressed.value = 1;
+      scale.value = withTiming(1, { duration, easing: ANIMATION_EASING });
+    }
+    onPressIn?.(event);
+  };
 
-	const handlePressOut = (event: GestureResponderEvent) => {
-		if (!isDisabled) {
-			isPressed.value = 0;
-			scale.value = withTiming(0, { duration, easing: ANIMATION_EASING });
-		}
-		onPressOut?.(event);
-	};
+  const handlePressOut = (event: GestureResponderEvent) => {
+    if (!isDisabled) {
+      isPressed.value = 0;
+      scale.value = withTiming(0, { duration, easing: ANIMATION_EASING });
+    }
+    onPressOut?.(event);
+  };
 
-	return {
-		isPressed,
-		animatedStyle,
-		handlePressIn,
-		handlePressOut,
-	};
+  return {
+    isPressed,
+    animatedStyle,
+    handlePressIn,
+    handlePressOut,
+  };
 }

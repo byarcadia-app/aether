@@ -20,35 +20,35 @@ const HIGHLIGHT_OPACITY = 1;
 const ANIMATION_EASING = Easing.bezier(0.25, 0.1, 0.25, 1);
 
 export interface PressableHighlightProps {
-	/**
-	 * SharedValue indicating pressed state (0 or 1).
-	 * Typically from usePressableAnimation hook.
-	 */
-	isPressed: SharedValue<number>;
+  /**
+   * SharedValue indicating pressed state (0 or 1).
+   * Typically from usePressableAnimation hook.
+   */
+  isPressed: SharedValue<number>;
 
-	/**
-	 * Theme color key for the highlight background.
-	 * Resolved via useThemeColor hook.
-	 */
-	colorKey: ThemeColor;
+  /**
+   * Theme color key for the highlight background.
+   * Resolved via useThemeColor hook.
+   */
+  colorKey: ThemeColor;
 
-	/**
-	 * Maximum opacity when pressed.
-	 * @default 1
-	 */
-	opacity?: number;
+  /**
+   * Maximum opacity when pressed.
+   * @default 1
+   */
+  opacity?: number;
 
-	/**
-	 * Animation duration in milliseconds.
-	 * @default 100
-	 */
-	duration?: number;
+  /**
+   * Animation duration in milliseconds.
+   * @default 100
+   */
+  duration?: number;
 
-	/**
-	 * Whether the highlight animation is disabled.
-	 * @default false
-	 */
-	isDisabled?: boolean;
+  /**
+   * Whether the highlight animation is disabled.
+   * @default false
+   */
+  isDisabled?: boolean;
 }
 
 /**
@@ -71,27 +71,27 @@ export interface PressableHighlightProps {
  * ```
  */
 export function PressableHighlight({
-	isPressed,
-	colorKey,
-	opacity = HIGHLIGHT_OPACITY,
-	duration = ANIMATION_DURATION,
-	isDisabled = false,
+  isPressed,
+  colorKey,
+  opacity = HIGHLIGHT_OPACITY,
+  duration = ANIMATION_DURATION,
+  isDisabled = false,
 }: PressableHighlightProps) {
-	const color = useThemeColor(colorKey);
+  const color = useThemeColor(colorKey);
 
-	const animatedStyle = useAnimatedStyle(() => {
-		if (isDisabled) {
-			return { opacity: 0 };
-		}
+  const animatedStyle = useAnimatedStyle(() => {
+    if (isDisabled) {
+      return { opacity: 0 };
+    }
 
-		return {
-			backgroundColor: color,
-			opacity: withTiming(isPressed.value ? opacity : 0, {
-				duration,
-				easing: ANIMATION_EASING,
-			}),
-		};
-	});
+    return {
+      backgroundColor: color,
+      opacity: withTiming(isPressed.value ? opacity : 0, {
+        duration,
+        easing: ANIMATION_EASING,
+      }),
+    };
+  });
 
-	return <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, animatedStyle]} />;
+  return <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, animatedStyle]} />;
 }

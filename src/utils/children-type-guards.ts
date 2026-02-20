@@ -14,7 +14,7 @@
  * ```
  */
 export function isTextContent(children: unknown): children is string {
-	return typeof children === "string";
+  return typeof children === "string";
 }
 
 /**
@@ -28,7 +28,7 @@ export function isTextContent(children: unknown): children is string {
  * ```
  */
 export function isRenderFunction<TContext>(
-	children: unknown
+  children: unknown,
 ): children is (context: TContext) => React.ReactNode {
-	return typeof children === "function";
+  return typeof children === "function";
 }

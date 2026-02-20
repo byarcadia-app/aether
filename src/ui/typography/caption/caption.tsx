@@ -30,61 +30,62 @@ import type { CaptionProps } from "./types";
  */
 
 export const captionVariants = tv({
-	variants: {
-		variant: {
-			md: "text-[12px] leading-tight", // 12pt - Caption 1
-			sm: "text-[11px] leading-tight", // 11pt - Caption 2 (smallest)
-		},
-		weight: {
-			regular: "font-inter",
-			medium: "font-interMedium",
-			semibold: "font-interSemiBold",
-			bold: "font-interBold",
-		},
-		color: {
-			default: "text-foreground",
-			primary: "text-primary",
-			secondary: "text-secondary",
-			muted: "text-muted-foreground",
-			success: "text-success",
-			warning: "text-warning",
-			danger: "text-danger",
-			info: "text-info",
-			inherit: "text-inherit",
-			"primary-foreground": "text-primary-foreground",
-			"secondary-foreground": "text-secondary-foreground",
-			"success-foreground": "text-success-foreground",
-			"warning-foreground": "text-warning-foreground",
-			"danger-foreground": "text-danger-foreground",
-			"info-foreground": "text-info-foreground",
-		},
-	},
-	defaultVariants: {
-		variant: "md",
-		weight: "regular",
-		color: "default",
-	},
+  variants: {
+    variant: {
+      md: "text-[12px] leading-tight", // 12pt - Caption 1
+      sm: "text-[11px] leading-tight", // 11pt - Caption 2 (smallest)
+    },
+    weight: {
+      regular: "font-inter",
+      medium: "font-interMedium",
+      semibold: "font-interSemiBold",
+      bold: "font-interBold",
+    },
+    color: {
+      default: "text-foreground",
+      primary: "text-primary",
+      secondary: "text-secondary",
+      muted: "text-muted-foreground",
+      success: "text-success",
+      warning: "text-warning",
+      danger: "text-danger",
+      info: "text-info",
+      inherit: "text-inherit",
+      "primary-foreground": "text-primary-foreground",
+      "secondary-foreground": "text-secondary-foreground",
+      "success-foreground": "text-success-foreground",
+      "warning-foreground": "text-warning-foreground",
+      "danger-foreground": "text-danger-foreground",
+      "info-foreground": "text-info-foreground",
+    },
+  },
+  defaultVariants: {
+    variant: "md",
+    weight: "regular",
+    color: "default",
+  },
 });
 
 export function Caption({
-	variant = "md",
-	weight = "regular",
-	color,
-	children,
-	...props
+  variant = "md",
+  weight = "regular",
+  color,
+  children,
+  ...props
 }: CaptionProps) {
-	return (
-		<BaseText
-			{...props}
-			className={captionVariants({
-				variant,
-				weight,
-				color,
-				className: props.className,
-			})}>
-			{children}
-		</BaseText>
-	);
+  return (
+    <BaseText
+      {...props}
+      className={captionVariants({
+        variant,
+        weight,
+        color,
+        className: props.className,
+      })}
+    >
+      {children}
+    </BaseText>
+  );
 }
 
 Caption.displayName = "Aether.Typography.Caption";
