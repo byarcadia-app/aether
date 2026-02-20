@@ -1,3 +1,4 @@
+import { LiquidGlassView, isLiquidGlassSupported } from "@callstack/liquid-glass";
 import { cssInterop } from "nativewind";
 import type { GestureResponderEvent, ViewStyle } from "react-native";
 import { StyleSheet, View } from "react-native";
@@ -18,19 +19,7 @@ import {
 import { GLASS_BUTTON_FALLBACK_SHADOW, glassButtonVariants } from "./styles";
 import type { GlassButtonProps } from "./types";
 
-// oxlint-disable-next-line @typescript-eslint/no-explicit-any
-let LiquidGlassViewComponent: any = null;
-let isLiquidGlassAvailable = false;
-try {
-	const lg = require("@callstack/liquid-glass");
-	LiquidGlassViewComponent = lg.LiquidGlassView;
-	isLiquidGlassAvailable = lg.isLiquidGlassSupported;
-	if (LiquidGlassViewComponent) {
-		cssInterop(LiquidGlassViewComponent, { className: "style" });
-	}
-} catch {
-	// @callstack/liquid-glass not installed — use fallback styling
-}
+cssInterop(LiquidGlassView, { className: "style" });
 
 /**
  * GlassButton — Liquid Glass button for iOS 26+, falls back to themed glass styling.
@@ -63,7 +52,7 @@ export function GlassButton({
 	style,
 	...props
 }: GlassButtonProps) {
-	const shouldUseLiquidGlass = isLiquidGlassAvailable && useLiquidGlass;
+	const shouldUseLiquidGlass = isLiquidGlassSupported && useLiquidGlass;
 	const resolvedEffect = effect ?? GLASS_BUTTON_DEFAULT_EFFECT[size];
 	const isBadge = size === "badge";
 	const buttonWidth = GLASS_BUTTON_WIDTH_MAP[size];
@@ -138,7 +127,7 @@ export function GlassButton({
 
 	if (shouldUseLiquidGlass) {
 		return (
-			<LiquidGlassViewComponent
+			<LiquidGlassView
 				className={className}
 				style={[glassStyle, style]}
 				interactive={!disabled}
@@ -146,7 +135,7 @@ export function GlassButton({
 				colorScheme={colorScheme}
 				tintColor={tintColor}>
 				{renderButtonContent()}
-			</LiquidGlassViewComponent>
+			</LiquidGlassView>
 		);
 	}
 
