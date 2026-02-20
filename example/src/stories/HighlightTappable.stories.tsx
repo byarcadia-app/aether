@@ -13,10 +13,10 @@ export const Default: Story = {
   render() {
     return (
       <VStack className="p-4">
-        <HighlightTappable onPress={() => console.log("Tapped")}>
-          <HStack className="items-center justify-between p-4 bg-surface rounded-lg">
+        <HighlightTappable onPress={() => console.log("Tapped")} className="rounded-lg bg-surface p-4">
+          <HStack className="items-center justify-between">
             <Text>Tap me</Text>
-            <Text>→</Text>
+            <Text color="muted">→</Text>
           </HStack>
         </HighlightTappable>
       </VStack>
@@ -28,8 +28,8 @@ export const WithScale: Story = {
   render() {
     return (
       <VStack className="p-4">
-        <HighlightTappable enableScale={true} onPress={() => console.log("Scaled")}>
-          <HStack className="items-center justify-center p-4 bg-surface rounded-lg">
+        <HighlightTappable enableScale={true} onPress={() => console.log("Scaled")} className="rounded-lg bg-surface p-4">
+          <HStack className="items-center justify-center">
             <Text>Scale on press</Text>
           </HStack>
         </HighlightTappable>
@@ -46,8 +46,9 @@ export const CustomHighlight: Story = {
           highlightColor="primary"
           highlightOpacity={0.3}
           onPress={() => console.log("Custom highlight")}
+          className="rounded-lg bg-surface p-4"
         >
-          <HStack className="items-center justify-center p-4 bg-surface rounded-lg">
+          <HStack className="items-center justify-center">
             <Text>Custom highlight color</Text>
           </HStack>
         </HighlightTappable>
@@ -61,22 +62,22 @@ export const ListItems: Story = {
     return (
       <VStack className="p-4">
         <VStack className="gap-0">
-          <HighlightTappable onPress={() => console.log("Settings")}>
-            <HStack className="items-center justify-between p-4 bg-surface border-b border-border">
+          <HighlightTappable onPress={() => console.log("Settings")} className="bg-surface p-4 border-b border-border">
+            <HStack className="items-center justify-between">
               <Text>Settings</Text>
-              <Text className="text-muted">→</Text>
+              <Text color="muted">→</Text>
             </HStack>
           </HighlightTappable>
-          <HighlightTappable onPress={() => console.log("Profile")}>
-            <HStack className="items-center justify-between p-4 bg-surface border-b border-border">
+          <HighlightTappable onPress={() => console.log("Profile")} className="bg-surface p-4 border-b border-border">
+            <HStack className="items-center justify-between">
               <Text>Profile</Text>
-              <Text className="text-muted">→</Text>
+              <Text color="muted">→</Text>
             </HStack>
           </HighlightTappable>
-          <HighlightTappable onPress={() => console.log("Help")}>
-            <HStack className="items-center justify-between p-4 bg-surface">
+          <HighlightTappable onPress={() => console.log("Help")} className="bg-surface p-4">
+            <HStack className="items-center justify-between">
               <Text>Help</Text>
-              <Text className="text-muted">→</Text>
+              <Text color="muted">→</Text>
             </HStack>
           </HighlightTappable>
         </VStack>

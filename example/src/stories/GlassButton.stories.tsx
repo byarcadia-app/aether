@@ -14,7 +14,7 @@ export const Default: Story = {
   render() {
     return (
       <View className="p-4">
-        <GlassButton size="icon" accessibilityLabel="Go back">
+        <GlassButton size="icon" accessibilityLabel="Go back" onPress={() => {}}>
           ←
         </GlassButton>
       </View>
@@ -27,13 +27,13 @@ export const Sizes: Story = {
     return (
       <View className="gap-3 p-4 items-center">
         <HStack className="gap-3">
-          <GlassButton size="icon" accessibilityLabel="Back button">
+          <GlassButton size="icon" accessibilityLabel="Back button" onPress={() => {}}>
             ←
           </GlassButton>
-          <GlassButton size="fab" accessibilityLabel="Add new item">
+          <GlassButton size="fab" accessibilityLabel="Add new item" onPress={() => {}}>
             +
           </GlassButton>
-          <GlassButton size="badge" accessibilityLabel="Hot badge">
+          <GlassButton size="badge" accessibilityLabel="Hot badge" onPress={() => {}}>
             🔥 42
           </GlassButton>
         </HStack>
@@ -46,7 +46,7 @@ export const Disabled: Story = {
   render() {
     return (
       <View className="p-4">
-        <GlassButton size="icon" disabled accessibilityLabel="Go back">
+        <GlassButton size="icon" disabled accessibilityLabel="Go back" onPress={() => {}}>
           ←
         </GlassButton>
       </View>
@@ -58,7 +58,7 @@ export const FallbackMode: Story = {
   render() {
     return (
       <View className="p-4">
-        <GlassButton size="fab" useLiquidGlass={false} accessibilityLabel="Add new item">
+        <GlassButton size="fab" useLiquidGlass={false} accessibilityLabel="Add new item" onPress={() => {}}>
           +
         </GlassButton>
       </View>
