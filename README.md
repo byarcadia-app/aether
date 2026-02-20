@@ -13,6 +13,8 @@ Named after the Greek primordial deity of light and the pure upper air that gods
 - **Tailwind Preset** — HSLA color token system (25+ semantic tokens) with light and dark themes
 - **Theme Providers** — automatic dark mode via NativeWind CSS variables (`vars()` API)
 - **Typography** — Heading, Text, Caption components following iOS HIG sizing
+- **Layout** — VStack, HStack polymorphic flexbox primitives
+- **Icons** — IconSymbol with SF Symbols (iOS), theme color integration, separate entrypoint
 - **React Navigation** — theme integration hook
 - **Inter Font** — built-in font loading for the Inter family
 - **Utilities** — class-name merging (`cn`, `cnx`) and HSLA color manipulation
@@ -231,6 +233,62 @@ import { Caption } from "@arcadia/aether";
 | `variant` | `md` \| `sm` | `md` |
 | `weight` | `regular` \| `medium` \| `semibold` \| `bold` | `regular` |
 | `color` | base colors + foreground variants | `default` |
+
+### VStack / HStack
+
+Polymorphic flexbox layout primitives. VStack renders a column, HStack renders a row. Both accept an `as` prop to render as any React Native component.
+
+```tsx
+import { VStack, HStack } from "@arcadia/aether";
+
+<VStack className="gap-4 p-4">
+  <Text>Top</Text>
+  <Text>Bottom</Text>
+</VStack>
+
+<HStack className="gap-2 items-center">
+  <IconSymbol name="star" />
+  <Text>Favorite</Text>
+</HStack>
+
+{/* Polymorphic — renders as Pressable */}
+<VStack as={Pressable} onPress={handlePress} className="gap-2">
+  <Text>Clickable stack</Text>
+</VStack>
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `as` | `ComponentType` | `View` | Component to render as |
+| `className` | `string` | — | Tailwind classes (merged with layout base) |
+| `...props` | — | — | All props of the `as` component |
+
+## Icons
+
+Install `expo-symbols` (iOS only — SF Symbols):
+
+```bash
+npx expo install expo-symbols
+```
+
+Import from the separate `@arcadia/aether/icons` entrypoint:
+
+### IconSymbol
+
+```tsx
+import { IconSymbol } from "@arcadia/aether/icons";
+
+<IconSymbol name="heart.fill" colorScheme="danger" />
+<IconSymbol name="star" weight="bold" size={32} colorScheme="primary" />
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `name` | `SFSymbol` | required | SF Symbol name |
+| `size` | `number` | `24` | Width and height in points |
+| `colorScheme` | `ThemeColor` | — | Semantic theme color |
+| `weight` | `SymbolWeight` | `"regular"` | Symbol weight |
+| `className` | `string` | — | Tailwind classes |
 
 ## Hooks
 
