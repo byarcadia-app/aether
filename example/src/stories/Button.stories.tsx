@@ -59,7 +59,7 @@ export const Sizes: Story = {
 export const Loading: Story = {
   render: () => (
     <View className="p-4">
-      <Button isLoading onPress={() {}}>
+      <Button isLoading onPress={() => {}}>
         Loading...
       </Button>
     </View>
