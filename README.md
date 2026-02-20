@@ -303,7 +303,7 @@ import { Button, ButtonLabel } from "@arcadia/aether";
 
 ### GlassButton
 
-iOS 26+ Liquid Glass button with automatic fallback to glass styling. Requires `@callstack/liquid-glass` (optional peer dependency).
+iOS 26+ Liquid Glass button with automatic fallback to glass styling. Requires `@callstack/liquid-glass` (required peer dependency).
 
 ```tsx
 import { GlassButton } from "@arcadia/aether";
