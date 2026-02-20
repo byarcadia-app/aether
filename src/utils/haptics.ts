@@ -1,3 +1,4 @@
+import * as Haptics from "expo-haptics";
 import { Platform } from "react-native";
 
 /**
@@ -6,18 +7,17 @@ import { Platform } from "react-native";
  */
 export type HapticFeedbackStyle = "light" | "medium" | "heavy" | "rigid" | "soft";
 
-// Runtime optional require() — expo-haptics may not be installed
-// oxlint-disable-next-line @typescript-eslint/no-explicit-any
-let Haptics: any = null;
-try {
-  Haptics = require("expo-haptics");
-} catch {
-  // expo-haptics not installed — haptics will be no-ops
-}
+const styleMap: Record<HapticFeedbackStyle, Haptics.ImpactFeedbackStyle> = {
+  light: Haptics.ImpactFeedbackStyle.Light,
+  medium: Haptics.ImpactFeedbackStyle.Medium,
+  heavy: Haptics.ImpactFeedbackStyle.Heavy,
+  rigid: Haptics.ImpactFeedbackStyle.Rigid,
+  soft: Haptics.ImpactFeedbackStyle.Soft,
+};
 
 /**
  * Triggers haptic impact feedback on iOS.
- * Safely no-ops if expo-haptics is not installed or on non-iOS platforms.
+ * No-ops on non-iOS platforms.
  *
  * @example
  * ```ts
@@ -30,19 +30,8 @@ try {
  */
 export function hapticsImpact(feedbackStyle?: HapticFeedbackStyle): void {
   if (Platform.OS !== "ios") return;
-  if (!Haptics) return;
 
-  const styleMap: Record<HapticFeedbackStyle, string> = {
-    light: "Light",
-    medium: "Medium",
-    heavy: "Heavy",
-    rigid: "Rigid",
-    soft: "Soft",
-  };
-
-  const impactStyle = feedbackStyle
-    ? Haptics.ImpactFeedbackStyle[styleMap[feedbackStyle]]
-    : Haptics.ImpactFeedbackStyle.Light;
+  const impactStyle = feedbackStyle ? styleMap[feedbackStyle] : Haptics.ImpactFeedbackStyle.Light;
 
   Haptics.impactAsync(impactStyle);
 }

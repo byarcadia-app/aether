@@ -51,7 +51,7 @@ npm install @arcadia/aether @expo-google-fonts/inter
 ### 3. Install required peer dependencies
 
 ```bash
-npm install @callstack/liquid-glass
+npm install @callstack/liquid-glass expo-haptics
 ```
 
 ### 4. Configure Tailwind (tailwind.config.js)
@@ -518,6 +518,7 @@ pnpm example:ios      # Run on iOS simulator
 | NativeWind               | >= 4        |
 | react-native-reanimated  | >= 3        |
 | @callstack/liquid-glass  | >= 0.7      |
+| expo-haptics             | >= 14       |
 | Tailwind CSS             | ^3.3.5      |
 | @expo-google-fonts/inter | >= 0.4.2    |
 | Expo                     | recommended |
