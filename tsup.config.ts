@@ -1,13 +1,13 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/tailwind/index.ts"],
+  entry: ["src/index.ts", "src/tailwind/index.ts", "src/icons/index.ts"],
   format: ["cjs", "esm"],
   dts: true,
   splitting: false,
   sourcemap: true,
   clean: true,
-  external: ["react", "react-native", "nativewind"],
+  external: ["react", "react-native", "nativewind", "expo-symbols"],
   treeshake: true,
   esbuildOptions(options) {
     options.jsx = "automatic";

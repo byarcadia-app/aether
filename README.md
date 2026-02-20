@@ -1,17 +1,30 @@
-# @arcadia/aether
+# @arcadia/aether 🌬️
 
-Tailwind CSS preset and component library for React Native, built on [NativeWind](https://www.nativewind.dev/).
+> **Alpha** — This library is in early development. APIs will change. Use at your own risk.
 
-Provides a complete design token system, themed providers with automatic dark mode, and typography components following the iOS Human Interface Guidelines.
+iOS-first React Native component library built as a [Tailwind CSS](https://tailwindcss.com/) / [NativeWind](https://www.nativewind.dev/) preset for [Expo](https://expo.dev/).
 
-## Features
+Named after the Greek primordial deity of light and the pure upper air that gods breathe — Aether sits between your app and the design layer, providing the atmosphere for your UI.
+
+> **iOS only.** This library targets iOS exclusively. I'm building it for my own projects where iOS is the only platform I care about. Android and web are not supported and won't be.
+
+## What it does
 
 - **Tailwind Preset** — HSLA color token system (25+ semantic tokens) with light and dark themes
 - **Theme Providers** — automatic dark mode via NativeWind CSS variables (`vars()` API)
 - **Typography** — Heading, Text, Caption components following iOS HIG sizing
-- **React Navigation** — theme integration without requiring `@react-navigation/native` as a dependency
-- **Inter Font** — built-in font loading hook for the Inter family
+- **React Navigation** — theme integration hook
+- **Inter Font** — built-in font loading for the Inter family
 - **Utilities** — class-name merging (`cn`, `cnx`) and HSLA color manipulation
+
+## Inspiration
+
+This project draws heavily from:
+
+- [React Aria](https://react-spectrum.adobe.com/react-aria/) — Adobe's headless UI primitives. The gold standard for accessible component architecture and composable API design.
+- [HeroUI Native](https://github.com/heroui-inc/heroui-native) — A React Native component library built on NativeWind and tailwind-variants. Closest to what Aether aims to be in terms of styling approach.
+- [RN Primitives](https://github.com/roninoss/rn-primitives) — Unstyled, accessible primitives for React Native.
+- [React Native Reusables](https://github.com/founded-labs/react-native-reusables) — shadcn/ui patterns adapted for React Native.
 
 ## Installation
 
