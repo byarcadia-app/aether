@@ -24,6 +24,7 @@ config.resolver.disableHierarchicalLookup = true;
 config.resolver.extraNodeModules = {
   "react-native": path.resolve(projectRoot, "node_modules/react-native"),
   react: path.resolve(projectRoot, "node_modules/react"),
+  "@callstack/liquid-glass": path.resolve(workspaceRoot, "node_modules/@callstack/liquid-glass"),
 };
 
 const configWithNativewind = withNativeWind(config, {
