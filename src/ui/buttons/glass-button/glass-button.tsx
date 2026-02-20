@@ -25,9 +25,11 @@ try {
 	const lg = require("@callstack/liquid-glass");
 	LiquidGlassViewComponent = lg.LiquidGlassView;
 	isLiquidGlassAvailable = lg.isLiquidGlassSupported;
-	cssInterop(LiquidGlassViewComponent, { className: "style" });
+	if (LiquidGlassViewComponent) {
+		cssInterop(LiquidGlassViewComponent, { className: "style" });
+	}
 } catch {
-	// @callstack/liquid-glass not installed — fallback glass styling will be used
+	// @callstack/liquid-glass not installed — use fallback styling
 }
 
 /**
