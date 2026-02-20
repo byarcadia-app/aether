@@ -38,7 +38,9 @@
     "check": "tsc --noEmit",
     "lint": "oxlint .",
     "fmt": "oxfmt .",
-    "fmt:check": "oxfmt --check ."
+    "fmt:check": "oxfmt --check .",
+    "example:start": "pnpm --filter @arcadia/example start",
+    "example:ios": "pnpm --filter @arcadia/example ios"
   },
   "dependencies": {
     "tailwind-merge": "^3.4.0",

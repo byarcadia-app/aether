@@ -39,3 +39,13 @@ yarn-error.log*
 
 # Agent plans
 .sisyphus
+
+# Expo (example app)
+example/ios/
+example/android/
+example/.expo/
+*.xcworkspace
+*.xcodeproj
+
+# Storybook (auto-generated)
+.rnstorybook/storybook.requires.ts
