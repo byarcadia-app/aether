@@ -1,8 +1,3 @@
-// import {
-// 	DarkTheme,
-// 	DefaultTheme,
-// 	ThemeProvider as RNThemeProvider,
-// } from "@react-navigation/native";
 import type React from "react";
 import { View } from "react-native";
 
@@ -81,13 +76,9 @@ export const ThemeProvider = ({ children, colorPalette }: ThemeProviderProps) =>
       ? darkNativewindVars
       : lightNativewindVars;
 
-  // const navigationTheme = isDarkTheme ? DarkTheme : DefaultTheme;
-
   return (
     <View style={[{ flex: 1 }, nativewindTheme]}>
-      {/*<RNThemeProvider value={navigationTheme}>*/}
       {children}
-      {/*</RNThemeProvider>*/}
     </View>
   );
 };

@@ -9,4 +9,8 @@ export default defineConfig({
   clean: true,
   external: ["react", "react-native", "nativewind"],
   treeshake: true,
+  esbuildOptions(options) {
+    options.jsx = "automatic";
+    options.jsxImportSource = "nativewind";
+  },
 });

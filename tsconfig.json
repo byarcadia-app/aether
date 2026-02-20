@@ -5,6 +5,7 @@
     "moduleResolution": "bundler",
     "lib": ["ES2022"],
     "jsx": "react-jsx",
+    "types": ["nativewind/types"],
     "strict": true,
     "declaration": true,
     "declarationMap": true,
@@ -16,6 +17,6 @@
     "noEmit": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "nativewind-env.d.ts"],
   "exclude": ["node_modules", "dist", "**/*.stories.tsx"]
 }
