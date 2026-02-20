@@ -6,3 +6,5 @@ export type { GlassButtonProps } from "./glass-button";
 
 export { HighlightTappable } from "./highlight-tappable";
 export type { HighlightTappableProps } from "./highlight-tappable";
+
+export * from "./shared";
