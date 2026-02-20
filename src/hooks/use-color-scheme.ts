@@ -10,10 +10,10 @@ import { useColorScheme as useNativewindColorScheme } from "nativewind";
  * @see {@link https://www.nativewind.dev/docs/api/use-color-scheme NativeWind useColorScheme}
  */
 export const useColorScheme = () => {
-	const { colorScheme, ...rest } = useNativewindColorScheme();
+  const { colorScheme, ...rest } = useNativewindColorScheme();
 
-	const isDarkTheme = colorScheme === "dark";
-	const isLightTheme = colorScheme === "light";
+  const isDarkTheme = colorScheme === "dark";
+  const isLightTheme = colorScheme === "light";
 
-	return { ...rest, colorScheme, isDarkTheme, isLightTheme };
+  return { ...rest, colorScheme, isDarkTheme, isLightTheme };
 };

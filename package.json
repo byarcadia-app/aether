@@ -2,7 +2,19 @@
   "name": "@arcadia/aether",
   "version": "0.0.1",
   "description": "",
-  "packageManager": "pnpm@10.14.0",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Dominik Woźniak <dominik@byarcadia.app> (github.com/dominikwozniak)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byarcadia-app/aether"
+  },
+  "homepage": "https://github.com/byarcadia-app/aether#readme",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -22,16 +34,12 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "release": "pnpm build && changeset publish",
-    "version": "changeset version"
+    "version": "changeset version",
+    "check": "tsc --noEmit",
+    "lint": "oxlint .",
+    "fmt": "oxfmt .",
+    "fmt:check": "oxfmt --check ."
   },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "sideEffects": false,
   "dependencies": {
     "tailwind-merge": "^3.4.0",
     "tailwind-variants": "^3.2.2"
@@ -42,6 +50,8 @@
     "@expo-google-fonts/inter": "^0.4.2",
     "@types/react": "^19.2.14",
     "nativewind": "^4.2.2",
+    "oxfmt": "^0.34.0",
+    "oxlint": "^1.49.0",
     "react": "^19.2.4",
     "react-native": "^0.84.0",
     "tailwindcss": "^3.4.19",
@@ -54,5 +64,6 @@
     "react": ">=18",
     "react-native": ">=0.72",
     "tailwindcss": "^3.3.5"
-  }
+  },
+  "packageManager": "pnpm@10.14.0"
 }

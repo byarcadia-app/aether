@@ -65,16 +65,10 @@ export interface AetherProviderProps {
  * }
  * ```
  */
-export const AetherProvider = ({
-  children,
-  textConfig,
-  colorPalette,
-}: AetherProviderProps) => {
+export const AetherProvider = ({ children, textConfig, colorPalette }: AetherProviderProps) => {
   return (
     <ThemeProvider colorPalette={colorPalette}>
-      <TextComponentProvider value={textConfig}>
-        {children}
-      </TextComponentProvider>
+      <TextComponentProvider value={textConfig}>{children}</TextComponentProvider>
     </ThemeProvider>
   );
 };

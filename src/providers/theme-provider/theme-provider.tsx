@@ -11,31 +11,31 @@ import { createThemeVars } from "../../theme/utils";
 import { useColorScheme } from "../../hooks";
 
 export interface ThemeProviderProps {
-	children: React.ReactNode;
-	/**
-	 * Optional custom color palette configuration.
-	 *
-	 * Allows overriding default colors for both light and dark modes independently.
-	 * All color properties are optional - only specified colors will be overridden.
-	 *
-	 * @example
-	 * ```tsx
-	 * <ThemeProvider
-	 *   colorPalette={{
-	 *     light: {
-	 *       primary: "hsla(280, 70%, 58%, 1)",
-	 *       success: "hsla(120, 55%, 50%, 1)",
-	 *     },
-	 *     dark: {
-	 *       primary: "hsla(280, 60%, 65%, 1)",
-	 *     },
-	 *   }}
-	 * >
-	 *   <App />
-	 * </ThemeProvider>
-	 * ```
-	 */
-	colorPalette?: ColorPaletteConfig;
+  children: React.ReactNode;
+  /**
+   * Optional custom color palette configuration.
+   *
+   * Allows overriding default colors for both light and dark modes independently.
+   * All color properties are optional - only specified colors will be overridden.
+   *
+   * @example
+   * ```tsx
+   * <ThemeProvider
+   *   colorPalette={{
+   *     light: {
+   *       primary: "hsla(280, 70%, 58%, 1)",
+   *       success: "hsla(120, 55%, 50%, 1)",
+   *     },
+   *     dark: {
+   *       primary: "hsla(280, 60%, 65%, 1)",
+   *     },
+   *   }}
+   * >
+   *   <App />
+   * </ThemeProvider>
+   * ```
+   */
+  colorPalette?: ColorPaletteConfig;
 }
 
 /**
@@ -67,27 +67,27 @@ export interface ThemeProviderProps {
  * ```
  */
 export const ThemeProvider = ({ children, colorPalette }: ThemeProviderProps) => {
-	const { isDarkTheme } = useColorScheme();
+  const { isDarkTheme } = useColorScheme();
 
-	// Generate custom theme vars if colorPalette is provided
-	const customThemeVars = colorPalette ? createThemeVars(colorPalette) : null;
+  // Generate custom theme vars if colorPalette is provided
+  const customThemeVars = colorPalette ? createThemeVars(colorPalette) : null;
 
-	// Use custom vars if provided, otherwise use defaults
-	const nativewindTheme = customThemeVars
-		? isDarkTheme
-			? customThemeVars.darkVars
-			: customThemeVars.lightVars
-		: isDarkTheme
-			? darkNativewindVars
-			: lightNativewindVars;
+  // Use custom vars if provided, otherwise use defaults
+  const nativewindTheme = customThemeVars
+    ? isDarkTheme
+      ? customThemeVars.darkVars
+      : customThemeVars.lightVars
+    : isDarkTheme
+      ? darkNativewindVars
+      : lightNativewindVars;
 
-	// const navigationTheme = isDarkTheme ? DarkTheme : DefaultTheme;
+  // const navigationTheme = isDarkTheme ? DarkTheme : DefaultTheme;
 
-	return (
-		<View style={[{ flex: 1 }, nativewindTheme]}>
+  return (
+    <View style={[{ flex: 1 }, nativewindTheme]}>
       {/*<RNThemeProvider value={navigationTheme}>*/}
-        {children}
+      {children}
       {/*</RNThemeProvider>*/}
-		</View>
-	);
+    </View>
+  );
 };

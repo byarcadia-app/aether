@@ -3,11 +3,11 @@ import { ThemeColor } from "../theme/colors";
 import { hslaToRgba } from "../utils";
 
 export interface UseThemeColorConfig {
-	/**
-	 * Output format for the color
-	 * @default 'hsla'
-	 */
-	format?: "hsla" | "rgb";
+  /**
+   * Output format for the color
+   * @default 'hsla'
+   */
+  format?: "hsla" | "rgb";
 }
 
 /**
@@ -32,15 +32,15 @@ export interface UseThemeColorConfig {
  * ```
  */
 export const useThemeColor = (colorKey: ThemeColor, config?: UseThemeColorConfig) => {
-	const cssVariable = `--color-${colorKey}`;
-	const resolvedColor = useUnstableNativeVariable(cssVariable);
-	const color = resolvedColor ?? colorKey;
+  const cssVariable = `--color-${colorKey}`;
+  const resolvedColor = useUnstableNativeVariable(cssVariable);
+  const color = resolvedColor ?? colorKey;
 
-	// Convert to RGB if requested
-	if (config?.format === "rgb") {
-		const rgbaColor = hslaToRgba(color);
-		return rgbaColor ?? color;
-	}
+  // Convert to RGB if requested
+  if (config?.format === "rgb") {
+    const rgbaColor = hslaToRgba(color);
+    return rgbaColor ?? color;
+  }
 
-	return color;
+  return color;
 };

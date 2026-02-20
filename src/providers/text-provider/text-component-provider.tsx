@@ -3,17 +3,17 @@ import type { TextProviderProps } from "./types";
 import { TextComponentContext, useProvideDefaultTextComponent } from "./use-text-component";
 
 export const TextComponentProvider = ({
-	children,
-	value,
+  children,
+  value,
 }: {
-	children: React.ReactNode;
-	value?: TextProviderProps;
+  children: React.ReactNode;
+  value?: TextProviderProps;
 }) => {
-	const defaultValue = useProvideDefaultTextComponent();
+  const defaultValue = useProvideDefaultTextComponent();
 
-	return (
-		<TextComponentContext.Provider value={value ?? defaultValue}>
-			{children}
-		</TextComponentContext.Provider>
-	);
+  return (
+    <TextComponentContext.Provider value={value ?? defaultValue}>
+      {children}
+    </TextComponentContext.Provider>
+  );
 };

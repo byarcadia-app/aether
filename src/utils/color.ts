@@ -6,10 +6,10 @@
  * Parsed HSLA color components
  */
 export interface HslaComponents {
-	hue: number;
-	saturation: number;
-	lightness: number;
-	alpha: number;
+  hue: number;
+  saturation: number;
+  lightness: number;
+  alpha: number;
 }
 
 /**
@@ -25,16 +25,16 @@ export interface HslaComponents {
  * ```
  */
 export function parseHsla(hsla: string): HslaComponents | null {
-	const match = hsla.match(/hsla\((\d+),\s*(\d+)%,\s*(\d+)%,\s*([\d.]+)\)/);
-	if (!match || !match[1] || !match[2] || !match[3] || !match[4]) return null;
+  const match = hsla.match(/hsla\((\d+),\s*(\d+)%,\s*(\d+)%,\s*([\d.]+)\)/);
+  if (!match || !match[1] || !match[2] || !match[3] || !match[4]) return null;
 
-	const [, h, s, l, a] = match;
-	return {
-		hue: parseInt(h, 10),
-		saturation: parseInt(s, 10),
-		lightness: parseInt(l, 10),
-		alpha: parseFloat(a),
-	};
+  const [, h, s, l, a] = match;
+  return {
+    hue: parseInt(h, 10),
+    saturation: parseInt(s, 10),
+    lightness: parseInt(l, 10),
+    alpha: parseFloat(a),
+  };
 }
 
 /**
@@ -53,12 +53,12 @@ export function parseHsla(hsla: string): HslaComponents | null {
  * ```
  */
 export function generateHsla(
-	hue: number,
-	saturation: number,
-	lightness: number,
-	alpha: number
+  hue: number,
+  saturation: number,
+  lightness: number,
+  alpha: number,
 ): string {
-	return `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+  return `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
 }
 
 /**
@@ -78,13 +78,13 @@ export function generateHsla(
  * ```
  */
 export function adjustLightness(hsla: string, adjustment: number): string | null {
-	const parsed = parseHsla(hsla);
-	if (!parsed) return null;
+  const parsed = parseHsla(hsla);
+  if (!parsed) return null;
 
-	const { hue, saturation, lightness, alpha } = parsed;
-	const newLightness = Math.max(0, Math.min(100, lightness + adjustment));
+  const { hue, saturation, lightness, alpha } = parsed;
+  const newLightness = Math.max(0, Math.min(100, lightness + adjustment));
 
-	return generateHsla(hue, saturation, newLightness, alpha);
+  return generateHsla(hue, saturation, newLightness, alpha);
 }
 
 /**
@@ -100,57 +100,57 @@ export function adjustLightness(hsla: string, adjustment: number): string | null
  * ```
  */
 export function hslaToRgba(hsla: string): string | null {
-	const parsed = parseHsla(hsla);
-	if (!parsed) return null;
+  const parsed = parseHsla(hsla);
+  if (!parsed) return null;
 
-	const { hue, saturation, lightness, alpha } = parsed;
+  const { hue, saturation, lightness, alpha } = parsed;
 
-	// Normalize saturation and lightness to 0-1 range
-	const s = saturation / 100;
-	const l = lightness / 100;
+  // Normalize saturation and lightness to 0-1 range
+  const s = saturation / 100;
+  const l = lightness / 100;
 
-	// Calculate chroma
-	const c = (1 - Math.abs(2 * l - 1)) * s;
-	const x = c * (1 - Math.abs(((hue / 60) % 2) - 1));
-	const m = l - c / 2;
+  // Calculate chroma
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const x = c * (1 - Math.abs(((hue / 60) % 2) - 1));
+  const m = l - c / 2;
 
-	let r = 0;
-	let g = 0;
-	let b = 0;
+  let r = 0;
+  let g = 0;
+  let b = 0;
 
-	// Determine RGB values based on hue sector
-	if (hue >= 0 && hue < 60) {
-		r = c;
-		g = x;
-		b = 0;
-	} else if (hue >= 60 && hue < 120) {
-		r = x;
-		g = c;
-		b = 0;
-	} else if (hue >= 120 && hue < 180) {
-		r = 0;
-		g = c;
-		b = x;
-	} else if (hue >= 180 && hue < 240) {
-		r = 0;
-		g = x;
-		b = c;
-	} else if (hue >= 240 && hue < 300) {
-		r = x;
-		g = 0;
-		b = c;
-	} else if (hue >= 300 && hue < 360) {
-		r = c;
-		g = 0;
-		b = x;
-	}
+  // Determine RGB values based on hue sector
+  if (hue >= 0 && hue < 60) {
+    r = c;
+    g = x;
+    b = 0;
+  } else if (hue >= 60 && hue < 120) {
+    r = x;
+    g = c;
+    b = 0;
+  } else if (hue >= 120 && hue < 180) {
+    r = 0;
+    g = c;
+    b = x;
+  } else if (hue >= 180 && hue < 240) {
+    r = 0;
+    g = x;
+    b = c;
+  } else if (hue >= 240 && hue < 300) {
+    r = x;
+    g = 0;
+    b = c;
+  } else if (hue >= 300 && hue < 360) {
+    r = c;
+    g = 0;
+    b = x;
+  }
 
-	// Convert to 0-255 range and round
-	const red = Math.round((r + m) * 255);
-	const green = Math.round((g + m) * 255);
-	const blue = Math.round((b + m) * 255);
+  // Convert to 0-255 range and round
+  const red = Math.round((r + m) * 255);
+  const green = Math.round((g + m) * 255);
+  const blue = Math.round((b + m) * 255);
 
-	return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+  return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
 }
 
 /**
@@ -167,7 +167,7 @@ export function hslaToRgba(hsla: string): string | null {
  * ```
  */
 export function withAlpha(hsla: string, alpha: number): string {
-	const parsed = parseHsla(hsla);
-	if (!parsed) return hsla;
-	return generateHsla(parsed.hue, parsed.saturation, parsed.lightness, alpha);
+  const parsed = parseHsla(hsla);
+  if (!parsed) return hsla;
+  return generateHsla(parsed.hue, parsed.saturation, parsed.lightness, alpha);
 }

@@ -18,10 +18,10 @@ import { colors } from "./colors";
  * ```
  */
 export function mergeColorPalette<T extends LightColors | DarkColors>(
-	defaultColors: T,
-	customColors?: Partial<T>
+  defaultColors: T,
+  customColors?: Partial<T>,
 ): T {
-	return Object.assign({}, defaultColors, customColors) as T;
+  return Object.assign({}, defaultColors, customColors) as T;
 }
 
 /**
@@ -42,38 +42,38 @@ export function mergeColorPalette<T extends LightColors | DarkColors>(
  * ```
  */
 export function generateThemeVars(colorPalette: LightColors | DarkColors): ReturnType<typeof vars> {
-	return vars({
-		"--color-background": colorPalette.background,
-		"--color-foreground": colorPalette.foreground,
+  return vars({
+    "--color-background": colorPalette.background,
+    "--color-foreground": colorPalette.foreground,
 
-		"--color-surface": colorPalette.surface,
-		"--color-surface-foreground": colorPalette["surface-foreground"],
-		"--color-overlay": colorPalette.overlay,
-		"--color-overlay-foreground": colorPalette["overlay-foreground"],
+    "--color-surface": colorPalette.surface,
+    "--color-surface-foreground": colorPalette["surface-foreground"],
+    "--color-overlay": colorPalette.overlay,
+    "--color-overlay-foreground": colorPalette["overlay-foreground"],
 
-		"--color-primary": colorPalette.primary,
-		"--color-primary-foreground": colorPalette["primary-foreground"],
-		"--color-secondary": colorPalette.secondary,
-		"--color-secondary-foreground": colorPalette["secondary-foreground"],
-		"--color-success": colorPalette.success,
-		"--color-success-foreground": colorPalette["success-foreground"],
-		"--color-warning": colorPalette.warning,
-		"--color-warning-foreground": colorPalette["warning-foreground"],
-		"--color-danger": colorPalette.danger,
-		"--color-danger-foreground": colorPalette["danger-foreground"],
-		"--color-info": colorPalette.info,
-		"--color-info-foreground": colorPalette["info-foreground"],
+    "--color-primary": colorPalette.primary,
+    "--color-primary-foreground": colorPalette["primary-foreground"],
+    "--color-secondary": colorPalette.secondary,
+    "--color-secondary-foreground": colorPalette["secondary-foreground"],
+    "--color-success": colorPalette.success,
+    "--color-success-foreground": colorPalette["success-foreground"],
+    "--color-warning": colorPalette.warning,
+    "--color-warning-foreground": colorPalette["warning-foreground"],
+    "--color-danger": colorPalette.danger,
+    "--color-danger-foreground": colorPalette["danger-foreground"],
+    "--color-info": colorPalette.info,
+    "--color-info-foreground": colorPalette["info-foreground"],
 
-		"--color-muted": colorPalette.muted,
-		"--color-muted-foreground": colorPalette["muted-foreground"],
-		"--color-border": colorPalette.border,
-		"--color-input": colorPalette.input,
-		"--color-ring": colorPalette.ring,
+    "--color-muted": colorPalette.muted,
+    "--color-muted-foreground": colorPalette["muted-foreground"],
+    "--color-border": colorPalette.border,
+    "--color-input": colorPalette.input,
+    "--color-ring": colorPalette.ring,
 
-		"--color-glass": colorPalette.glass,
-		"--color-glass-border": colorPalette["glass-border"],
-		"--color-glass-highlight": colorPalette["glass-highlight"],
-	});
+    "--color-glass": colorPalette.glass,
+    "--color-glass-border": colorPalette["glass-border"],
+    "--color-glass-highlight": colorPalette["glass-highlight"],
+  });
 }
 
 /**
@@ -94,11 +94,11 @@ export function generateThemeVars(colorPalette: LightColors | DarkColors): Retur
  * ```
  */
 export function createThemeVars(config?: ColorPaletteConfig) {
-	const lightColors = mergeColorPalette(colors.light, config?.light);
-	const darkColors = mergeColorPalette(colors.dark, config?.dark);
+  const lightColors = mergeColorPalette(colors.light, config?.light);
+  const darkColors = mergeColorPalette(colors.dark, config?.dark);
 
-	return {
-		lightVars: generateThemeVars(lightColors),
-		darkVars: generateThemeVars(darkColors),
-	};
+  return {
+    lightVars: generateThemeVars(lightColors),
+    darkVars: generateThemeVars(darkColors),
+  };
 }
