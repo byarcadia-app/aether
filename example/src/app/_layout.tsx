@@ -1,5 +1,5 @@
-import { useInterFonts } from "@arcadia/aether";
-import { AetherProvider } from "@arcadia/aether";
+import { AetherProvider, useInterFonts, useNavigationTheme } from "@arcadia/aether";
+import { ThemeProvider } from "@react-navigation/native";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
@@ -16,6 +16,7 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   const { fontsLoaded, fontError } = useInterFonts();
+  const navigationTheme = useNavigationTheme();
 
   useEffect(() => {
     if (fontsLoaded || fontError) {
@@ -29,10 +30,12 @@ export default function RootLayout() {
 
   return (
     <AetherProvider>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
-      <StatusBar style="auto" />
+      <ThemeProvider value={navigationTheme}>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack>
+        <StatusBar style="auto" />
+      </ThemeProvider>
     </AetherProvider>
   );
 }

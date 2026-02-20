@@ -18,6 +18,14 @@ config.resolver.nodeModulesPaths = [
 
 config.resolver.disableHierarchicalLookup = true;
 
+// Pin react-native and react to the example's versions to prevent
+// metro from resolving the root workspace's react-native@0.84 (devDep)
+// instead of the example's react-native@0.81.
+config.resolver.extraNodeModules = {
+  "react-native": path.resolve(projectRoot, "node_modules/react-native"),
+  react: path.resolve(projectRoot, "node_modules/react"),
+};
+
 const configWithNativewind = withNativeWind(config, {
   input: './src/globals.css',
   inlineRem: 16
