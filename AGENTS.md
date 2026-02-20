@@ -35,11 +35,20 @@ src/
 │   ├── colors.ts               # HSLA color tokens + NativeWind vars
 │   └── utils.ts                # Color palette merging utilities
 ├── ui/
+│   ├── icons/
+│   │   ├── icon-symbol.tsx     # SF Symbol component (iOS, expo-symbols)
+│   │   ├── icon-symbol.types.ts # IconSymbol prop types
+│   │   └── types.ts            # Base icon types (BaseIconProps, ColorScheme)
+│   ├── layout/
+│   │   ├── layout.tsx          # VStack, HStack polymorphic components
+│   │   └── types.ts            # PolymorphicComponentProps, RNComponentType
 │   └── typography/
 │       ├── base-text/          # Internal primitive (global text config)
 │       ├── heading/            # H1-H4 (iOS HIG)
 │       ├── text/               # Body text variants
 │       └── caption/            # Caption sizes (md, sm)
+├── icons/
+│   └── index.ts                # Entrypoint re-export for @arcadia/aether/icons
 └── utils/
     ├── class-names.ts          # cn() and cnx() utilities
     └── color.ts                # HSLA parsing, conversion, manipulation
@@ -134,9 +143,10 @@ Always update both `lightColors` and `darkColors` together.
 
 ## Package Exports
 
-Two export paths:
+Three export paths:
 
 - `@arcadia/aether` — components, hooks, providers, utils, theme types
+- `@arcadia/aether/icons` — IconSymbol component (requires `expo-symbols` optional peerDep, iOS only)
 - `@arcadia/aether/tailwind-preset` — Tailwind preset only (for `tailwind.config.js`)
 
 ## Scripts
@@ -198,8 +208,9 @@ No unit test infrastructure exists yet. Verification is done through:
 
 ## Build Configuration
 
-tsup builds two entry points:
+tsup builds three entry points:
 - `src/index.ts` — main package entry
+- `src/icons/index.ts` — `@arcadia/aether/icons`
 - `src/tailwind/index.ts` — `@arcadia/aether/tailwind-preset`
 
-Externals: `react`, `react-native`, `nativewind`. JSX uses automatic runtime with `nativewind` as jsxImportSource.
+Externals: `react`, `react-native`, `nativewind`, `expo-symbols`. JSX uses automatic runtime with `nativewind` as jsxImportSource.
