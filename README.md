@@ -48,7 +48,13 @@ npm install --save-dev tailwindcss@^3.4.17
 npm install @arcadia/aether @expo-google-fonts/inter
 ```
 
-### 3. Configure Tailwind (tailwind.config.js)
+### 3. Install required peer dependencies
+
+```bash
+npm install @callstack/liquid-glass
+```
+
+### 4. Configure Tailwind (tailwind.config.js)
 
 ```js
 /** @type {import('tailwindcss').Config} */
@@ -68,7 +74,7 @@ module.exports = {
 };
 ```
 
-### 4. Create global CSS (global.css)
+### 5. Create global CSS (global.css)
 
 ```css
 @tailwind base;
@@ -76,7 +82,7 @@ module.exports = {
 @tailwind utilities;
 ```
 
-### 5. Configure Babel (babel.config.js)
+### 6. Configure Babel (babel.config.js)
 
 ```js
 module.exports = function (api) {
@@ -90,7 +96,7 @@ module.exports = function (api) {
 };
 ```
 
-### 6. Configure Metro (metro.config.js)
+### 7. Configure Metro (metro.config.js)
 
 ```js
 const { getDefaultConfig } = require("expo/metro-config");
@@ -101,13 +107,13 @@ const config = getDefaultConfig(__dirname);
 module.exports = withNativeWind(config, { input: "./global.css" });
 ```
 
-### 7. Import CSS in your root layout
+### 8. Import CSS in your root layout
 
 ```tsx
 import "./global.css";
 ```
 
-### 8. TypeScript (nativewind-env.d.ts)
+### 9. TypeScript (nativewind-env.d.ts)
 
 ```ts
 /// <reference types="nativewind/types" />
@@ -329,7 +335,7 @@ import { GlassButton } from "@arcadia/aether";
 | `accessibilityLabel` | `string` | required |
 | `tintColor` | `ColorValue` | — |
 
-> **Optional dependency**: Install `@callstack/liquid-glass` for native iOS 26+ Liquid Glass effect. Falls back to glass styling automatically if not installed.
+> **Required dependency**: `@callstack/liquid-glass` must be installed for GlassButton. On iOS 26+ it renders native Liquid Glass; on older iOS it automatically falls back to themed glass styling.
 
 ### HighlightTappable
 
