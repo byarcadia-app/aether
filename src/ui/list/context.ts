@@ -17,11 +17,11 @@ export const ListContext = createContext<ListContextValue | null>(null);
  * @throws Error if used outside of List
  */
 export function useListContext(): ListContextValue {
-	const context = useContext(ListContext);
-	if (!context) {
-		throw new Error("List compound components must be used within <List>");
-	}
-	return context;
+  const context = useContext(ListContext);
+  if (!context) {
+    throw new Error("List compound components must be used within <List>");
+  }
+  return context;
 }
 
 // ============================================================================
@@ -40,9 +40,9 @@ export const ListItemContext = createContext<ListItemContextValue | null>(null);
  * @throws Error if used outside of ListItem
  */
 export function useListItemContext(): ListItemContextValue {
-	const context = useContext(ListItemContext);
-	if (!context) {
-		throw new Error("ListItem compound components must be used within <ListItem>");
-	}
-	return context;
+  const context = useContext(ListItemContext);
+  if (!context) {
+    throw new Error("ListItem compound components must be used within <ListItem>");
+  }
+  return context;
 }

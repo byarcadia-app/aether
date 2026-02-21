@@ -2,11 +2,11 @@ import React from "react";
 import type { LayoutChangeEvent } from "react-native";
 import { View } from "react-native";
 import Animated, {
-	Easing,
-	interpolate,
-	useAnimatedStyle,
-	useSharedValue,
-	withTiming,
+  Easing,
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
 } from "react-native-reanimated";
 import { cnx } from "../../utils";
 import { LIST_ANIMATION, LIST_DISPLAY_NAMES } from "./constants";
@@ -39,54 +39,55 @@ const ANIMATION_EASING = Easing.bezier(0.25, 0.1, 0.25, 1);
  * ```
  */
 export function ListItemCollapse({
-	duration = LIST_ANIMATION.collapseDuration,
-	children,
-	className,
-	...viewProps
+  duration = LIST_ANIMATION.collapseDuration,
+  children,
+  className,
+  ...viewProps
 }: ListItemCollapseProps) {
-	const { isExpanded } = useListItemContext();
+  const { isExpanded } = useListItemContext();
 
-	// Measured content height for smooth animation
-	const contentHeight = useSharedValue(0);
+  // Measured content height for smooth animation
+  const contentHeight = useSharedValue(0);
 
-	// Animation progress (0 = collapsed, 1 = expanded)
-	const animationProgress = useSharedValue(isExpanded ? 1 : 0);
+  // Animation progress (0 = collapsed, 1 = expanded)
+  const animationProgress = useSharedValue(isExpanded ? 1 : 0);
 
-	// Animate progress when expanded state changes
-	React.useEffect(() => {
-		animationProgress.value = withTiming(isExpanded ? 1 : 0, {
-			duration,
-			easing: ANIMATION_EASING,
-		});
-	}, [isExpanded, animationProgress, duration]);
+  // Animate progress when expanded state changes
+  React.useEffect(() => {
+    animationProgress.value = withTiming(isExpanded ? 1 : 0, {
+      duration,
+      easing: ANIMATION_EASING,
+    });
+  }, [isExpanded, animationProgress, duration]);
 
-	// Measure content height on layout
-	const handleLayout = (event: LayoutChangeEvent) => {
-		const measuredHeight = event.nativeEvent.layout.height;
-		if (measuredHeight > 0) {
-			contentHeight.value = measuredHeight;
-		}
-	};
+  // Measure content height on layout
+  const handleLayout = (event: LayoutChangeEvent) => {
+    const measuredHeight = event.nativeEvent.layout.height;
+    if (measuredHeight > 0) {
+      contentHeight.value = measuredHeight;
+    }
+  };
 
-	// Animated style with interpolated height and opacity
-	const animatedStyle = useAnimatedStyle(() => ({
-		height: interpolate(
-			animationProgress.value,
-			[0, 1],
-			[0, contentHeight.value || 1000] // Fallback if not measured yet
-		),
-		opacity: animationProgress.value,
-		overflow: "hidden" as const,
-	}));
+  // Animated style with interpolated height and opacity
+  const animatedStyle = useAnimatedStyle(() => ({
+    height: interpolate(
+      animationProgress.value,
+      [0, 1],
+      [0, contentHeight.value || 1000], // Fallback if not measured yet
+    ),
+    opacity: animationProgress.value,
+    overflow: "hidden" as const,
+  }));
 
-	return (
-		<Animated.View
-			style={animatedStyle}
-			className={cnx("w-full px-4 pb-3", className)}
-			{...viewProps}>
-			<View onLayout={handleLayout}>{children}</View>
-		</Animated.View>
-	);
+  return (
+    <Animated.View
+      style={animatedStyle}
+      className={cnx("w-full px-4 pb-3", className)}
+      {...viewProps}
+    >
+      <View onLayout={handleLayout}>{children}</View>
+    </Animated.View>
+  );
 }
 
 ListItemCollapse.displayName = LIST_DISPLAY_NAMES.LIST_ITEM_COLLAPSE;

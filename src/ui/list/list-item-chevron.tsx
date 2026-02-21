@@ -28,27 +28,27 @@ const ANIMATION_EASING = Easing.bezier(0.25, 0.1, 0.25, 1);
  * ```
  */
 export function ListItemChevron({
-	duration = LIST_ANIMATION.chevronDuration,
-	className,
+  duration = LIST_ANIMATION.chevronDuration,
+  className,
 }: ListItemChevronProps) {
-	const { isExpanded } = useListItemContext();
+  const { isExpanded } = useListItemContext();
 
-	const animatedStyle = useAnimatedStyle(() => ({
-		transform: [
-			{
-				rotate: withTiming(isExpanded ? "90deg" : "0deg", {
-					duration,
-					easing: ANIMATION_EASING,
-				}),
-			},
-		],
-	}));
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [
+      {
+        rotate: withTiming(isExpanded ? "90deg" : "0deg", {
+          duration,
+          easing: ANIMATION_EASING,
+        }),
+      },
+    ],
+  }));
 
-	return (
-		<Animated.View style={animatedStyle} className={cnx("ml-auto", className)}>
-			<IconSymbol name="chevron.right" size={16} colorScheme="muted-foreground" />
-		</Animated.View>
-	);
+  return (
+    <Animated.View style={animatedStyle} className={cnx("ml-auto", className)}>
+      <IconSymbol name="chevron.right" size={16} colorScheme="muted-foreground" />
+    </Animated.View>
+  );
 }
 
 ListItemChevron.displayName = LIST_DISPLAY_NAMES.LIST_ITEM_CHEVRON;
