@@ -40,6 +40,12 @@ src/
 │   │   ├── button/              # Button, ButtonLabel, ButtonShimmer
 │   │   ├── glass-button/        # GlassButton (iOS 26+ LiquidGlass + fallback)
 │   │   └── highlight-tappable/  # HighlightTappable
+│   ├── card/
+│   │   └── card.tsx            # Card, CardHeader, CardTitle, CardDescription, CardBody, CardImage, CardFooter
+│   ├── surface/
+│   │   ├── surface.tsx         # Surface (solid, glass, fog variants)
+│   │   ├── styles.ts           # Platform-specific shadow styles
+│   │   └── utils.ts            # Surface hierarchy color generation
 │   ├── icons/
 │   │   ├── icon-symbol.tsx     # SF Symbol component (iOS, expo-symbols)
 │   │   ├── icon-symbol.types.ts # IconSymbol prop types

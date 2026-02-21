@@ -16,6 +16,8 @@ Named after the Greek primordial deity of light and the pure upper air that gods
 - **Layout** — VStack, HStack polymorphic flexbox primitives
 - **Icons** — IconSymbol with SF Symbols (iOS), theme color integration, separate entrypoint
 - **Buttons** — Button (5 variants, shimmer, loading), GlassButton (iOS 26+ Liquid Glass), HighlightTappable
+- **Surface** — Layered backgrounds with visual hierarchy (solid, glass, fog variants)
+- **Card** — Compound card component (header, body, footer, image) with optional pressable
 - **React Navigation** — theme integration hook
 - **Inter Font** — built-in font loading for the Inter family
 - **Utilities** — class-name merging (`cn`, `cnx`) and HSLA color manipulation
@@ -373,6 +375,104 @@ import { HighlightTappable } from "@arcadia/aether";
 | `enableScale`      | `boolean`                          | `false`   |
 | `scaleValue`       | `number` (0-1)                     | `0.98`    |
 
+### Surface
+
+Layered background component with 4 depth levels and 3 variants (solid, glass, fog).
+
+```tsx
+import { Surface, Text } from "@arcadia/aether";
+
+{/* Basic solid surface */}
+<Surface level="secondary" isBordered={true} className="p-4">
+  <Text>Level 2 Surface</Text>
+</Surface>
+
+{/* Glass variant */}
+<Surface variant="glass" className="p-4">
+  <Text>Glass Surface</Text>
+</Surface>
+
+{/* Fog variant with custom intensity */}
+<Surface variant="fog" fogDirection="bottom" fogIntensity={0.2} className="p-4">
+  <Text>Fog Surface</Text>
+</Surface>
+```
+
+| Prop           | Values                                                                         | Default   |
+| -------------- | ------------------------------------------------------------------------------ | --------- |
+| `level`        | `default` \| `secondary` \| `tertiary` \| `quaternary` \| `transparent`        | `default` |
+| `variant`      | `solid` \| `glass` \| `fog`                                                    | `solid`   |
+| `glassEffect`  | `regular` \| `clear`                                                           | `regular` |
+| `fogDirection` | `top` \| `bottom` \| `both`                                                    | `top`     |
+| `fogIntensity` | `number` (0-1)                                                                 | `0.15`    |
+| `isBordered`   | `boolean`                                                                      | `false`   |
+| `isElevated`   | `boolean`                                                                      | `false`   |
+
+### Card
+
+Compound card component. Static or pressable (determined by presence of `onPress` prop).
+
+```tsx
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardBody,
+  CardImage,
+  CardFooter,
+  Button,
+  Text,
+} from "@arcadia/aether";
+
+<Card onPress={() => console.log("Card pressed")}>
+  <CardImage aspectRatio="video">
+    {/* Image component here */}
+  </CardImage>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>This is a description of the card.</CardDescription>
+  </CardHeader>
+  <CardBody>
+    <Text>Main content goes here.</Text>
+  </CardBody>
+  <CardFooter justify="end" isBordered={true}>
+    <Button size="sm">Action</Button>
+  </CardFooter>
+</Card>
+```
+
+#### Card Props (Shared)
+
+| Prop         | Values                      | Default   |
+| ------------ | --------------------------- | --------- |
+| `level`      | `SurfaceLevel`              | `default` |
+| `variant`    | `SurfaceVariant`            | `solid`   |
+| `isBordered` | `boolean`                   | `false`   |
+| `isElevated` | `boolean`                   | `false`   |
+| `...props`   | `SurfaceProps` dependencies | —         |
+
+#### Card Props (Pressable)
+
+Active when `onPress` is provided.
+
+| Prop              | Values                             | Default |
+| ----------------- | ---------------------------------- | ------- |
+| `onPress`         | `() => void`                       | required|
+| `haptics`         | `boolean` \| `HapticFeedbackStyle` | —       |
+| `disabled`        | `boolean`                          | `false` |
+| `animationConfig` | `CardAnimationConfig`              | —       |
+
+#### Compound Components
+
+- **Card** — Main wrapper (static or pressable)
+- **CardHeader** — Header section (title + description)
+- **CardTitle** — Title (wraps Heading, default variant=3)
+- **CardDescription** — Description (wraps Text, default variant=subhead, color=muted)
+- **CardBody** — Main content area (optional `isBordered` for separator)
+- **CardImage** — Image container with aspect ratio control
+- **CardFooter** — Footer with horizontal layout (optional `isBordered`, `justify`)
+
 ## Icons
 
 Install `expo-symbols` (iOS only — SF Symbols):
@@ -518,6 +618,7 @@ pnpm example:ios      # Run on iOS simulator
 | NativeWind               | >= 4        |
 | react-native-reanimated  | >= 3        |
 | @callstack/liquid-glass  | >= 0.7      |
+| expo-linear-gradient     | >= 14       |
 | expo-haptics             | >= 14       |
 | Tailwind CSS             | ^3.3.5      |
 | @expo-google-fonts/inter | >= 0.4.2    |
