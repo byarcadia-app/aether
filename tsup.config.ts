@@ -14,6 +14,7 @@ export default defineConfig({
     "expo-symbols",
     "react-native-reanimated",
     "expo-haptics",
+    "expo-linear-gradient",
     "@callstack/liquid-glass",
   ],
   treeshake: true,
