@@ -18,6 +18,10 @@ Named after the Greek primordial deity of light and the pure upper air that gods
 - **Buttons** — Button (5 variants, shimmer, loading), GlassButton (iOS 26+ Liquid Glass), HighlightTappable
 - **Surface** — Layered backgrounds with visual hierarchy (solid, glass, fog variants)
 - **Card** — Compound card component (header, body, footer, image) with optional pressable
+- **List** — Compound list component (items, sections, collapsible, accessories, chevron) following iOS Settings patterns
+- **Skeleton** — Pulsing loading placeholder with theme-aware colors
+- **ScrollFade** — Gradient fade overlay for scroll container edges
+- **AnimationWrapper** — Declarative enter/exit/layout animation wrapper
 - **React Navigation** — theme integration hook
 - **Inter Font** — built-in font loading for the Inter family
 - **Utilities** — class-name merging (`cn`, `cnx`) and HSLA color manipulation
@@ -476,6 +480,207 @@ Active when `onPress` is provided.
 - **CardBody** — Main content area (optional `isBordered` for separator)
 - **CardImage** — Image container with aspect ratio control
 - **CardFooter** — Footer with horizontal layout (optional `isBordered`, `justify`)
+
+### List
+
+iOS Settings-style compound list component with sections, collapsible items, and accessories.
+
+#### Basic Usage
+
+```tsx
+import {
+  List,
+  ListItem,
+  ListItemContent,
+  ListItemChevron,
+  ListSectionHeader,
+  VStack,
+} from "@arcadia/aether";
+
+<VStack className="gap-2">
+  <ListSectionHeader>Account</ListSectionHeader>
+  <List variant="surface" surfaceLevel="secondary">
+    <ListItem onPress={handleProfile} haptics>
+      <ListItemContent>Profile</ListItemContent>
+      <ListItemChevron />
+    </ListItem>
+    <ListItem onPress={handleSettings}>
+      <ListItemContent>Settings</ListItemContent>
+      <ListItemChevron />
+    </ListItem>
+  </List>
+</VStack>;
+```
+
+#### Collapsible Items
+
+```tsx
+import {
+  List,
+  ListItem,
+  ListItemContent,
+  ListItemChevron,
+  ListItemCollapse,
+  Text,
+} from "@arcadia/aether";
+
+<List variant="surface">
+  <ListItem isCollapsible defaultExpanded={false}>
+    <ListItemContent>Notifications</ListItemContent>
+    <ListItemChevron />
+    <ListItemCollapse>
+      <Text color="muted">Configure your notification preferences.</Text>
+    </ListItemCollapse>
+  </ListItem>
+</List>;
+```
+
+#### With Accessories
+
+```tsx
+import {
+  List,
+  ListItem,
+  ListItemContent,
+  ListItemAccessory,
+  ListItemChevron,
+  Text,
+} from "@arcadia/aether";
+import { Switch } from "react-native";
+
+<List variant="surface">
+  <ListItem interactive={false}>
+    <ListItemContent>Dark Mode</ListItemContent>
+    <ListItemAccessory>
+      <Switch value={isDark} onValueChange={setIsDark} />
+    </ListItemAccessory>
+  </ListItem>
+  <ListItem onPress={handleLanguage}>
+    <ListItemContent>Language</ListItemContent>
+    <ListItemAccessory>
+      <Text color="muted">English</Text>
+    </ListItemAccessory>
+    <ListItemChevron />
+  </ListItem>
+</List>;
+```
+
+#### List Props
+
+| Prop           | Values                                                                  | Default     |
+| -------------- | ----------------------------------------------------------------------- | ----------- |
+| `variant`      | `default` \| `surface`                                                  | `default`   |
+| `surfaceLevel` | `default` \| `secondary` \| `tertiary` \| `quaternary` \| `transparent` | `secondary` |
+| `showDividers` | `boolean`                                                               | `true`      |
+
+#### ListItem Props
+
+| Prop              | Values                             | Default |
+| ----------------- | ---------------------------------- | ------- |
+| `onPress`         | `() => void`                       | —       |
+| `interactive`     | `boolean`                          | `true`  |
+| `isCollapsible`   | `boolean`                          | `false` |
+| `isExpanded`      | `boolean`                          | —       |
+| `defaultExpanded` | `boolean`                          | `false` |
+| `disabled`        | `boolean`                          | `false` |
+| `haptics`         | `boolean` \| `HapticFeedbackStyle` | —       |
+| `animationConfig` | `ListItemAnimationConfig`          | —       |
+
+#### Compound Components
+
+- **List** — Root container with optional Surface wrapping
+- **ListItem** — Interactive item with press highlight and optional collapsible mode
+- **ListItemContent** — Content wrapper (auto-wraps strings with Text)
+- **ListItemIcon** — Icon container with position control (`left` | `right`)
+- **ListItemAccessory** — Right-side accessories (Switch, Text, Badge)
+- **ListItemChevron** — Animated chevron that rotates when expanded (requires `expo-symbols`)
+- **ListItemCollapse** — Collapsible content with smooth height animation
+- **ListSectionHeader** — Section header (placed OUTSIDE List, auto-uppercased)
+
+### Skeleton
+
+Pulsing loading placeholder. Size and shape are controlled through Tailwind classes.
+
+```tsx
+import { Skeleton, VStack } from "@arcadia/aether";
+
+{
+  /* Basic placeholder */
+}
+<Skeleton className="h-32 w-full rounded-2xl" />;
+
+{
+  /* Text rows */
+}
+<VStack className="gap-2">
+  <Skeleton className="h-4 w-full rounded-lg" />
+  <Skeleton className="h-4 w-3/4 rounded-lg" />
+  <Skeleton className="h-4 w-1/2 rounded-lg" />
+</VStack>;
+
+{
+  /* Avatar */
+}
+<Skeleton className="h-12 w-12 rounded-full" />;
+```
+
+| Prop              | Type     | Default             | Description                    |
+| ----------------- | -------- | ------------------- | ------------------------------ |
+| `backgroundColor` | `string` | theme surface color | Custom background color        |
+| `className`       | `string` | —                   | Tailwind classes (size, shape) |
+
+### ScrollFade
+
+Gradient fade overlay to indicate scrollable content. Placed at edges of scroll containers with absolute positioning.
+
+```tsx
+import { ScrollFade } from "@arcadia/aether";
+import { ScrollView, View } from "react-native";
+
+{
+  /* Bottom fade for vertical scroll */
+}
+<View className="relative flex-1">
+  <ScrollView>...</ScrollView>
+  <ScrollFade position="bottom" />
+</View>;
+
+{
+  /* Horizontal fades */
+}
+<View className="relative">
+  <ScrollView horizontal>...</ScrollView>
+  <ScrollFade position="left" size={16} intensity={0.5} />
+  <ScrollFade position="right" size={16} intensity={0.5} />
+</View>;
+```
+
+| Prop        | Values                                 | Default                              |
+| ----------- | -------------------------------------- | ------------------------------------ |
+| `position`  | `top` \| `bottom` \| `left` \| `right` | required                             |
+| `size`      | `number`                               | `120` (vertical) / `24` (horizontal) |
+| `color`     | `string`                               | theme background color               |
+| `intensity` | `number` (0-1)                         | `1`                                  |
+
+### AnimationWrapper
+
+Convenience wrapper around `Animated.View` for declarative enter/exit/layout animations from react-native-reanimated.
+
+```tsx
+import { AnimationWrapper } from "@arcadia/aether";
+import { FadeIn, FadeOut, LinearTransition } from "react-native-reanimated";
+
+<AnimationWrapper entering={FadeIn} exiting={FadeOut} layout={LinearTransition}>
+  <Text>Animated content</Text>
+</AnimationWrapper>;
+```
+
+| Prop       | Type                    | Description                      |
+| ---------- | ----------------------- | -------------------------------- |
+| `entering` | `AnimationBuilder`      | Enter animation (e.g., `FadeIn`) |
+| `exiting`  | `AnimationBuilder`      | Exit animation (e.g., `FadeOut`) |
+| `layout`   | `LayoutAnimationConfig` | Layout transition animation      |
+| `...props` | `ViewProps`             | All standard Animated.View props |
 
 ## Icons
 

@@ -35,6 +35,9 @@ src/
 │   ├── colors.ts               # HSLA color tokens + NativeWind vars
 │   └── utils.ts                # Color palette merging utilities
 ├── ui/
+│   ├── animation-wrapper/
+│   │   ├── animation-wrapper.tsx # AnimationWrapper (Animated.View convenience wrapper)
+│   │   └── types.ts            # AnimationWrapperProps
 │   ├── buttons/
 │   │   ├── shared/              # AnimatedPressable, PressableHighlight, usePressableAnimation
 │   │   ├── button/              # Button, ButtonLabel, ButtonShimmer
@@ -50,9 +53,22 @@ src/
 │   │   ├── icon-symbol.tsx     # SF Symbol component (iOS, expo-symbols)
 │   │   ├── icon-symbol.types.ts # IconSymbol prop types
 │   │   └── types.ts            # Base icon types (BaseIconProps, ColorScheme)
+│   ├── list/
+│   │   ├── list.tsx             # List, ListItem, ListItemContent, ListItemIcon, ListItemAccessory, ListSectionHeader
+│   │   ├── list-item-chevron.tsx # Animated chevron with rotation
+│   │   ├── list-item-collapse.tsx # Collapsible content with height animation
+│   │   ├── constants.ts         # Display names, animation timing, defaults
+│   │   ├── context.ts           # ListContext, ListItemContext hooks
+│   │   └── types.ts             # All List type definitions
 │   ├── layout/
 │   │   ├── layout.tsx          # VStack, HStack polymorphic components
 │   │   └── types.ts            # PolymorphicComponentProps, RNComponentType
+│   ├── scroll-fade/
+│   │   ├── scroll-fade.tsx     # ScrollFade (gradient overlay for scroll containers)
+│   │   └── types.ts            # ScrollFadeProps
+│   ├── skeleton/
+│   │   ├── skeleton.tsx        # Skeleton (pulsing loading placeholder)
+│   │   └── types.ts            # SkeletonProps
 │   └── typography/
 │       ├── base-text/          # Internal primitive (global text config)
 │       ├── heading/            # H1-H4 (iOS HIG)
