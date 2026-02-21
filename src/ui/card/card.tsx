@@ -52,7 +52,8 @@ function StaticCard({
       isElevated={isElevated}
       className={cnx("overflow-hidden", className)}
       style={style}
-      {...viewProps}>
+      {...viewProps}
+    >
       {children}
     </Surface>
   );
@@ -116,7 +117,8 @@ function PressableCard({
       accessibilityHint={accessibilityHint}
       accessibilityState={{ disabled }}
       style={animatedStyle}
-      {...viewProps}>
+      {...viewProps}
+    >
       <Surface
         level={level}
         variant={variant}
@@ -126,7 +128,8 @@ function PressableCard({
         isBordered={isBordered}
         isElevated={isElevated}
         className={cnx("overflow-hidden", className)}
-        style={style}>
+        style={style}
+      >
         {children}
         <PressableHighlight
           isPressed={isPressed}
@@ -298,7 +301,8 @@ export function CardBody({ children, className, isBordered = false, ...viewProps
         isBordered && "border-border border-t",
         className,
       )}
-      {...viewProps}>
+      {...viewProps}
+    >
       {children}
     </VStack>
   );
@@ -333,7 +337,8 @@ export function CardImage({
   return (
     <View
       className={cnx("w-full overflow-hidden", aspectClass, positionClass, className)}
-      {...viewProps}>
+      {...viewProps}
+    >
       {children}
     </View>
   );
@@ -380,7 +385,8 @@ export function CardFooter({
         isBordered && "border-border border-t",
         className,
       )}
-      {...viewProps}>
+      {...viewProps}
+    >
       {children}
     </HStack>
   );

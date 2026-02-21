@@ -382,31 +382,37 @@ Layered background component with 4 depth levels and 3 variants (solid, glass, f
 ```tsx
 import { Surface, Text } from "@arcadia/aether";
 
-{/* Basic solid surface */}
+{
+  /* Basic solid surface */
+}
 <Surface level="secondary" isBordered={true} className="p-4">
   <Text>Level 2 Surface</Text>
-</Surface>
+</Surface>;
 
-{/* Glass variant */}
+{
+  /* Glass variant */
+}
 <Surface variant="glass" className="p-4">
   <Text>Glass Surface</Text>
-</Surface>
+</Surface>;
 
-{/* Fog variant with custom intensity */}
+{
+  /* Fog variant with custom intensity */
+}
 <Surface variant="fog" fogDirection="bottom" fogIntensity={0.2} className="p-4">
   <Text>Fog Surface</Text>
-</Surface>
+</Surface>;
 ```
 
-| Prop           | Values                                                                         | Default   |
-| -------------- | ------------------------------------------------------------------------------ | --------- |
-| `level`        | `default` \| `secondary` \| `tertiary` \| `quaternary` \| `transparent`        | `default` |
-| `variant`      | `solid` \| `glass` \| `fog`                                                    | `solid`   |
-| `glassEffect`  | `regular` \| `clear`                                                           | `regular` |
-| `fogDirection` | `top` \| `bottom` \| `both`                                                    | `top`     |
-| `fogIntensity` | `number` (0-1)                                                                 | `0.15`    |
-| `isBordered`   | `boolean`                                                                      | `false`   |
-| `isElevated`   | `boolean`                                                                      | `false`   |
+| Prop           | Values                                                                  | Default   |
+| -------------- | ----------------------------------------------------------------------- | --------- |
+| `level`        | `default` \| `secondary` \| `tertiary` \| `quaternary` \| `transparent` | `default` |
+| `variant`      | `solid` \| `glass` \| `fog`                                             | `solid`   |
+| `glassEffect`  | `regular` \| `clear`                                                    | `regular` |
+| `fogDirection` | `top` \| `bottom` \| `both`                                             | `top`     |
+| `fogIntensity` | `number` (0-1)                                                          | `0.15`    |
+| `isBordered`   | `boolean`                                                               | `false`   |
+| `isElevated`   | `boolean`                                                               | `false`   |
 
 ### Card
 
@@ -426,9 +432,7 @@ import {
 } from "@arcadia/aether";
 
 <Card onPress={() => console.log("Card pressed")}>
-  <CardImage aspectRatio="video">
-    {/* Image component here */}
-  </CardImage>
+  <CardImage aspectRatio="video">{/* Image component here */}</CardImage>
   <CardHeader>
     <CardTitle>Card Title</CardTitle>
     <CardDescription>This is a description of the card.</CardDescription>
@@ -439,7 +443,7 @@ import {
   <CardFooter justify="end" isBordered={true}>
     <Button size="sm">Action</Button>
   </CardFooter>
-</Card>
+</Card>;
 ```
 
 #### Card Props (Shared)
@@ -456,12 +460,12 @@ import {
 
 Active when `onPress` is provided.
 
-| Prop              | Values                             | Default |
-| ----------------- | ---------------------------------- | ------- |
-| `onPress`         | `() => void`                       | required|
-| `haptics`         | `boolean` \| `HapticFeedbackStyle` | —       |
-| `disabled`        | `boolean`                          | `false` |
-| `animationConfig` | `CardAnimationConfig`              | —       |
+| Prop              | Values                             | Default  |
+| ----------------- | ---------------------------------- | -------- |
+| `onPress`         | `() => void`                       | required |
+| `haptics`         | `boolean` \| `HapticFeedbackStyle` | —        |
+| `disabled`        | `boolean`                          | `false`  |
+| `animationConfig` | `CardAnimationConfig`              | —        |
 
 #### Compound Components
 

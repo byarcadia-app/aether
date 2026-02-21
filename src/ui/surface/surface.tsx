@@ -49,103 +49,107 @@ cssInterop(LiquidGlassView, { className: "style" });
  * ```
  */
 export function Surface({
-	level = "default",
-	variant = "solid",
-	glassEffect = "regular",
-	fogDirection = "top",
-	fogIntensity = 0.15,
-	isBordered = false,
-	isElevated = false,
-	children,
-	className,
-	style,
-	...viewProps
+  level = "default",
+  variant = "solid",
+  glassEffect = "regular",
+  fogDirection = "top",
+  fogIntensity = 0.15,
+  isBordered = false,
+  isElevated = false,
+  children,
+  className,
+  style,
+  ...viewProps
 }: SurfaceProps) {
-	const { isDarkTheme, colorScheme } = useColorScheme();
-	const baseSurface = useThemeColor("surface");
-	const fogBaseColor = useThemeColor(isDarkTheme ? "background" : "foreground");
+  const { isDarkTheme, colorScheme } = useColorScheme();
+  const baseSurface = useThemeColor("surface");
+  const fogBaseColor = useThemeColor(isDarkTheme ? "background" : "foreground");
 
-	// Generate surface hierarchy dynamically from base color
-	const hierarchy = generateSurfaceHierarchy(baseSurface, isDarkTheme);
+  // Generate surface hierarchy dynamically from base color
+  const hierarchy = generateSurfaceHierarchy(baseSurface, isDarkTheme);
 
-	// Get background color for current level
-	const backgroundColor = hierarchy?.[level] ?? baseSurface;
+  // Get background color for current level
+  const backgroundColor = hierarchy?.[level] ?? baseSurface;
 
-	// Glass variant with automatic fallback
-	if (variant === "glass" && isLiquidGlassSupported) {
-		return (
-			<LiquidGlassView
-				className={className}
-				effect={glassEffect}
-				colorScheme={colorScheme}
-				style={[{ borderRadius: 24 }, isElevated && surfaceStyles.elevated, style]}
-				{...viewProps}>
-				<VStack className={cnx(isBordered && "border border-border")}>{children}</VStack>
-			</LiquidGlassView>
-		);
-	}
+  // Glass variant with automatic fallback
+  if (variant === "glass" && isLiquidGlassSupported) {
+    return (
+      <LiquidGlassView
+        className={className}
+        effect={glassEffect}
+        colorScheme={colorScheme}
+        style={[{ borderRadius: 24 }, isElevated && surfaceStyles.elevated, style]}
+        {...viewProps}
+      >
+        <VStack className={cnx(isBordered && "border border-border")}>{children}</VStack>
+      </LiquidGlassView>
+    );
+  }
 
-	// Fog variant
-	if (variant === "fog") {
-		const themeIntensity = isDarkTheme ? fogIntensity : fogIntensity * 0.4;
-		const clampedIntensity = Math.max(0, Math.min(1, themeIntensity));
+  // Fog variant
+  if (variant === "fog") {
+    const themeIntensity = isDarkTheme ? fogIntensity : fogIntensity * 0.4;
+    const clampedIntensity = Math.max(0, Math.min(1, themeIntensity));
 
-		// Skip gradient if intensity is 0
-		if (clampedIntensity === 0) {
-			return (
-				<VStack
-					className={cnx("rounded-3xl", isBordered && "border border-border", className)}
-					style={[{ backgroundColor }, isElevated && surfaceStyles.elevated, style]}
-					{...viewProps}>
-					{children}
-				</VStack>
-			);
-		}
+    // Skip gradient if intensity is 0
+    if (clampedIntensity === 0) {
+      return (
+        <VStack
+          className={cnx("rounded-3xl", isBordered && "border border-border", className)}
+          style={[{ backgroundColor }, isElevated && surfaceStyles.elevated, style]}
+          {...viewProps}
+        >
+          {children}
+        </VStack>
+      );
+    }
 
-		const fogColor = withAlpha(fogBaseColor, clampedIntensity);
-		const transparentColor = withAlpha(fogBaseColor, 0);
+    const fogColor = withAlpha(fogBaseColor, clampedIntensity);
+    const transparentColor = withAlpha(fogBaseColor, 0);
 
-		const getGradientColors = () => {
-			switch (fogDirection) {
-				case "top":
-					return [fogColor, transparentColor] as const;
-				case "bottom":
-					return [transparentColor, fogColor] as const;
-				case "both":
-					return [fogColor, transparentColor, fogColor] as const;
-			}
-		};
+    const getGradientColors = () => {
+      switch (fogDirection) {
+        case "top":
+          return [fogColor, transparentColor] as const;
+        case "bottom":
+          return [transparentColor, fogColor] as const;
+        case "both":
+          return [fogColor, transparentColor, fogColor] as const;
+      }
+    };
 
-		const gradientColors = getGradientColors();
+    const gradientColors = getGradientColors();
 
-		return (
-			<VStack
-				className={cnx(
-					"overflow-hidden rounded-3xl",
-					isBordered && "border border-border",
-					className
-				)}
-				style={[{ backgroundColor }, isElevated && surfaceStyles.elevated, style]}
-				{...viewProps}>
-				<LinearGradient
-					colors={gradientColors}
-					style={surfaceStyles.fogOverlay}
-					pointerEvents="none"
-				/>
-				<VStack style={surfaceStyles.content}>{children}</VStack>
-			</VStack>
-		);
-	}
+    return (
+      <VStack
+        className={cnx(
+          "overflow-hidden rounded-3xl",
+          isBordered && "border border-border",
+          className,
+        )}
+        style={[{ backgroundColor }, isElevated && surfaceStyles.elevated, style]}
+        {...viewProps}
+      >
+        <LinearGradient
+          colors={gradientColors}
+          style={surfaceStyles.fogOverlay}
+          pointerEvents="none"
+        />
+        <VStack style={surfaceStyles.content}>{children}</VStack>
+      </VStack>
+    );
+  }
 
-	// Solid variant (default) or glass fallback
-	return (
-		<VStack
-			className={cnx("rounded-3xl", isBordered && "border border-border", className)}
-			style={[{ backgroundColor }, isElevated && surfaceStyles.elevated, style]}
-			{...viewProps}>
-			{children}
-		</VStack>
-	);
+  // Solid variant (default) or glass fallback
+  return (
+    <VStack
+      className={cnx("rounded-3xl", isBordered && "border border-border", className)}
+      style={[{ backgroundColor }, isElevated && surfaceStyles.elevated, style]}
+      {...viewProps}
+    >
+      {children}
+    </VStack>
+  );
 }
 
 Surface.displayName = "Aether.Surface.Surface";

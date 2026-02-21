@@ -1,5 +1,4 @@
 import {
-  Button,
   Card,
   CardBody,
   CardDescription,
@@ -8,7 +7,6 @@ import {
   CardImage,
   CardTitle,
   Text,
-  VStack,
 } from "@arcadia/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { View } from "react-native";

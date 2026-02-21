@@ -38,56 +38,56 @@ export type GlassEffect = "clear" | "regular";
 export type FogDirection = "top" | "bottom" | "both";
 
 export interface SurfaceProps extends ViewProps {
-	/**
-	 * Background level in visual hierarchy
-	 * @default 'default'
-	 */
-	level?: SurfaceLevel;
+  /**
+   * Background level in visual hierarchy
+   * @default 'default'
+   */
+  level?: SurfaceLevel;
 
-	/**
-	 * Surface variant
-	 * - 'solid' - Standard opaque background (default)
-	 * - 'glass' - Liquid Glass effect (iOS 26+, falls back to solid)
-	 * @default 'solid'
-	 */
-	variant?: SurfaceVariant;
+  /**
+   * Surface variant
+   * - 'solid' - Standard opaque background (default)
+   * - 'glass' - Liquid Glass effect (iOS 26+, falls back to solid)
+   * @default 'solid'
+   */
+  variant?: SurfaceVariant;
 
-	/**
-	 * Glass effect type (only when variant="glass")
-	 * - 'regular' - Frosted blur effect
-	 * - 'clear' - More transparent
-	 * @default 'regular'
-	 */
-	glassEffect?: GlassEffect;
+  /**
+   * Glass effect type (only when variant="glass")
+   * - 'regular' - Frosted blur effect
+   * - 'clear' - More transparent
+   * @default 'regular'
+   */
+  glassEffect?: GlassEffect;
 
-	/**
-	 * Fog gradient direction (only when variant="fog")
-	 * - 'top' - Darker at top, fading downward
-	 * - 'bottom' - Darker at bottom, fading upward
-	 * - 'both' - Darker at both edges, lighter in middle
-	 * @default 'top'
-	 */
-	fogDirection?: FogDirection;
+  /**
+   * Fog gradient direction (only when variant="fog")
+   * - 'top' - Darker at top, fading downward
+   * - 'bottom' - Darker at bottom, fading upward
+   * - 'both' - Darker at both edges, lighter in middle
+   * @default 'top'
+   */
+  fogDirection?: FogDirection;
 
-	/**
-	 * Fog gradient intensity (only when variant="fog")
-	 * Controls gradient opacity from 0 (invisible) to 1 (full opacity)
-	 * @default 0.15
-	 */
-	fogIntensity?: number;
+  /**
+   * Fog gradient intensity (only when variant="fog")
+   * Controls gradient opacity from 0 (invisible) to 1 (full opacity)
+   * @default 0.15
+   */
+  fogIntensity?: number;
 
-	/**
-	 * Whether to show a border
-	 * @default false
-	 */
-	isBordered?: boolean;
+  /**
+   * Whether to show a border
+   * @default false
+   */
+  isBordered?: boolean;
 
-	/**
-	 * Whether to apply elevation shadow
-	 * @default false
-	 */
-	isElevated?: boolean;
+  /**
+   * Whether to apply elevation shadow
+   * @default false
+   */
+  isElevated?: boolean;
 
-	children?: React.ReactNode;
-	className?: string;
+  children?: React.ReactNode;
+  className?: string;
 }

@@ -30,26 +30,26 @@ const LIGHTNESS_STEP = 3;
  * ```
  */
 export function generateSurfaceHierarchy(
-	baseHsla: string,
-	isDark: boolean
+  baseHsla: string,
+  isDark: boolean,
 ): Record<SurfaceLevel, string> | null {
-	// Direction: light mode gets darker (-), dark mode gets lighter (+)
-	const direction = isDark ? 1 : -1;
+  // Direction: light mode gets darker (-), dark mode gets lighter (+)
+  const direction = isDark ? 1 : -1;
 
-	const secondary = adjustLightness(baseHsla, direction * LIGHTNESS_STEP);
-	const tertiary = adjustLightness(baseHsla, direction * LIGHTNESS_STEP * 2);
-	const quaternary = adjustLightness(baseHsla, direction * LIGHTNESS_STEP * 3);
+  const secondary = adjustLightness(baseHsla, direction * LIGHTNESS_STEP);
+  const tertiary = adjustLightness(baseHsla, direction * LIGHTNESS_STEP * 2);
+  const quaternary = adjustLightness(baseHsla, direction * LIGHTNESS_STEP * 3);
 
-	// If any adjustment fails, return null
-	if (!secondary || !tertiary || !quaternary) {
-		return null;
-	}
+  // If any adjustment fails, return null
+  if (!secondary || !tertiary || !quaternary) {
+    return null;
+  }
 
-	return {
-		default: baseHsla,
-		secondary,
-		tertiary,
-		quaternary,
-		transparent: "transparent",
-	};
+  return {
+    default: baseHsla,
+    secondary,
+    tertiary,
+    quaternary,
+    transparent: "transparent",
+  };
 }
