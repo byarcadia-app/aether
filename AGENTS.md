@@ -1,6 +1,6 @@
-# AI Development Guide — @arcadia/aether
+# AI Development Guide — @byarcadia/aether
 
-Standards and conventions for working on the @arcadia/aether codebase. This is a React Native UI library built as a Tailwind CSS / NativeWind preset with themed components.
+Standards and conventions for working on the @byarcadia/aether codebase. This is a React Native UI library built as a Tailwind CSS / NativeWind preset with themed components.
 
 ## Tech Stack
 
@@ -83,7 +83,7 @@ src/
 │       ├── text/               # Body text variants
 │       └── caption/            # Caption sizes (md, sm)
 ├── icons/
-│   └── index.ts                # Entrypoint re-export for @arcadia/aether/icons
+│   └── index.ts                # Entrypoint re-export for @byarcadia/aether/icons
 └── utils/
     ├── children-type-guards.ts # isTextContent(), isRenderFunction() type guards
     ├── class-names.ts          # cn() and cnx() utilities
@@ -190,9 +190,9 @@ Always update both `lightColors` and `darkColors` together.
 
 Three export paths:
 
-- `@arcadia/aether` — components, hooks, providers, utils, theme types
-- `@arcadia/aether/icons` — IconSymbol component (requires `expo-symbols` optional peerDep, iOS only)
-- `@arcadia/aether/tailwind-preset` — Tailwind preset only (for `tailwind.config.js`)
+- `@byarcadia/aether` — components, hooks, providers, utils, theme types
+- `@byarcadia/aether/icons` — IconSymbol component (requires `expo-symbols` optional peerDep, iOS only)
+- `@byarcadia/aether/tailwind-preset` — Tailwind preset only (for `tailwind.config.js`)
 
 ## Scripts
 
@@ -258,7 +258,7 @@ No unit test infrastructure exists yet. Verification is done through:
 tsup builds three entry points:
 
 - `src/index.ts` — main package entry
-- `src/icons/index.ts` — `@arcadia/aether/icons`
-- `src/tailwind/index.ts` — `@arcadia/aether/tailwind-preset`
+- `src/icons/index.ts` — `@byarcadia/aether/icons`
+- `src/tailwind/index.ts` — `@byarcadia/aether/tailwind-preset`
 
 Externals: `react`, `react-native`, `nativewind`, `expo-symbols`. JSX uses automatic runtime with `nativewind` as jsxImportSource.

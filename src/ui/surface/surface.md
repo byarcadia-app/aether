@@ -5,7 +5,7 @@ Layered background component with 4 depth levels and 3 variants (solid, glass, f
 ## Import
 
 ```tsx
-import { Surface } from "@arcadia/aether";
+import { Surface } from "@byarcadia/aether";
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ import { Surface } from "@arcadia/aether";
 ### Basic solid surface
 
 ```tsx
-import { Surface, Text } from "@arcadia/aether";
+import { Surface, Text } from "@byarcadia/aether";
 
 <Surface level="secondary" isBordered={true} className="p-4">
   <Text>Level 2 Surface</Text>
@@ -23,7 +23,7 @@ import { Surface, Text } from "@arcadia/aether";
 ### Glass variant
 
 ```tsx
-import { Surface, Text } from "@arcadia/aether";
+import { Surface, Text } from "@byarcadia/aether";
 
 <Surface variant="glass" className="p-4">
   <Text>Glass Surface</Text>
@@ -33,7 +33,7 @@ import { Surface, Text } from "@arcadia/aether";
 ### Fog variant with custom intensity
 
 ```tsx
-import { Surface, Text } from "@arcadia/aether";
+import { Surface, Text } from "@byarcadia/aether";
 
 <Surface variant="fog" fogDirection="bottom" fogIntensity={0.2} className="p-4">
   <Text>Fog Surface</Text>

@@ -5,7 +5,7 @@ iOS 26+ Liquid Glass button with automatic fallback to glass styling. Requires `
 ## Import
 
 ```tsx
-import { GlassButton } from "@arcadia/aether";
+import { GlassButton } from "@byarcadia/aether";
 ```
 
 ## Usage

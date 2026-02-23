@@ -1,4 +1,4 @@
-import { AnimationWrapper, Surface, Text, VStack } from "@arcadia/aether";
+import { AnimationWrapper, Surface, Text, VStack } from "@byarcadia/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { FadeIn, SlideInRight } from "react-native-reanimated";
 import { View } from "react-native";

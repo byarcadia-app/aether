@@ -5,7 +5,7 @@ Lightweight pressable with highlight overlay and optional scale animation. Ideal
 ## Import
 
 ```tsx
-import { HighlightTappable } from "@arcadia/aether";
+import { HighlightTappable } from "@byarcadia/aether";
 ```
 
 ## Usage

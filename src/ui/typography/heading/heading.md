@@ -5,7 +5,7 @@ Heading levels 1-4 mapping to iOS HIG: Large Title (34pt), Title 1 (28pt), Title
 ## Import
 
 ```tsx
-import { Heading } from "@arcadia/aether";
+import { Heading } from "@byarcadia/aether";
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ import { Heading } from "@arcadia/aether";
 Use headings to provide structure and hierarchy to your layouts.
 
 ```tsx
-import { Heading } from "@arcadia/aether";
+import { Heading } from "@byarcadia/aether";
 
 <Heading variant={1}>Large Title</Heading>
 <Heading variant={2} color="primary">Title 1</Heading>

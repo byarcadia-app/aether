@@ -1,4 +1,4 @@
-import { Skeleton, Surface, VStack, HStack } from "@arcadia/aether";
+import { Skeleton, Surface, VStack, HStack } from "@byarcadia/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { View } from "react-native";
 

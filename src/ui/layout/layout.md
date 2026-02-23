@@ -5,7 +5,7 @@ Polymorphic flexbox layout primitives. VStack renders a column, HStack renders a
 ## Import
 
 ```tsx
-import { VStack, HStack } from "@arcadia/aether";
+import { VStack, HStack } from "@byarcadia/aether";
 ```
 
 ## Usage

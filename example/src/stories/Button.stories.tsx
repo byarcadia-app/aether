@@ -1,4 +1,4 @@
-import { Button, ButtonLabel, VStack } from "@arcadia/aether";
+import { Button, ButtonLabel, VStack } from "@byarcadia/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { View } from "react-native";
 

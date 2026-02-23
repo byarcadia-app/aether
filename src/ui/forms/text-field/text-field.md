@@ -13,7 +13,7 @@ import {
   TextFieldInputEndContent,
   TextFieldDescription,
   TextFieldErrorMessage,
-} from "@arcadia/aether";
+} from "@byarcadia/aether";
 ```
 
 ## Anatomy
@@ -31,7 +31,7 @@ import {
 ### Basic Usage
 
 ```tsx
-import { TextField, TextFieldLabel, TextFieldInput } from "@arcadia/aether";
+import { TextField, TextFieldLabel, TextFieldInput } from "@byarcadia/aether";
 
 <TextField>
   <TextFieldLabel>Username</TextFieldLabel>
@@ -42,7 +42,7 @@ import { TextField, TextFieldLabel, TextFieldInput } from "@arcadia/aether";
 ### With Validation
 
 ```tsx
-import { TextField, TextFieldLabel, TextFieldInput, TextFieldErrorMessage } from "@arcadia/aether";
+import { TextField, TextFieldLabel, TextFieldInput, TextFieldErrorMessage } from "@byarcadia/aether";
 
 <TextField isInvalid={true} isRequired>
   <TextFieldLabel>Email</TextFieldLabel>
@@ -54,7 +54,7 @@ import { TextField, TextFieldLabel, TextFieldInput, TextFieldErrorMessage } from
 ### Multiline
 
 ```tsx
-import { TextField, TextFieldLabel, TextFieldInput } from "@arcadia/aether";
+import { TextField, TextFieldLabel, TextFieldInput } from "@byarcadia/aether";
 
 <TextField>
   <TextFieldLabel>Bio</TextFieldLabel>
@@ -70,8 +70,8 @@ import {
   TextFieldLabel,
   TextFieldInput,
   TextFieldInputStartContent,
-} from "@arcadia/aether";
-import { IconSymbol } from "@arcadia/aether/icons";
+} from "@byarcadia/aether";
+import { IconSymbol } from "@byarcadia/aether/icons";
 
 <TextField>
   <TextFieldLabel>Search</TextFieldLabel>

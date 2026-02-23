@@ -1,5 +1,5 @@
 import "../src/globals.css";
-import { AetherProvider } from "@arcadia/aether";
+import { AetherProvider } from "@byarcadia/aether";
 import type { Preview } from "@storybook/react";
 import { ScrollView, View } from "react-native";
 

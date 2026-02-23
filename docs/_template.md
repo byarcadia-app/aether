@@ -1,10 +1,10 @@
 # Component Documentation Templates
 
-Two template variants for @arcadia/aether component documentation.
+Two template variants for @byarcadia/aether component documentation.
 
 ## Conventions
 
-- Import path: `@arcadia/aether` (exception: IconSymbol uses `@arcadia/aether/icons`)
+- Import path: `@byarcadia/aether` (exception: IconSymbol uses `@byarcadia/aether/icons`)
 - Only document content from the existing README — no new examples or sections
 - Use relative links between docs (from file location)
 - Props tables use: `| Prop | Type/Values | Default | Description |`
@@ -23,7 +23,7 @@ For components without sub-components: Heading, Text, Caption, VStack/HStack, Bu
 ## Import
 
 \`\`\`tsx
-import { {ComponentName} } from "@arcadia/aether";
+import { {ComponentName} } from "@byarcadia/aether";
 \`\`\`
 
 ## Usage
@@ -67,7 +67,7 @@ For components with sub-components: Card (7 parts), List (8 parts), Button (with
 ## Import
 
 \`\`\`tsx
-import { {Component}, {SubComponent1}, {SubComponent2} } from "@arcadia/aether";
+import { {Component}, {SubComponent1}, {SubComponent2} } from "@byarcadia/aether";
 \`\`\`
 
 ## Anatomy

@@ -6,8 +6,8 @@ import {
   TextFieldInputStartContent,
   TextFieldDescription,
   TextFieldErrorMessage,
-} from "@arcadia/aether";
-import { IconSymbol } from "@arcadia/aether/icons";
+} from "@byarcadia/aether";
+import { IconSymbol } from "@byarcadia/aether/icons";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { View } from "react-native";
 

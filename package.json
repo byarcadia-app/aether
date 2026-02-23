@@ -1,5 +1,5 @@
 {
-  "name": "@arcadia/aether",
+  "name": "@byarcadia/aether",
   "version": "0.0.1",
   "description": "",
   "keywords": [],
@@ -44,8 +44,8 @@
     "lint": "oxlint .",
     "fmt": "oxfmt .",
     "fmt:check": "oxfmt --check .",
-    "example:start": "pnpm --filter @arcadia/example start",
-    "example:ios": "pnpm --filter @arcadia/example ios"
+    "example:start": "pnpm --filter @byarcadia/example start",
+    "example:ios": "pnpm --filter @byarcadia/example ios"
   },
   "dependencies": {
     "tailwind-merge": "^3.4.0",

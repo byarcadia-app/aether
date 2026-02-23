@@ -1,4 +1,4 @@
-import { AetherProvider, useInterFonts, useNavigationTheme } from "@arcadia/aether";
+import { AetherProvider, useInterFonts, useNavigationTheme } from "@byarcadia/aether";
 import { ThemeProvider } from "@react-navigation/native";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";

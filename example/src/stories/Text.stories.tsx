@@ -1,4 +1,4 @@
-import { Text } from "@arcadia/aether";
+import { Text } from "@byarcadia/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { View } from "react-native";
 
