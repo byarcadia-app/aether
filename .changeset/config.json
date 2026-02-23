@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@arcadia/example"]
+  "ignore": ["@byarcadiaapp/example"]
 }
