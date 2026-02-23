@@ -5,7 +5,7 @@ Conditional error message component. Renders error text only when isInvalid is t
 ## Import
 
 ```tsx
-import { ErrorView } from "@byarcadiaapp/aether";
+import { ErrorView } from "@byarcadia-app/aether";
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ import { ErrorView } from "@byarcadiaapp/aether";
 ### Basic Usage
 
 ```tsx
-import { ErrorView } from "@byarcadiaapp/aether";
+import { ErrorView } from "@byarcadia-app/aether";
 
 <ErrorView isInvalid={!!error}>{error?.message}</ErrorView>;
 ```
@@ -21,7 +21,7 @@ import { ErrorView } from "@byarcadiaapp/aether";
 ### With TextField
 
 ```tsx
-import { TextField, TextFieldInput, ErrorView } from "@byarcadiaapp/aether";
+import { TextField, TextFieldInput, ErrorView } from "@byarcadia-app/aether";
 
 <TextField isInvalid={!!error}>
   <TextFieldInput placeholder="Enter username" />

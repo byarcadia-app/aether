@@ -13,7 +13,7 @@ import {
   TextFieldInputEndContent,
   TextFieldDescription,
   TextFieldErrorMessage,
-} from "@byarcadiaapp/aether";
+} from "@byarcadia-app/aether";
 ```
 
 ## Anatomy
@@ -31,7 +31,7 @@ import {
 ### Basic Usage
 
 ```tsx
-import { TextField, TextFieldLabel, TextFieldInput } from "@byarcadiaapp/aether";
+import { TextField, TextFieldLabel, TextFieldInput } from "@byarcadia-app/aether";
 
 <TextField>
   <TextFieldLabel>Username</TextFieldLabel>
@@ -42,7 +42,7 @@ import { TextField, TextFieldLabel, TextFieldInput } from "@byarcadiaapp/aether"
 ### With Validation
 
 ```tsx
-import { TextField, TextFieldLabel, TextFieldInput, TextFieldErrorMessage } from "@byarcadiaapp/aether";
+import { TextField, TextFieldLabel, TextFieldInput, TextFieldErrorMessage } from "@byarcadia-app/aether";
 
 <TextField isInvalid={true} isRequired>
   <TextFieldLabel>Email</TextFieldLabel>
@@ -54,7 +54,7 @@ import { TextField, TextFieldLabel, TextFieldInput, TextFieldErrorMessage } from
 ### Multiline
 
 ```tsx
-import { TextField, TextFieldLabel, TextFieldInput } from "@byarcadiaapp/aether";
+import { TextField, TextFieldLabel, TextFieldInput } from "@byarcadia-app/aether";
 
 <TextField>
   <TextFieldLabel>Bio</TextFieldLabel>
@@ -70,8 +70,8 @@ import {
   TextFieldLabel,
   TextFieldInput,
   TextFieldInputStartContent,
-} from "@byarcadiaapp/aether";
-import { IconSymbol } from "@byarcadiaapp/aether/icons";
+} from "@byarcadia-app/aether";
+import { IconSymbol } from "@byarcadia-app/aether/icons";
 
 <TextField>
   <TextFieldLabel>Search</TextFieldLabel>

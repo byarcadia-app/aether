@@ -1,4 +1,4 @@
-import { ErrorView } from "@byarcadiaapp/aether";
+import { ErrorView } from "@byarcadia-app/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { View } from "react-native";
 

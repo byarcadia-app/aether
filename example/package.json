@@ -1,5 +1,5 @@
 {
-  "name": "@byarcadiaapp/example",
+  "name": "@byarcadia-app/example",
   "version": "0.0.1",
   "private": true,
   "main": "expo-router/entry",
@@ -9,7 +9,7 @@
     "storybook-generate": "sb-rn-get-stories"
   },
   "dependencies": {
-    "@byarcadiaapp/aether": "workspace:*",
+    "@byarcadia-app/aether": "workspace:*",
     "@callstack/liquid-glass": "^0.7.0",
     "@expo-google-fonts/inter": "^0.4.2",
     "@expo/metro-runtime": "~6.1.2",

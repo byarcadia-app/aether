@@ -5,7 +5,7 @@ Full-featured button with 5 variants, 3 sizes, loading state, shimmer animation,
 ## Import
 
 ```tsx
-import { Button, ButtonLabel } from "@byarcadiaapp/aether";
+import { Button, ButtonLabel } from "@byarcadia-app/aether";
 ```
 
 ## Anatomy

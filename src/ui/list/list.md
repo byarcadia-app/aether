@@ -14,7 +14,7 @@ import {
   ListItemChevron,
   ListItemCollapse,
   ListSectionHeader,
-} from "@byarcadiaapp/aether";
+} from "@byarcadia-app/aether";
 ```
 
 ## Anatomy
@@ -40,7 +40,7 @@ import {
   ListItemChevron,
   ListSectionHeader,
   VStack,
-} from "@byarcadiaapp/aether";
+} from "@byarcadia-app/aether";
 
 <VStack className="gap-2">
   <ListSectionHeader>Account</ListSectionHeader>
@@ -67,7 +67,7 @@ import {
   ListItemChevron,
   ListItemCollapse,
   Text,
-} from "@byarcadiaapp/aether";
+} from "@byarcadia-app/aether";
 
 <List variant="surface">
   <ListItem isCollapsible defaultExpanded={false}>
@@ -90,7 +90,7 @@ import {
   ListItemAccessory,
   ListItemChevron,
   Text,
-} from "@byarcadiaapp/aether";
+} from "@byarcadia-app/aether";
 import { Switch } from "react-native";
 
 <List variant="surface">

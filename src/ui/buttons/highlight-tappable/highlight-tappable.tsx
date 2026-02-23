@@ -11,7 +11,7 @@ import type { HighlightTappableProps } from "./types";
  *
  * @example
  * ```tsx
- * import { HighlightTappable } from "@byarcadiaapp/aether";
+ * import { HighlightTappable } from "@byarcadia-app/aether";
  *
  * <HighlightTappable
  *   onPress={() => console.log("pressed")}

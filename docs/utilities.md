@@ -3,7 +3,7 @@
 ### Class Names
 
 ```tsx
-import { cn, cnx } from "@byarcadiaapp/aether";
+import { cn, cnx } from "@byarcadia-app/aether";
 
 // cn: fast join, no conflict resolution
 cn("flex gap-4", isActive && "opacity-100");
@@ -15,7 +15,7 @@ cnx("text-sm p-4", "text-lg p-8"); // -> "text-lg p-8"
 ### Color Utilities
 
 ```tsx
-import { parseHsla, generateHsla, adjustLightness, hslaToRgba, withAlpha } from "@byarcadiaapp/aether";
+import { parseHsla, generateHsla, adjustLightness, hslaToRgba, withAlpha } from "@byarcadia-app/aether";
 
 parseHsla("hsla(240, 4%, 97%, 1)");
 // { hue: 240, saturation: 4, lightness: 97, alpha: 1 }

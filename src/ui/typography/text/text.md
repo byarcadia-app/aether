@@ -5,7 +5,7 @@ Body text variants following iOS HIG: headline (17pt semibold), body (17pt), cal
 ## Import
 
 ```tsx
-import { Text } from "@byarcadiaapp/aether";
+import { Text } from "@byarcadia-app/aether";
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ import { Text } from "@byarcadiaapp/aether";
 Use text for body copy, descriptions, and labels.
 
 ```tsx
-import { Text } from "@byarcadiaapp/aether";
+import { Text } from "@byarcadia-app/aether";
 
 <Text>Default body text</Text>
 <Text variant="headline">Important Message</Text>

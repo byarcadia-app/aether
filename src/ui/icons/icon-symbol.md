@@ -13,7 +13,7 @@ npx expo install expo-symbols
 ## Import
 
 ```tsx
-import { IconSymbol } from "@byarcadiaapp/aether/icons";
+import { IconSymbol } from "@byarcadia-app/aether/icons";
 ```
 
 ## Usage

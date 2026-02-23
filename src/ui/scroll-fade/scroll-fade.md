@@ -5,7 +5,7 @@ Gradient fade overlay to indicate scrollable content. Placed at edges of scroll 
 ## Import
 
 ```tsx
-import { ScrollFade } from "@byarcadiaapp/aether";
+import { ScrollFade } from "@byarcadia-app/aether";
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ import { ScrollFade } from "@byarcadiaapp/aether";
 ### Bottom fade for vertical scroll
 
 ```tsx
-import { ScrollFade } from "@byarcadiaapp/aether";
+import { ScrollFade } from "@byarcadia-app/aether";
 import { ScrollView, View } from "react-native";
 
 <View className="relative flex-1">
@@ -25,7 +25,7 @@ import { ScrollView, View } from "react-native";
 ### Horizontal fades
 
 ```tsx
-import { ScrollFade } from "@byarcadiaapp/aether";
+import { ScrollFade } from "@byarcadia-app/aether";
 import { ScrollView, View } from "react-native";
 
 <View className="relative">

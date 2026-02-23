@@ -1,4 +1,4 @@
-import { GlassButton, HStack } from "@byarcadiaapp/aether";
+import { GlassButton, HStack } from "@byarcadia-app/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { View } from "react-native";
 

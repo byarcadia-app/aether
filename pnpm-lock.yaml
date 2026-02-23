@@ -69,7 +69,7 @@ importers:
 
   example:
     dependencies:
-      '@byarcadiaapp/aether':
+      '@byarcadia-app/aether':
         specifier: workspace:*
         version: link:..
       '@callstack/liquid-glass':

@@ -1,5 +1,5 @@
 <!--
-Thanks for contributing to @byarcadiaapp/aether!
+Thanks for contributing to @byarcadia-app/aether!
 
 Before submitting, please make sure:
 - Your PR addresses a single concern (bug fix, feature, docs, refactor)

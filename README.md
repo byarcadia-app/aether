@@ -1,4 +1,4 @@
-# @byarcadiaapp/aether 🌬️
+# @byarcadia-app/aether 🌬️
 
 > **Alpha** — This library is in early development. APIs will change. Use at your own risk.
 

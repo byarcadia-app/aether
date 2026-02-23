@@ -1,6 +1,6 @@
 # Installation
 
-@byarcadiaapp/aether is a preset on top of NativeWind. Installation means setting up NativeWind in your Expo project and adding the aether preset.
+@byarcadia-app/aether is a preset on top of NativeWind. Installation means setting up NativeWind in your Expo project and adding the aether preset.
 
 For the full NativeWind setup reference, see the [official installation guide](https://www.nativewind.dev/docs/getting-started/installation).
 
@@ -11,10 +11,10 @@ npx expo install nativewind react-native-reanimated react-native-safe-area-conte
 npm install --save-dev tailwindcss@^3.4.17
 ```
 
-### 2. Install @byarcadiaapp/aether
+### 2. Install @byarcadia-app/aether
 
 ```bash
-npm install @byarcadiaapp/aether @expo-google-fonts/inter
+npm install @byarcadia-app/aether @expo-google-fonts/inter
 ```
 
 ### 3. Install required peer dependencies
@@ -28,8 +28,8 @@ npm install @callstack/liquid-glass expo-haptics
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./node_modules/@byarcadiaapp/aether/dist/**/*.{js,mjs}"],
-  presets: [require("nativewind/preset"), require("@byarcadiaapp/aether/tailwind-preset").preset],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./node_modules/@byarcadia-app/aether/dist/**/*.{js,mjs}"],
+  presets: [require("nativewind/preset"), require("@byarcadia-app/aether/tailwind-preset").preset],
   theme: {
     extend: {},
   },
@@ -84,7 +84,7 @@ import "./global.css";
 Wrap your app with `AetherProvider`, load fonts with `useInterFonts`, and optionally integrate React Navigation theming:
 
 ```tsx
-import { AetherProvider, useInterFonts, useNavigationTheme } from "@byarcadiaapp/aether";
+import { AetherProvider, useInterFonts, useNavigationTheme } from "@byarcadia-app/aether";
 import { ThemeProvider } from "@react-navigation/native";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";

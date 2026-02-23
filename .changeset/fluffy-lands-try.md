@@ -1,5 +1,5 @@
 ---
-"@byarcadiaapp/aether": minor
+"@byarcadia-app/aether": minor
 ---
 
 Initial public release

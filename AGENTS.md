@@ -1,6 +1,6 @@
-# AI Development Guide — @byarcadiaapp/aether
+# AI Development Guide — @byarcadia-app/aether
 
-Standards and conventions for working on the @byarcadiaapp/aether codebase. This is a React Native UI library built as a Tailwind CSS / NativeWind preset with themed components.
+Standards and conventions for working on the @byarcadia-app/aether codebase. This is a React Native UI library built as a Tailwind CSS / NativeWind preset with themed components.
 
 ## Tech Stack
 
@@ -83,7 +83,7 @@ src/
 │       ├── text/               # Body text variants
 │       └── caption/            # Caption sizes (md, sm)
 ├── icons/
-│   └── index.ts                # Entrypoint re-export for @byarcadiaapp/aether/icons
+│   └── index.ts                # Entrypoint re-export for @byarcadia-app/aether/icons
 └── utils/
     ├── children-type-guards.ts # isTextContent(), isRenderFunction() type guards
     ├── class-names.ts          # cn() and cnx() utilities
@@ -190,9 +190,9 @@ Always update both `lightColors` and `darkColors` together.
 
 Three export paths:
 
-- `@byarcadiaapp/aether` — components, hooks, providers, utils, theme types
-- `@byarcadiaapp/aether/icons` — IconSymbol component (requires `expo-symbols` optional peerDep, iOS only)
-- `@byarcadiaapp/aether/tailwind-preset` — Tailwind preset only (for `tailwind.config.js`)
+- `@byarcadia-app/aether` — components, hooks, providers, utils, theme types
+- `@byarcadia-app/aether/icons` — IconSymbol component (requires `expo-symbols` optional peerDep, iOS only)
+- `@byarcadia-app/aether/tailwind-preset` — Tailwind preset only (for `tailwind.config.js`)
 
 ## Scripts
 
@@ -258,7 +258,7 @@ No unit test infrastructure exists yet. Verification is done through:
 tsup builds three entry points:
 
 - `src/index.ts` — main package entry
-- `src/icons/index.ts` — `@byarcadiaapp/aether/icons`
-- `src/tailwind/index.ts` — `@byarcadiaapp/aether/tailwind-preset`
+- `src/icons/index.ts` — `@byarcadia-app/aether/icons`
+- `src/tailwind/index.ts` — `@byarcadia-app/aether/tailwind-preset`
 
 Externals: `react`, `react-native`, `nativewind`, `expo-symbols`. JSX uses automatic runtime with `nativewind` as jsxImportSource.

@@ -5,7 +5,7 @@ Pulsing loading placeholder. Size and shape are controlled through Tailwind clas
 ## Import
 
 ```tsx
-import { Skeleton } from "@byarcadiaapp/aether";
+import { Skeleton } from "@byarcadia-app/aether";
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ import { Skeleton } from "@byarcadiaapp/aether";
 ### Text rows
 
 ```tsx
-import { VStack } from "@byarcadiaapp/aether";
+import { VStack } from "@byarcadia-app/aether";
 
 <VStack className="gap-2">
   <Skeleton className="h-4 w-full rounded-lg" />
