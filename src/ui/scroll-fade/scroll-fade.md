@@ -19,7 +19,7 @@ import { ScrollView, View } from "react-native";
 <View className="relative flex-1">
   <ScrollView>...</ScrollView>
   <ScrollFade position="bottom" />
-</View>
+</View>;
 ```
 
 ### Horizontal fades
@@ -32,7 +32,7 @@ import { ScrollView, View } from "react-native";
   <ScrollView horizontal>...</ScrollView>
   <ScrollFade position="left" size={16} intensity={0.5} />
   <ScrollFade position="right" size={16} intensity={0.5} />
-</View>
+</View>;
 ```
 
 ## API Reference

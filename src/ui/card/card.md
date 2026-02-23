@@ -5,7 +5,15 @@ Compound card component. Static or pressable (determined by presence of `onPress
 ## Import
 
 ```tsx
-import { Card, CardHeader, CardTitle, CardDescription, CardBody, CardImage, CardFooter } from "@arcadia/aether";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardBody,
+  CardImage,
+  CardFooter,
+} from "@arcadia/aether";
 ```
 
 ## Anatomy
@@ -52,24 +60,24 @@ import {
 
 ### Card (Shared)
 
-| Prop | Values | Default |
-| --- | --- | --- |
-| `level` | `SurfaceLevel` | `default` |
-| `variant` | `SurfaceVariant` | `solid` |
-| `isBordered` | `boolean` | `false` |
-| `isElevated` | `boolean` | `false` |
-| `...props` | `SurfaceProps` dependencies | . |
+| Prop         | Values                      | Default   |
+| ------------ | --------------------------- | --------- |
+| `level`      | `SurfaceLevel`              | `default` |
+| `variant`    | `SurfaceVariant`            | `solid`   |
+| `isBordered` | `boolean`                   | `false`   |
+| `isElevated` | `boolean`                   | `false`   |
+| `...props`   | `SurfaceProps` dependencies | .         |
 
 ### Card (Pressable)
 
 Active when `onPress` is provided.
 
-| Prop | Values | Default |
-| --- | --- | --- |
-| `onPress` | `() => void` | required |
-| `haptics` | `boolean` \| `HapticFeedbackStyle` | . |
-| `disabled` | `boolean` | `false` |
-| `animationConfig` | `CardAnimationConfig` | . |
+| Prop              | Values                             | Default  |
+| ----------------- | ---------------------------------- | -------- |
+| `onPress`         | `() => void`                       | required |
+| `haptics`         | `boolean` \| `HapticFeedbackStyle` | .        |
+| `disabled`        | `boolean`                          | `false`  |
+| `animationConfig` | `CardAnimationConfig`              | .        |
 
 ### Compound Components
 

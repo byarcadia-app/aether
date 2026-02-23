@@ -25,8 +25,8 @@ import { Caption } from "@arcadia/aether";
 
 ### Caption
 
-| Prop | Values | Default | Description |
-| ---- | ------ | ------- | ----------- |
-| `variant` | `md` \| `sm` | `md` | |
-| `weight` | `regular` \| `medium` \| `semibold` \| `bold` | `regular` | |
-| `color` | base colors + foreground variants | `default` | |
+| Prop      | Values                                        | Default   | Description |
+| --------- | --------------------------------------------- | --------- | ----------- |
+| `variant` | `md` \| `sm`                                  | `md`      |             |
+| `weight`  | `regular` \| `medium` \| `semibold` \| `bold` | `regular` |             |
+| `color`   | base colors + foreground variants             | `default` |             |

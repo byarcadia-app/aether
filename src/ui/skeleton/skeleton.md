@@ -25,7 +25,7 @@ import { VStack } from "@arcadia/aether";
   <Skeleton className="h-4 w-full rounded-lg" />
   <Skeleton className="h-4 w-3/4 rounded-lg" />
   <Skeleton className="h-4 w-1/2 rounded-lg" />
-</VStack>
+</VStack>;
 ```
 
 ### Avatar

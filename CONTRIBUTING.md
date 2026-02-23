@@ -93,16 +93,16 @@ pnpm dev      # Build in watch mode
 
 ### All Scripts
 
-| Command             | Description                        |
-| ------------------- | ---------------------------------- |
-| `pnpm build`        | Build with tsup (CJS + ESM + DTS) |
-| `pnpm dev`          | Build in watch mode                |
-| `pnpm check`        | TypeScript type checking           |
-| `pnpm lint`         | Lint with oxlint                   |
-| `pnpm fmt`          | Format with oxfmt                  |
-| `pnpm fmt:check`    | Check formatting                   |
-| `pnpm example:start`| Start example Expo dev server      |
-| `pnpm example:ios`  | Run example on iOS simulator       |
+| Command              | Description                       |
+| -------------------- | --------------------------------- |
+| `pnpm build`         | Build with tsup (CJS + ESM + DTS) |
+| `pnpm dev`           | Build in watch mode               |
+| `pnpm check`         | TypeScript type checking          |
+| `pnpm lint`          | Lint with oxlint                  |
+| `pnpm fmt`           | Format with oxfmt                 |
+| `pnpm fmt:check`     | Check formatting                  |
+| `pnpm example:start` | Start example Expo dev server     |
+| `pnpm example:ios`   | Run example on iOS simulator      |
 
 ## Component Conventions
 
@@ -125,10 +125,16 @@ import type { ComponentProps } from "./types";
 
 export const componentVariants = tv({
   variants: {
-    variant: { /* ... */ },
-    color: { /* ... */ },
+    variant: {
+      /* ... */
+    },
+    color: {
+      /* ... */
+    },
   },
-  defaultVariants: { /* ... */ },
+  defaultVariants: {
+    /* ... */
+  },
 });
 
 export function Component({ variant, color, children, ...props }: ComponentProps) {
@@ -177,14 +183,14 @@ Component.displayName = "Aether.{Category}.{Name}";
 
 Every public API must have JSDoc with `@example`. When changing the codebase:
 
-| Change             | Documentation Action                                                                          |
-| ------------------ | --------------------------------------------------------------------------------------------- |
+| Change             | Documentation Action                                                                                       |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | New component      | Create per-component `.md` following `docs/_template.md`, add to `docs/components.md`, add Storybook story |
-| New hook           | Update `docs/hooks.md`                                                                        |
-| New utility        | Update `docs/utilities.md`                                                                    |
-| New color tokens   | Update JSDoc in `colors.ts`, update `docs/colors.md`                                          |
-| Changed public API | Update relevant per-component `.md` file                                                      |
-| New provider prop  | Update `docs/provider.md`                                                                     |
+| New hook           | Update `docs/hooks.md`                                                                                     |
+| New utility        | Update `docs/utilities.md`                                                                                 |
+| New color tokens   | Update JSDoc in `colors.ts`, update `docs/colors.md`                                                       |
+| Changed public API | Update relevant per-component `.md` file                                                                   |
+| New provider prop  | Update `docs/provider.md`                                                                                  |
 
 ### Theme Synchronization
 

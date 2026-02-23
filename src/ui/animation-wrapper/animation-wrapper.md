@@ -17,7 +17,7 @@ import { Text } from "@arcadia/aether";
 
 <AnimationWrapper entering={FadeIn} exiting={FadeOut} layout={LinearTransition}>
   <Text>Animated content</Text>
-</AnimationWrapper>
+</AnimationWrapper>;
 ```
 
 ## API Reference

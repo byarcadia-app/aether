@@ -50,7 +50,7 @@ import { {ComponentName} } from "@arcadia/aether";
 
 | Prop | Values | Default | Description |
 | ---- | ------ | ------- | ----------- |
-| ... | ... | ... | ... |
+| ...  | ...    | ...     | ...         |
 ```
 
 ---
@@ -100,11 +100,11 @@ import { {Component}, {SubComponent1}, {SubComponent2} } from "@arcadia/aether";
 
 | Prop | Values | Default | Description |
 | ---- | ------ | ------- | ----------- |
-| ... | ... | ... | ... |
+| ...  | ...    | ...     | ...         |
 
 ### {SubComponent1}
 
 | Prop | Values | Default | Description |
 | ---- | ------ | ------- | ----------- |
-| ... | ... | ... | ... |
+| ...  | ...    | ...     | ...         |
 ```

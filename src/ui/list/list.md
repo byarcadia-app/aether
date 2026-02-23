@@ -5,7 +5,16 @@ iOS Settings-style compound list component with sections, collapsible items, and
 ## Import
 
 ```tsx
-import { List, ListItem, ListItemContent, ListItemIcon, ListItemAccessory, ListItemChevron, ListItemCollapse, ListSectionHeader } from "@arcadia/aether";
+import {
+  List,
+  ListItem,
+  ListItemContent,
+  ListItemIcon,
+  ListItemAccessory,
+  ListItemChevron,
+  ListItemCollapse,
+  ListSectionHeader,
+} from "@arcadia/aether";
 ```
 
 ## Anatomy

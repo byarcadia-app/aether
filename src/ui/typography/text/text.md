@@ -32,8 +32,8 @@ import { Text } from "@arcadia/aether";
 
 ### Text
 
-| Prop | Values | Default | Description |
-| ---- | ------ | ------- | ----------- |
-| `variant` | `headline` \| `body` \| `callout` \| `subhead` \| `footnote` | `body` | |
-| `weight` | `regular` \| `medium` \| `semibold` \| `bold` | per iOS spec | |
-| `color` | base colors + `primary-foreground` \| `secondary-foreground` \| `success-foreground` \| `warning-foreground` \| `danger-foreground` \| `info-foreground` | `default` | |
+| Prop      | Values                                                                                                                                                   | Default      | Description |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----------- |
+| `variant` | `headline` \| `body` \| `callout` \| `subhead` \| `footnote`                                                                                             | `body`       |             |
+| `weight`  | `regular` \| `medium` \| `semibold` \| `bold`                                                                                                            | per iOS spec |             |
+| `color`   | base colors + `primary-foreground` \| `secondary-foreground` \| `success-foreground` \| `warning-foreground` \| `danger-foreground` \| `info-foreground` | `default`    |             |

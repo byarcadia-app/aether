@@ -31,10 +31,12 @@ import { VStack, HStack } from "@arcadia/aether";
 ### Polymorphic (as Pressable)
 
 ```tsx
-{/* Polymorphic — renders as Pressable */}
+{
+  /* Polymorphic — renders as Pressable */
+}
 <VStack as={Pressable} onPress={handlePress} className="gap-2">
   <Text>Clickable stack</Text>
-</VStack>
+</VStack>;
 ```
 
 ## API Reference

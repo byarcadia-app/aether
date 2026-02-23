@@ -31,13 +31,17 @@ import { Button, ButtonLabel } from "@arcadia/aether";
 ### Loading state
 
 ```tsx
-<Button variant="outline" isLoading={true} onPress={() => {}}>Loading...</Button>
+<Button variant="outline" isLoading={true} onPress={() => {}}>
+  Loading...
+</Button>
 ```
 
 ### Shimmer effect
 
 ```tsx
-<Button withShimmer={true} onPress={() => {}}>Shimmer</Button>
+<Button withShimmer={true} onPress={() => {}}>
+  Shimmer
+</Button>
 ```
 
 ### With ButtonLabel

@@ -27,8 +27,8 @@ import { Heading } from "@arcadia/aether";
 
 ### Heading
 
-| Prop | Values | Default | Description |
-| ---- | ------ | ------- | ----------- |
-| `variant` | `1` \| `2` \| `3` \| `4` | `1` | |
-| `weight` | `regular` \| `medium` \| `semibold` \| `bold` | per iOS spec | |
-| `color` | `default` \| `primary` \| `secondary` \| `muted` \| `success` \| `warning` \| `danger` \| `info` \| `inherit` | `default` | |
+| Prop      | Values                                                                                                        | Default      | Description |
+| --------- | ------------------------------------------------------------------------------------------------------------- | ------------ | ----------- |
+| `variant` | `1` \| `2` \| `3` \| `4`                                                                                      | `1`          |             |
+| `weight`  | `regular` \| `medium` \| `semibold` \| `bold`                                                                 | per iOS spec |             |
+| `color`   | `default` \| `primary` \| `secondary` \| `muted` \| `success` \| `warning` \| `danger` \| `info` \| `inherit` | `default`    |             |
