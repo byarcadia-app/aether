@@ -18,3 +18,32 @@ Available as Tailwind classes (e.g., `bg-primary`, `text-danger-foreground`, `bo
 | `tag-*`                                      | Tag colors: coral, amber, sky, lavender, slate, mint, stone |
 
 All colors are HSLA-based and support custom overrides via the `colorPalette` prop on `AetherProvider`.
+
+## Usage
+
+Use tokens as Tailwind classes with any utility prefix:
+
+```tsx
+// Backgrounds
+<View className="bg-primary" />
+<View className="bg-surface" />
+<View className="bg-muted" />
+
+// Text
+<Text className="text-foreground" />
+<Text className="text-primary-foreground" />
+<Text className="text-muted-foreground" />
+
+// Borders
+<View className="border border-border" />
+<View className="border border-primary" />
+
+// Combined
+<View className="bg-primary p-4">
+  <Text className="text-primary-foreground">Contrast text on brand color</Text>
+</View>
+
+<View className="bg-danger rounded-lg p-3">
+  <Text className="text-danger-foreground">Error message</Text>
+</View>
+```

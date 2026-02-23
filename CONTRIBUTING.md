@@ -163,26 +163,28 @@ Component.displayName = "Aether.{Category}.{Name}";
 4. Create `index.ts` — barrel export
 5. Re-export through parent `index.ts` barrels up to `src/index.ts`
 6. Add Storybook story in `example/src/stories/`
-7. Update `README.md` API reference section
+7. Create `{component-name}.md` in the component directory following `docs/_template.md`
+8. Add entry to `docs/components.md` index table
 
 ### Adding a New Hook
 
 1. Create `src/hooks/use-{name}.ts`
 2. Add JSDoc with at least one `@example` tag
 3. Export from `src/hooks/index.ts`
-4. Update `README.md` hooks section
+4. Update `docs/hooks.md`
 
 ### Documentation Sync
 
 Every public API must have JSDoc with `@example`. When changing the codebase:
 
-| Change             | Documentation Action                          |
-| ------------------ | --------------------------------------------- |
-| New component      | Add Storybook story in `example/src/stories/` |
-| New hook/utility   | Update README.md API reference                |
-| New color tokens   | Update JSDoc in `colors.ts` + README.md       |
-| Changed public API | Update README.md to reflect current exports   |
-| New provider prop  | Update README.md AetherProvider section        |
+| Change             | Documentation Action                                                                          |
+| ------------------ | --------------------------------------------------------------------------------------------- |
+| New component      | Create per-component `.md` following `docs/_template.md`, add to `docs/components.md`, add Storybook story |
+| New hook           | Update `docs/hooks.md`                                                                        |
+| New utility        | Update `docs/utilities.md`                                                                    |
+| New color tokens   | Update JSDoc in `colors.ts`, update `docs/colors.md`                                          |
+| Changed public API | Update relevant per-component `.md` file                                                      |
+| New provider prop  | Update `docs/provider.md`                                                                     |
 
 ### Theme Synchronization
 
@@ -263,7 +265,7 @@ The changeset file is committed with your PR and consumed during the release pro
 - [ ] Build succeeds with `pnpm build`
 - [ ] New/changed components have Storybook stories
 - [ ] New public APIs have JSDoc with `@example` tags
-- [ ] README.md updated if public API changed
+- [ ] Documentation updated (per-component `.md` or `docs/`)
 - [ ] Changeset added (if applicable)
 - [ ] PR is focused on a single change
 - [ ] Commit messages follow conventional commits

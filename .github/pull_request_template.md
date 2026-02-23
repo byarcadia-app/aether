@@ -32,7 +32,7 @@ Before submitting, please make sure:
 - [ ] `pnpm build` succeeds
 - [ ] Storybook story added/updated (if component change)
 - [ ] JSDoc with `@example` added (if new public API)
-- [ ] README.md updated (if public API changed)
+- [ ] Documentation updated (per-component `.md` or `docs/`)
 - [ ] Changeset added (`pnpm changeset`)
 
 ## Screenshots / Recordings
