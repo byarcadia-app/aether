@@ -7,7 +7,7 @@ import {
   CardImage,
   CardTitle,
   Text,
-} from "@byarcadia/aether";
+} from "@byarcadiaapp/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { View } from "react-native";
 

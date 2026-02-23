@@ -21,7 +21,7 @@ const { colorScheme, isDarkTheme, isLightTheme } = useColorScheme();
 Returns a React Navigation compatible theme object derived from Aether color tokens. Does not require `@react-navigation/native` as a dependency of this library.
 
 ```tsx
-import { useNavigationTheme } from "@byarcadia/aether";
+import { useNavigationTheme } from "@byarcadiaapp/aether";
 import { ThemeProvider } from "@react-navigation/native";
 
 const navigationTheme = useNavigationTheme();
@@ -39,7 +39,7 @@ const customTheme = useNavigationTheme({
 Resolves theme color CSS variables to their actual runtime values.
 
 ```tsx
-import { useThemeColor } from "@byarcadia/aether";
+import { useThemeColor } from "@byarcadiaapp/aether";
 
 const primary = useThemeColor("primary");
 // "hsla(245, 70%, 58%, 1)"

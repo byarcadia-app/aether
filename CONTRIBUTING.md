@@ -6,7 +6,7 @@ Contributions are always welcome, no matter how large or small!
 
 ### Important Guidelines
 
-@byarcadia/aether follows a design system rooted in iOS Human Interface Guidelines. To ensure consistency and quality:
+@byarcadiaapp/aether follows a design system rooted in iOS Human Interface Guidelines. To ensure consistency and quality:
 
 **Do NOT** without prior discussion:
 
@@ -235,7 +235,7 @@ pnpm changeset
 
 This will prompt you to:
 
-1. Select the package (`@byarcadia/aether`)
+1. Select the package (`@byarcadiaapp/aether`)
 2. Choose the semver bump type (`patch`, `minor`, `major`)
 3. Write a summary of the change
 

@@ -1,7 +1,7 @@
-import { HStack, VStack } from "@byarcadia/aether";
+import { HStack, VStack } from "@byarcadiaapp/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { Pressable, View } from "react-native";
-import { Text } from "@byarcadia/aether";
+import { Text } from "@byarcadiaapp/aether";
 
 const meta = {
   title: "Layout/VStack & HStack",

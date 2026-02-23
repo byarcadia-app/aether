@@ -13,7 +13,7 @@ import {
   CardBody,
   CardImage,
   CardFooter,
-} from "@byarcadia/aether";
+} from "@byarcadiaapp/aether";
 ```
 
 ## Anatomy
@@ -39,7 +39,7 @@ import {
   CardFooter,
   Button,
   Text,
-} from "@byarcadia/aether";
+} from "@byarcadiaapp/aether";
 
 <Card onPress={() => console.log("Card pressed")}>
   <CardImage aspectRatio="video">{/* Image component here */}</CardImage>

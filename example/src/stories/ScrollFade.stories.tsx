@@ -1,4 +1,4 @@
-import { ScrollFade, VStack, HStack } from "@byarcadia/aether";
+import { ScrollFade, VStack, HStack } from "@byarcadiaapp/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { View, ScrollView } from "react-native";
 

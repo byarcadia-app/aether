@@ -2,7 +2,7 @@
 module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{js,jsx,ts,tsx}", "../src/**/*.{js,jsx,ts,tsx}"],
-  presets: [require("nativewind/preset"), require("@byarcadia/aether/tailwind-preset").preset],
+  presets: [require("nativewind/preset"), require("@byarcadiaapp/aether/tailwind-preset").preset],
   theme: {
     extend: {},
   },

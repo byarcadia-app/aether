@@ -8,7 +8,7 @@ import {
   ListSectionHeader,
   Text,
   VStack,
-} from "@byarcadia/aether";
+} from "@byarcadiaapp/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { Switch, View } from "react-native";
 

@@ -1,6 +1,6 @@
-# @byarcadia/aether Documentation
+# @byarcadiaapp/aether Documentation
 
-Documentation for the @byarcadia/aether React Native component library. Each component has its own `.md` file co-located with its source code. Cross-cutting topics (installation, theming, hooks) live here in `docs/`.
+Documentation for the @byarcadiaapp/aether React Native component library. Each component has its own `.md` file co-located with its source code. Cross-cutting topics (installation, theming, hooks) live here in `docs/`.
 
 ## Guides
 

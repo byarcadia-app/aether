@@ -7,7 +7,7 @@ body:
       label: Preflight
       description: Please confirm before submitting.
       options:
-        - label: I'm using the latest version of `@byarcadia/aether`.
+        - label: I'm using the latest version of `@byarcadiaapp/aether`.
           required: true
         - label: I searched existing issues and found no duplicate.
           required: true
@@ -52,7 +52,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: "@byarcadia/aether version"
+      label: "@byarcadiaapp/aether version"
       placeholder: 0.0.1
     validations:
       required: true

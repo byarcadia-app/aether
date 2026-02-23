@@ -9,7 +9,7 @@ import type { AnimationWrapperProps } from "./types";
  *
  * @example
  * ```tsx
- * import { AnimationWrapper } from "@byarcadia/aether";
+ * import { AnimationWrapper } from "@byarcadiaapp/aether";
  * import { FadeIn, FadeOut, LinearTransition } from "react-native-reanimated";
  *
  * <AnimationWrapper entering={FadeIn} exiting={FadeOut} layout={LinearTransition}>

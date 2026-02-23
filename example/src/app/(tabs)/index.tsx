@@ -37,10 +37,10 @@ export default function HomeScreen() {
 
         <View className="mt-8 p-4 bg-surface rounded-xl border border-border">
           <Text className="text-sm font-interSemiBold text-surface-foreground mb-1">
-            @byarcadia/aether
+            @byarcadiaapp/aether
           </Text>
           <Text className="text-xs font-inter text-muted-foreground">
-            This app demonstrates @byarcadia/aether integration with Expo via pnpm workspace.
+            This app demonstrates @byarcadiaapp/aether integration with Expo via pnpm workspace.
           </Text>
         </View>
       </View>

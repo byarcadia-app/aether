@@ -37,7 +37,7 @@ export interface NavigationTheme {
  *
  * @example
  * ```tsx
- * import { useNavigationTheme } from "@byarcadia/aether";
+ * import { useNavigationTheme } from "@byarcadiaapp/aether";
  * import { ThemeProvider } from "@react-navigation/native";
  *
  * export default function RootLayout() {

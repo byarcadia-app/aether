@@ -1,4 +1,4 @@
-import { IconSymbol } from "@byarcadia/aether/icons";
+import { IconSymbol } from "@byarcadiaapp/aether/icons";
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { View } from "react-native";
 

@@ -5,7 +5,7 @@ Small text for metadata, timestamps, and badges. Sizes: md (12pt) and sm (11pt).
 ## Import
 
 ```tsx
-import { Caption } from "@byarcadia/aether";
+import { Caption } from "@byarcadiaapp/aether";
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ import { Caption } from "@byarcadia/aether";
 Use captions for metadata, timestamps, and supplementary information.
 
 ```tsx
-import { Caption } from "@byarcadia/aether";
+import { Caption } from "@byarcadiaapp/aether";
 
 <Caption color="muted">Posted 2 hours ago</Caption>
 <Caption variant="sm" color="success">Active</Caption>

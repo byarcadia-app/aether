@@ -5,15 +5,15 @@ Convenience wrapper around `Animated.View` for declarative enter/exit/layout ani
 ## Import
 
 ```tsx
-import { AnimationWrapper } from "@byarcadia/aether";
+import { AnimationWrapper } from "@byarcadiaapp/aether";
 ```
 
 ## Usage
 
 ```tsx
-import { AnimationWrapper } from "@byarcadia/aether";
+import { AnimationWrapper } from "@byarcadiaapp/aether";
 import { FadeIn, FadeOut, LinearTransition } from "react-native-reanimated";
-import { Text } from "@byarcadia/aether";
+import { Text } from "@byarcadiaapp/aether";
 
 <AnimationWrapper entering={FadeIn} exiting={FadeOut} layout={LinearTransition}>
   <Text>Animated content</Text>

@@ -1,4 +1,4 @@
-import { HighlightTappable, HStack, Text, VStack } from "@byarcadia/aether";
+import { HighlightTappable, HStack, Text, VStack } from "@byarcadiaapp/aether";
 import type { Meta, StoryObj } from "@storybook/react-native";
 
 const meta = {
