@@ -208,14 +208,15 @@ pnpm example:ios    # Run example on iOS simulator
 6. Set `displayName` as `Aether.{Category}.{Name}`
 7. Re-export through parent `index.ts` barrel files up to `src/index.ts`
 8. Add Storybook story in `example/src/stories/`
-9. Update README.md API reference section
+9. Create `{component-name}.md` in the component directory following `docs/_template.md`
+10. Add entry to `docs/components.md` index table
 
 ## Adding New Hooks
 
 1. Create `src/hooks/use-{name}.ts`
 2. Export from `src/hooks/index.ts`
 3. Add JSDoc with `@example` tag
-4. Update README.md hooks section
+4. Update `docs/hooks.md`
 
 ## Documentation Requirements
 
@@ -223,15 +224,16 @@ pnpm example:ios    # Run example on iOS simulator
 
 When changing the codebase, keep documentation in sync:
 
-| Change              | Documentation Action                                             |
-| ------------------- | ---------------------------------------------------------------- |
-| New component       | Add Storybook story in `example/src/stories/`                    |
-| New hook or utility | Update README.md API reference                                   |
-| New color tokens    | Update JSDoc header in `colors.ts`, update README.md color table |
-| Changed public API  | Update README.md to reflect current exports                      |
-| New provider prop   | Update README.md AetherProvider section                          |
+| Change              | Documentation Action                                                                          |
+| ------------------- | --------------------------------------------------------------------------------------------- |
+| New component       | Create per-component `.md` following `docs/_template.md`, add to `docs/components.md`, add Storybook story |
+| New hook            | Update `docs/hooks.md`                                                                        |
+| New utility         | Update `docs/utilities.md`                                                                    |
+| New color tokens    | Update JSDoc header in `colors.ts`, update `docs/colors.md`                                   |
+| Changed public API  | Update relevant per-component `.md` file                                                      |
+| New provider prop   | Update `docs/provider.md`                                                                     |
 
-The `README.md` is the single source of truth for consumers. If you add something to `src/index.ts`, it must appear in the README.
+The `docs/` directory and per-component `.md` files are the source of truth for consumers. If you add something to `src/index.ts`, it must appear in the relevant documentation file.
 
 ## Testing
 
