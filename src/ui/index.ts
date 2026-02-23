@@ -1,6 +1,7 @@
 export * from "./animation-wrapper";
 export * from "./buttons";
 export * from "./card";
+export * from "./forms";
 export * from "./layout";
 export * from "./list";
 export * from "./scroll-fade";

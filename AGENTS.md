@@ -45,6 +45,14 @@ src/
 │   │   └── highlight-tappable/  # HighlightTappable
 │   ├── card/
 │   │   └── card.tsx            # Card, CardHeader, CardTitle, CardDescription, CardBody, CardImage, CardFooter
+│   ├── forms/
+│   │   ├── error-view/
+│   │   │   ├── error-view.tsx  # ErrorView (conditional error message)
+│   │   │   └── types.ts        # ErrorViewProps
+│   │   └── text-field/
+│   │       ├── text-field.tsx   # TextField compound component (7 sub-components)
+│   │       ├── styles.ts       # tv() slot-based variants
+│   │       └── types.ts        # All TextField type definitions
 │   ├── surface/
 │   │   ├── surface.tsx         # Surface (solid, glass, fog variants)
 │   │   ├── styles.ts           # Platform-specific shadow styles
@@ -80,6 +88,7 @@ src/
     ├── children-type-guards.ts # isTextContent(), isRenderFunction() type guards
     ├── class-names.ts          # cn() and cnx() utilities
     ├── color.ts                # HSLA parsing, conversion, manipulation
+    ├── get-element.ts          # getElementByDisplayName() compound component utility
     └── haptics.ts              # HapticFeedbackStyle type, hapticsImpact() utility
 ```
 
@@ -224,14 +233,14 @@ pnpm example:ios    # Run example on iOS simulator
 
 When changing the codebase, keep documentation in sync:
 
-| Change              | Documentation Action                                                                          |
-| ------------------- | --------------------------------------------------------------------------------------------- |
-| New component       | Create per-component `.md` following `docs/_template.md`, add to `docs/components.md`, add Storybook story |
-| New hook            | Update `docs/hooks.md`                                                                        |
-| New utility         | Update `docs/utilities.md`                                                                    |
-| New color tokens    | Update JSDoc header in `colors.ts`, update `docs/colors.md`                                   |
-| Changed public API  | Update relevant per-component `.md` file                                                      |
-| New provider prop   | Update `docs/provider.md`                                                                     |
+| Change             | Documentation Action                                                                                       |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| New component      | Create per-component `.md` following `docs/_template.md`, add to `docs/components.md`, add Storybook story |
+| New hook           | Update `docs/hooks.md`                                                                                     |
+| New utility        | Update `docs/utilities.md`                                                                                 |
+| New color tokens   | Update JSDoc header in `colors.ts`, update `docs/colors.md`                                                |
+| Changed public API | Update relevant per-component `.md` file                                                                   |
+| New provider prop  | Update `docs/provider.md`                                                                                  |
 
 The `docs/` directory and per-component `.md` files are the source of truth for consumers. If you add something to `src/index.ts`, it must appear in the relevant documentation file.
 

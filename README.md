@@ -10,21 +10,22 @@ Named after the Greek primordial deity of light and the pure upper air that gods
 
 ## What it does
 
-- **Tailwind Preset** — HSLA color token system (25+ semantic tokens) with light and dark themes
-- **Theme Providers** — automatic dark mode via NativeWind CSS variables (`vars()` API)
-- **Typography** — Heading, Text, Caption components following iOS HIG sizing
-- **Layout** — VStack, HStack polymorphic flexbox primitives
-- **Icons** — IconSymbol with SF Symbols (iOS), theme color integration, separate entrypoint
-- **Buttons** — Button (5 variants, shimmer, loading), GlassButton (iOS 26+ Liquid Glass), HighlightTappable
-- **Surface** — Layered backgrounds with visual hierarchy (solid, glass, fog variants)
-- **Card** — Compound card component (header, body, footer, image) with optional pressable
-- **List** — Compound list component (items, sections, collapsible, accessories, chevron) following iOS Settings patterns
-- **Skeleton** — Pulsing loading placeholder with theme-aware colors
-- **ScrollFade** — Gradient fade overlay for scroll container edges
-- **AnimationWrapper** — Declarative enter/exit/layout animation wrapper
-- **React Navigation** — theme integration hook
-- **Inter Font** — built-in font loading for the Inter family
-- **Utilities** — class-name merging (`cn`, `cnx`) and HSLA color manipulation
+ **[Tailwind Preset](docs/colors.md)** — HSLA color token system (25+ semantic tokens) with light and dark themes
+ **[Theme Providers](docs/provider.md)** — automatic dark mode via NativeWind CSS variables (`vars()` API)
+ **Typography** — [Heading](src/ui/typography/heading/heading.md), [Text](src/ui/typography/text/text.md), [Caption](src/ui/typography/caption/caption.md) components following iOS HIG sizing
+ **[Layout](src/ui/layout/layout.md)** — VStack, HStack polymorphic flexbox primitives
+ **[Icons](src/ui/icons/icon-symbol.md)** — IconSymbol with SF Symbols (iOS), theme color integration, separate entrypoint
+ **Buttons** — [Button](src/ui/buttons/button/button.md) (5 variants, shimmer, loading), [GlassButton](src/ui/buttons/glass-button/glass-button.md) (iOS 26+ Liquid Glass), [HighlightTappable](src/ui/buttons/highlight-tappable/highlight-tappable.md)
+ **[Surface](src/ui/surface/surface.md)** — Layered backgrounds with visual hierarchy (solid, glass, fog variants)
+ **[Card](src/ui/card/card.md)** — Compound card component (header, body, footer, image) with optional pressable
+ **Forms** — [TextField](src/ui/forms/text-field/text-field.md) compound input (label, validation, clearable, multiline, animated focus) and [ErrorView](src/ui/forms/error-view/error-view.md)
+ **[List](src/ui/list/list.md)** — Compound list component (items, sections, collapsible, accessories, chevron) following iOS Settings patterns
+ **[Skeleton](src/ui/skeleton/skeleton.md)** — Pulsing loading placeholder with theme-aware colors
+ **[ScrollFade](src/ui/scroll-fade/scroll-fade.md)** — Gradient fade overlay for scroll container edges
+ **[AnimationWrapper](src/ui/animation-wrapper/animation-wrapper.md)** — Declarative enter/exit/layout animation wrapper
+ **[React Navigation](docs/hooks.md)** — theme integration hook
+ **[Inter Font](docs/hooks.md)** — built-in font loading for the Inter family
+ **[Utilities](docs/utilities.md)** — class-name merging (`cn`, `cnx`), HSLA color manipulation, compound component child extraction
 
 ## Inspiration
 
