@@ -1,6 +1,6 @@
 # AetherProvider
 
-Root provider. Composes ThemeProvider (CSS variable injection) and TextComponentProvider (global text config).
+Root provider. Composes ThemeProvider (CSS variable injection), AnimationProvider (global animation control), and TextComponentProvider (global text config).
 
 ## Usage
 
@@ -22,3 +22,4 @@ Root provider. Composes ThemeProvider (CSS variable injection) and TextComponent
 | -------------- | -------------------- | ---------------------------------- |
 | `textConfig`   | `TextProviderProps`  | Global text accessibility settings |
 | `colorPalette` | `ColorPaletteConfig` | Light/dark color overrides         |
+| `disableAnimations` | `boolean | undefined` | Disables all animations globally. Also respects iOS Reduce Motion. |

@@ -47,3 +47,14 @@ const primary = useThemeColor("primary");
 const primaryRgb = useThemeColor("primary", { format: "rgb" });
 // "rgba(98, 71, 198, 1)"
 ```
+
+### useAnimationDisabled
+
+Returns `true` when animations should be disabled — either because `disableAnimations` was passed to `AetherProvider`, or because the device has iOS Reduce Motion enabled.
+
+```tsx
+import { useAnimationDisabled } from "@byarcadia-app/aether";
+
+const isAnimationDisabled = useAnimationDisabled();
+// true when animations should be skipped
+```
