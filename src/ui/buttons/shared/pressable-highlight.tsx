@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 import type { SharedValue } from "react-native-reanimated";
-import Animated, { Easing, useAnimatedStyle, withTiming } from "react-native-reanimated";
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import type { ThemeColor } from "../../../theme/colors";
-import { useThemeColor } from "../../../hooks";
+import { useThemeColor, useAnimationDisabled } from "../../../hooks";
 
 /**
  * Default animation duration in milliseconds.
@@ -78,10 +78,23 @@ export function PressableHighlight({
   isDisabled = false,
 }: PressableHighlightProps) {
   const color = useThemeColor(colorKey);
+  const isAnimationDisabled = useAnimationDisabled();
+  
+  // Bridge to worklet-readable value
+  const animDisabledRef = useSharedValue(isAnimationDisabled);
+  animDisabledRef.value = isAnimationDisabled; // sync on each render
 
   const animatedStyle = useAnimatedStyle(() => {
     if (isDisabled) {
       return { opacity: 0 };
+    }
+    
+    if (animDisabledRef.value) {
+      // Instant opacity — no withTiming, but highlight still appears on press
+      return {
+        backgroundColor: color,
+        opacity: isPressed.value ? opacity : 0,
+      };
     }
 
     return {

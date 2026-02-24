@@ -6,7 +6,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import { useThemeColor } from "../../hooks";
+import { useThemeColor, useAnimationDisabled } from "../../hooks";
 import { cnx } from "../../utils";
 import type { SkeletonProps } from "./types";
 
@@ -36,9 +36,14 @@ const ANIMATION_DURATION = 750;
  */
 export function Skeleton({ backgroundColor, className, ...props }: SkeletonProps) {
   const surfaceColor = useThemeColor("surface");
+  const isAnimationDisabled = useAnimationDisabled();
   const opacity = useSharedValue(1);
 
   useEffect(() => {
+    if (isAnimationDisabled) {
+      opacity.value = 1;
+      return;
+    }
     opacity.value = withRepeat(
       withSequence(
         withTiming(0.5, { duration: ANIMATION_DURATION }),
@@ -46,7 +51,7 @@ export function Skeleton({ backgroundColor, className, ...props }: SkeletonProps
       ),
       -1,
     );
-  }, [opacity]);
+  }, [opacity, isAnimationDisabled]);
 
   const animatedStyle = useAnimatedStyle(() => ({
     opacity: opacity.value,

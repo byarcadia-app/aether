@@ -1,5 +1,6 @@
-import Animated, { Easing, useAnimatedStyle, withTiming } from "react-native-reanimated";
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import { cnx } from "../../utils";
+import { useAnimationDisabled } from "../../hooks";
 import { IconSymbol } from "../icons";
 import { LIST_ANIMATION, LIST_DISPLAY_NAMES } from "./constants";
 import { useListItemContext } from "./context";
@@ -32,17 +33,34 @@ export function ListItemChevron({
   className,
 }: ListItemChevronProps) {
   const { isExpanded } = useListItemContext();
+  const isAnimationDisabled = useAnimationDisabled();
+  const animDisabledRef = useSharedValue(isAnimationDisabled);
+  animDisabledRef.value = isAnimationDisabled;
 
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [
-      {
-        rotate: withTiming(isExpanded ? "90deg" : "0deg", {
-          duration,
-          easing: ANIMATION_EASING,
-        }),
-      },
-    ],
-  }));
+  const animatedStyle = useAnimatedStyle(() => {
+    const targetRotation = isExpanded ? "90deg" : "0deg";
+
+    if (animDisabledRef.value) {
+      return {
+        transform: [
+          {
+            rotate: targetRotation,
+          },
+        ],
+      };
+    }
+
+    return {
+      transform: [
+        {
+          rotate: withTiming(targetRotation, {
+            duration,
+            easing: ANIMATION_EASING,
+          }),
+        },
+      ],
+    };
+  });
 
   return (
     <Animated.View style={animatedStyle} className={cnx("ml-auto", className)}>

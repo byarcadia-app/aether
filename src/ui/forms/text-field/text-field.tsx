@@ -11,7 +11,7 @@ import { Caption } from "../../typography/caption";
 import { IconSymbol } from "../../icons";
 import { Text } from "../../typography/text";
 import { VStack } from "../../layout";
-import { useThemeColor } from "../../../hooks";
+import { useThemeColor, useAnimationDisabled } from "../../../hooks";
 import { cnx, getElementByDisplayName } from "../../../utils";
 import { ErrorView } from "../error-view";
 import { textFieldStyles } from "./styles";
@@ -155,6 +155,7 @@ export function TextFieldInput({
   // Focus state
   const [isFocused, setIsFocused] = useState(false);
   const isFocusedShared = useSharedValue(0);
+  const isAnimationDisabled = useAnimationDisabled();
   const inputRef = useRef<RNTextInput>(null);
 
   // Theme colors for animation
@@ -187,13 +188,21 @@ export function TextFieldInput({
 
   const handleFocus: TextFieldInputProps["onFocus"] = (e) => {
     setIsFocused(true);
-    isFocusedShared.set(withTiming(1, TIMING_CONFIG));
+    if (isAnimationDisabled) {
+      isFocusedShared.set(1);
+    } else {
+      isFocusedShared.set(withTiming(1, TIMING_CONFIG));
+    }
     onFocus?.(e);
   };
 
   const handleBlur: TextFieldInputProps["onBlur"] = (e) => {
     setIsFocused(false);
-    isFocusedShared.set(withTiming(0, TIMING_CONFIG));
+    if (isAnimationDisabled) {
+      isFocusedShared.set(0);
+    } else {
+      isFocusedShared.set(withTiming(0, TIMING_CONFIG));
+    }
     onBlur?.(e);
   };
 

@@ -7,6 +7,7 @@ import {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
+import { useAnimationDisabled } from "../../../hooks";
 
 // ============================================================================
 // Types
@@ -126,12 +127,17 @@ export function usePressableAnimation(
   const scaleValue = config?.scaleValue ?? SCALE_VALUE;
   const isDisabled = config?.isDisabled ?? false;
   const disableScale = config?.disableScale ?? false;
+  const isAnimationDisabled = useAnimationDisabled();
+
+  // Bridge animation-disabled state to worklet-readable shared value
+  const animDisabledRef = useSharedValue(isAnimationDisabled);
+  animDisabledRef.value = isAnimationDisabled;
 
   const scale = useSharedValue(0);
   const isPressed = useSharedValue(0);
 
   const animatedStyle = useAnimatedStyle(() => {
-    if (isDisabled || disableScale) {
+    if (isDisabled || disableScale || animDisabledRef.value) {
       return { transform: [{ scale: 1 }] };
     }
 
@@ -147,7 +153,11 @@ export function usePressableAnimation(
   const handlePressIn = (event: GestureResponderEvent) => {
     if (!isDisabled) {
       isPressed.value = 1;
-      scale.value = withTiming(1, { duration, easing: ANIMATION_EASING });
+      if (!isAnimationDisabled) {
+        scale.value = withTiming(1, { duration, easing: ANIMATION_EASING });
+      } else {
+        scale.value = 1;
+      }
     }
     onPressIn?.(event);
   };
@@ -155,7 +165,11 @@ export function usePressableAnimation(
   const handlePressOut = (event: GestureResponderEvent) => {
     if (!isDisabled) {
       isPressed.value = 0;
-      scale.value = withTiming(0, { duration, easing: ANIMATION_EASING });
+      if (!isAnimationDisabled) {
+        scale.value = withTiming(0, { duration, easing: ANIMATION_EASING });
+      } else {
+        scale.value = 0;
+      }
     }
     onPressOut?.(event);
   };

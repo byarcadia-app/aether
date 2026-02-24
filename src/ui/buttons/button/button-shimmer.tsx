@@ -10,7 +10,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import { useThemeColor } from "../../../hooks";
+import { useAnimationDisabled, useThemeColor } from "../../../hooks";
 import { SHIMMER_COLOR_MAP } from "./constants";
 import type { ButtonVariant } from "./types";
 
@@ -24,6 +24,7 @@ export interface ButtonShimmerProps {
 }
 
 export const ButtonShimmer: FC<ButtonShimmerProps> = ({ containerWidth, variant }) => {
+  const isAnimationDisabled = useAnimationDisabled();
   const shimmerWidth = useSharedValue(0);
   const shimmerColor = useThemeColor(SHIMMER_COLOR_MAP[variant]);
 
@@ -54,6 +55,8 @@ export const ButtonShimmer: FC<ButtonShimmerProps> = ({ containerWidth, variant 
       ],
     };
   });
+
+  if (isAnimationDisabled) return null;
 
   return (
     <Animated.View

@@ -9,6 +9,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { cnx } from "../../utils";
+import { useAnimationDisabled } from "../../hooks";
 import { LIST_ANIMATION, LIST_DISPLAY_NAMES } from "./constants";
 import { useListItemContext } from "./context";
 import type { ListItemCollapseProps } from "./types";
@@ -45,6 +46,7 @@ export function ListItemCollapse({
   ...viewProps
 }: ListItemCollapseProps) {
   const { isExpanded } = useListItemContext();
+  const isAnimationDisabled = useAnimationDisabled();
 
   // Measured content height for smooth animation
   const contentHeight = useSharedValue(0);
@@ -54,11 +56,15 @@ export function ListItemCollapse({
 
   // Animate progress when expanded state changes
   React.useEffect(() => {
-    animationProgress.value = withTiming(isExpanded ? 1 : 0, {
-      duration,
-      easing: ANIMATION_EASING,
-    });
-  }, [isExpanded, animationProgress, duration]);
+    if (isAnimationDisabled) {
+      animationProgress.value = isExpanded ? 1 : 0;
+    } else {
+      animationProgress.value = withTiming(isExpanded ? 1 : 0, {
+        duration,
+        easing: ANIMATION_EASING,
+      });
+    }
+  }, [isExpanded, animationProgress, duration, isAnimationDisabled]);
 
   // Measure content height on layout
   const handleLayout = (event: LayoutChangeEvent) => {
