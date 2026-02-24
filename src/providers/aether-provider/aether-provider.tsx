@@ -2,8 +2,10 @@ import type React from "react";
 
 import type { TextProviderProps } from "../text-provider";
 import { TextComponentProvider } from "../text-provider";
+import { AnimationProvider } from "../animation-provider";
 import { ThemeProvider } from "../theme-provider";
 import { ColorPaletteConfig } from "../../theme/colors";
+
 
 export interface AetherProviderProps {
   children: React.ReactNode;
@@ -44,6 +46,22 @@ export interface AetherProviderProps {
    * ```
    */
   colorPalette?: ColorPaletteConfig;
+  /**
+   * Disable all animations globally.
+   *
+   * When true, all built-in component animations are skipped.
+   * Also automatically disabled when iOS "Reduce Motion" accessibility setting is enabled.
+   *
+   * @default false
+   *
+   * @example
+   * ```tsx
+   * <AetherProvider disableAnimations={true}>
+   *   <App />
+   * </AetherProvider>
+   * ```
+   */
+  disableAnimations?: boolean;
 }
 
 /**
@@ -65,10 +83,12 @@ export interface AetherProviderProps {
  * }
  * ```
  */
-export const AetherProvider = ({ children, textConfig, colorPalette }: AetherProviderProps) => {
+export const AetherProvider = ({ children, textConfig, colorPalette, disableAnimations }: AetherProviderProps) => {
   return (
     <ThemeProvider colorPalette={colorPalette}>
-      <TextComponentProvider value={textConfig}>{children}</TextComponentProvider>
+      <AnimationProvider disableAnimations={disableAnimations}>
+        <TextComponentProvider value={textConfig}>{children}</TextComponentProvider>
+      </AnimationProvider>
     </ThemeProvider>
   );
 };
