@@ -11,7 +11,7 @@ Named after the Greek primordial deity of light and the pure upper air that gods
 ## What it does
 
  - **[Tailwind Preset](docs/colors.md)** — HSLA color token system (25+ semantic tokens) with light and dark themes
- - **[Theme Providers](docs/provider.md)** — automatic dark mode via NativeWind CSS variables (`vars()` API)
+ - **[Theme Providers](docs/provider.md)** — automatic dark mode via NativeWind CSS variables (`vars()` API), global animation control with iOS Reduce Motion support
  - **Typography** — [Heading](src/ui/typography/heading/heading.md), [Text](src/ui/typography/text/text.md), [Caption](src/ui/typography/caption/caption.md) components following iOS HIG sizing
  - **[Layout](src/ui/layout/layout.md)** — VStack, HStack polymorphic flexbox primitives
  - **[Icons](src/ui/icons/icon-symbol.md)** — IconSymbol with SF Symbols (iOS), theme color integration, separate entrypoint

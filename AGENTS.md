@@ -24,11 +24,13 @@ src/
 │   ├── use-color-scheme.ts     # NativeWind color scheme wrapper
 │   ├── use-inter-fonts.ts      # Font loading hook
 │   ├── use-navigation-theme.ts # React Navigation theme integration
-│   └── use-theme-color.ts      # CSS variable color resolver
+│   ├── use-theme-color.ts      # CSS variable color resolver
+│   └── use-animation-disabled.ts # Global animation-disabled hook
 ├── providers/
-│   ├── aether-provider/        # Root provider (composes Theme + Text)
+│   ├── aether-provider/        # Root provider (composes Theme + Animation + Text)
 │   ├── text-provider/          # Global text props (font scaling)
-│   └── theme-provider/         # NativeWind CSS variable injection
+│   ├── theme-provider/         # NativeWind CSS variable injection
+│   └── animation-provider/     # Global animation control (Reduce Motion + explicit disable)
 ├── tailwind/
 │   └── preset.ts               # Tailwind preset (colors, fonts)
 ├── theme/
