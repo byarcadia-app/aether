@@ -1,5 +1,11 @@
 # @byarcadia-app/aether
 
+## 0.1.1
+
+### Patch Changes
+
+- [`4a5cdb0`](https://github.com/byarcadia-app/aether/commit/4a5cdb0a9e3781a0a63e1865e36440545f73d866) Thanks [@dominikwozniak](https://github.com/dominikwozniak)! - Add `AnimationProvider` with global animation control. All built-in animations respect `disableAnimations` prop on AetherProvider and iOS Reduce Motion setting. New `useAnimationDisabled` hook for custom components.
+
 ## 0.1.0
 
 ### Minor Changes
