@@ -20,7 +20,7 @@ npm install @byarcadia-app/aether @expo-google-fonts/inter
 ### 3. Install required peer dependencies
 
 ```bash
-npm install @callstack/liquid-glass expo-haptics
+npm install @callstack/liquid-glass expo-haptics expo-linear-gradient
 ```
 
 ### 4. Configure Tailwind (tailwind.config.js)
