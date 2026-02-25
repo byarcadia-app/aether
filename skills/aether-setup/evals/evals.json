@@ -1,0 +1,23 @@
+{
+  "skill_name": "aether-setup",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just created a new Expo app with `npx create-expo-app@latest myapp`. I want to add aether-ui for my iOS app's UI components. Can you set everything up?",
+      "expected_output": "Complete NativeWind + aether setup with all 9 steps, AetherProvider wiring, font loading",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I have an existing Expo project with React Navigation already configured. I need to add @byarcadia-app/aether as the component library and make sure the theme integrates with my navigation. The project uses TypeScript.",
+      "expected_output": "Setup steps adapted for existing project, useNavigationTheme integration, TypeScript nativewind-env.d.ts",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "set up nativewind with the aether preset in my expo project, i already have tailwind installed but haven't configured metro or babel for nativewind yet",
+      "expected_output": "Focused on NativeWind config steps (metro, babel, global.css) plus aether preset addition to existing tailwind.config.js",
+      "files": []
+    }
+  ]
+}

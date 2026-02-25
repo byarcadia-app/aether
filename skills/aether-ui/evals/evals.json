@@ -1,0 +1,23 @@
+{
+  "skill_name": "aether-ui",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm building a settings screen for my iOS app using aether-ui. I need a scrollable list with section headers, tappable items that navigate to sub-screens (with chevrons), and a collapsible 'Advanced' section. The screen should have a heading at the top and use the surface background.",
+      "expected_output": "Settings screen using List compound component with SectionHeader, ListItem with chevron accessory, ListItemCollapse for Advanced section, Heading component, Surface with appropriate variant",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create a login form using @byarcadia-app/aether components. I need email and password TextFields with validation error messages, a primary 'Sign In' button with loading state and shimmer, and a ghost 'Forgot Password' button below. Use the Card component as the form container.",
+      "expected_output": "Login form using Card compound component, TextField with Label/Input/Error sub-components, Button with variant='primary' and loading/shimmer props, ghost variant for secondary action",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I have an existing expo app with aether-ui. i need to add a product card component that shows an image, title, price, and an 'Add to Cart' button. use the Card compound component and make the whole card pressable with haptic feedback. also need a skeleton loading state for when data is fetching",
+      "expected_output": "Product card using Card with Image, pressable prop, haptic feedback, Button for cart action, Skeleton components for loading state matching card dimensions",
+      "files": []
+    }
+  ]
+}
