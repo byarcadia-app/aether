@@ -45,6 +45,13 @@ This project draws heavily from:
 - [Utilities](docs/utilities.md)
 - [Color Tokens](docs/colors.md)
 
+## AI Tools
+
+This library ships with built-in AI agent support:
+
+- **[Claude Code Skills](https://skills.sh)** — `aether-ui` (component API reference) and `aether-setup` (installation guide). Install via [skills.sh](https://skills.sh) or add `skills/` to your project.
+- **[Context7](https://context7.com)** — AI agents can query up-to-date docs and usage patterns via `context7.json`. Use `use context7` in your prompt to activate.
+
 ## Example App
 
 A complete working integration lives in `example/`. It demonstrates provider setup, Storybook integration, and all component variants.
