@@ -1,0 +1,24 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "@byarcadia-app/aether",
+  "description": "iOS-first React Native UI component library with Tailwind CSS / NativeWind preset and theming for Expo",
+  "folders": ["src", "docs", "skills/aether-ui", "skills/aether-setup"],
+  "excludeFolders": ["dist", "node_modules", "example", ".github", ".changeset", ".sisyphus", ".agents", "evals"],
+  "excludeFiles": ["pnpm-lock.yaml", "skills-lock.json", "nativewind-env.d.ts"],
+  "rules": [
+    "iOS only — do not add Android or web platform checks",
+    "Use NativeWind className for styling, never StyleSheet.create",
+    "Import components as flat named exports: import { Card, CardHeader } from '@byarcadia-app/aether'",
+    "Icons use a separate entrypoint: import { IconSymbol } from '@byarcadia-app/aether/icons'",
+    "Tailwind preset uses a separate entrypoint: import { preset } from '@byarcadia-app/aether/tailwind-preset'",
+    "Wrap app root with AetherProvider for theming, animations, and text config",
+    "Use semantic color tokens (bg-primary, text-foreground) not raw color values",
+    "Use cnx() for className merging when accepting className from props, cn() for simple concatenation",
+    "All components use tailwind-variants (tv()) for styling — variant constants are exported",
+    "Compound components (Card, TextField, List) require sub-components nested inside their parent",
+    "Button accepts render function children for context-aware content: {(ctx) => ctx.isLoading ? '...' : 'Go'}",
+    "Animations use react-native-reanimated — check useAnimationDisabled() to respect accessibility",
+    "Use useThemeColor() for resolved color values; useNavigationTheme() for React Navigation theming",
+    "HStack and VStack accept a polymorphic as prop to render as any component"
+  ]
+}
