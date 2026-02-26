@@ -2,7 +2,7 @@
 
 > **Alpha** — This library is in early development. APIs will change. Use at your own risk.
 
-iOS-first React Native component library built as a [Tailwind CSS](https://tailwindcss.com/) / [NativeWind](https://www.nativewind.dev/) preset for [Expo](https://expo.dev/).
+iOS-first React Native component library for [Expo](https://expo.dev/) — powered by a built-in [Tailwind CSS](https://tailwindcss.com/) / [NativeWind](https://www.nativewind.dev/) preset.
 
 Named after the Greek primordial deity of light and the pure upper air that gods breathe — Aether sits between your app and the design layer, providing the atmosphere for your UI.
 

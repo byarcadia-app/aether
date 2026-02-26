@@ -8,19 +8,19 @@ For the full NativeWind setup reference, see the [official installation guide](h
 
 ```bash
 npx expo install nativewind react-native-reanimated react-native-safe-area-context
-npm install --save-dev tailwindcss@^3.4.17
+pnpm add -D tailwindcss@^3.4.17
 ```
 
 ### 2. Install @byarcadia-app/aether
 
 ```bash
-npm install @byarcadia-app/aether @expo-google-fonts/inter
+pnpm add @byarcadia-app/aether @expo-google-fonts/inter
 ```
 
 ### 3. Install required peer dependencies
 
 ```bash
-npm install @callstack/liquid-glass expo-haptics expo-linear-gradient
+pnpm add @callstack/liquid-glass expo-haptics expo-linear-gradient
 ```
 
 ### 4. Configure Tailwind (tailwind.config.js)
