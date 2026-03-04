@@ -1,5 +1,11 @@
 # @byarcadia-app/aether
 
+## 0.1.2
+
+### Patch Changes
+
+- [`195d540`](https://github.com/byarcadia-app/aether/commit/195d5407ed381b306a39f3cdbf8ed794166a39d6) Thanks [@dominikwozniak](https://github.com/dominikwozniak)! - fix bg color for outline button
+
 ## 0.1.1
 
 ### Patch Changes
