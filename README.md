@@ -1,8 +1,16 @@
-# @byarcadia-app/aether 🌬️
+<p align="center">
+  <img src=".github/assets/banner.png" alt="Aether" />
+</p>
 
-> **Alpha** — This library is in early development. APIs will change. Use at your own risk.
+<h1 align="center">@byarcadia-app/aether 🌬️</h1>
 
-iOS-first React Native component library for [Expo](https://expo.dev/) — powered by a built-in [Tailwind CSS](https://tailwindcss.com/) / [NativeWind](https://www.nativewind.dev/) preset.
+<p align="center">
+  <a href="https://www.npmjs.com/package/@byarcadia-app/aether"><img src="https://img.shields.io/npm/v/@byarcadia-app/aether?style=flat" alt="npm version" /></a>&nbsp;<a href="https://github.com/ArcadiaApp/aether-ui/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@byarcadia-app/aether?style=flat" alt="License" /></a>&nbsp;<img src="https://img.shields.io/badge/platform-iOS-black?style=flat" alt="iOS only" />&nbsp;<img src="https://img.shields.io/badge/status-alpha-orange?style=flat" alt="Alpha" />
+</p>
+
+<p align="center">
+  iOS-first React Native component library for <a href="https://expo.dev/">Expo</a> — powered by a built-in <a href="https://tailwindcss.com/">Tailwind CSS</a> / <a href="https://www.nativewind.dev/">NativeWind</a> preset.
+</p>
 
 Named after the Greek primordial deity of light and the pure upper air that gods breathe — Aether sits between your app and the design layer, providing the atmosphere for your UI.
 
