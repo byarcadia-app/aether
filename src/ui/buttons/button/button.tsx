@@ -24,7 +24,7 @@ export const buttonVariants = tv({
     variant: {
       primary: "bg-primary",
       secondary: "bg-secondary border border-border",
-      outline: "bg-surface/90 border border-border",
+      outline: "bg-surface border border-border",
       ghost: "bg-transparent",
       destructive: "bg-danger",
     },
