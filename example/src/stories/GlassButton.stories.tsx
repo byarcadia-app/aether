@@ -42,6 +42,68 @@ export const Sizes: Story = {
   },
 };
 
+export const Variants: Story = {
+  render() {
+    return (
+      <View className="gap-3 p-4 items-center">
+        <HStack className="gap-3">
+          <GlassButton size="fab" accessibilityLabel="Default" onPress={() => {}}>
+            ○
+          </GlassButton>
+          <GlassButton size="fab" variant="primary" accessibilityLabel="Primary" onPress={() => {}}>
+            ★
+          </GlassButton>
+          <GlassButton
+            size="fab"
+            variant="secondary"
+            accessibilityLabel="Secondary"
+            onPress={() => {}}
+          >
+            ◆
+          </GlassButton>
+        </HStack>
+      </View>
+    );
+  },
+};
+
+export const VariantsFallback: Story = {
+  render() {
+    return (
+      <View className="gap-3 p-4 items-center">
+        <HStack className="gap-3">
+          <GlassButton
+            size="fab"
+            useLiquidGlass={false}
+            accessibilityLabel="Default"
+            onPress={() => {}}
+          >
+            ○
+          </GlassButton>
+          <GlassButton
+            size="fab"
+            variant="primary"
+            useLiquidGlass={false}
+            accessibilityLabel="Primary"
+            onPress={() => {}}
+          >
+            ★
+          </GlassButton>
+          <GlassButton
+            size="fab"
+            variant="secondary"
+            useLiquidGlass={false}
+            accessibilityLabel="Secondary"
+            onPress={() => {}}
+          >
+            ◆
+          </GlassButton>
+        </HStack>
+      </View>
+    );
+  },
+};
+
 export const Disabled: Story = {
   render() {
     return (
