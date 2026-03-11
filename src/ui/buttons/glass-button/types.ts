@@ -29,6 +29,14 @@ export type GlassButtonEffect = "regular" | "clear";
  */
 export type GlassButtonColorScheme = "light" | "dark" | "system";
 
+/**
+ * Visual variant for GlassButton.
+ * - default: Neutral glass appearance
+ * - primary: Bold primary-colored glass for prominent actions
+ * - secondary: Subtle secondary-colored glass
+ */
+export type GlassButtonVariant = "default" | "primary" | "secondary";
+
 // ============================================================================
 // Props Interface
 // ============================================================================
@@ -45,6 +53,15 @@ export interface GlassButtonProps extends Omit<PressableProps, "disabled" | "chi
    * @default "icon"
    */
   size?: GlassButtonSize;
+
+  /**
+   * Visual variant for the button.
+   * - "default": Neutral glass appearance
+   * - "primary": Bold primary-colored glass for prominent actions
+   * - "secondary": Subtle secondary-colored glass
+   * @default "default"
+   */
+  variant?: GlassButtonVariant;
 
   /**
    * Liquid glass material variant.

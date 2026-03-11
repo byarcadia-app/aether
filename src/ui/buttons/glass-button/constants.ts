@@ -1,5 +1,6 @@
-import type { TextVariant } from "../../typography/text/types";
-import type { GlassButtonEffect, GlassButtonSize } from "./types";
+import type { TextVariant, TextColor } from "../../typography/text/types";
+import type { GlassButtonEffect, GlassButtonSize, GlassButtonVariant } from "./types";
+import type { ThemeColor } from "../../../theme/colors";
 
 export const GLASS_BUTTON_WIDTH_MAP: Record<GlassButtonSize, number | "auto"> = {
   icon: 44,
@@ -39,4 +40,24 @@ export const GLASS_BUTTON_TEXT_SIZE_MAP: Record<GlassButtonSize, TextVariant> = 
   icon: "footnote",
   fab: "subhead",
   badge: "footnote",
+} as const;
+
+/**
+ * Text color mapping per variant for auto-wrapped string children.
+ * Ensures readable contrast on colored backgrounds in fallback mode.
+ */
+export const GLASS_BUTTON_TEXT_COLOR_MAP: Record<GlassButtonVariant, TextColor> = {
+  default: "default",
+  primary: "primary-foreground",
+  secondary: "secondary-foreground",
+} as const;
+
+/**
+ * PressableHighlight colorKey mapping per variant.
+ * Controls the highlight overlay color on press.
+ */
+export const GLASS_BUTTON_HIGHLIGHT_COLOR_MAP: Record<GlassButtonVariant, ThemeColor> = {
+  default: "glass-highlight",
+  primary: "primary-foreground",
+  secondary: "secondary-foreground",
 } as const;
