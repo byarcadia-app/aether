@@ -11,12 +11,18 @@ import {
   GLASS_BUTTON_ANIMATION_DURATION,
   GLASS_BUTTON_DEFAULT_EFFECT,
   GLASS_BUTTON_HEIGHT_MAP,
+  GLASS_BUTTON_HIGHLIGHT_COLOR_MAP,
   GLASS_BUTTON_RADIUS_MAP,
   GLASS_BUTTON_SCALE,
+  GLASS_BUTTON_TEXT_COLOR_MAP,
   GLASS_BUTTON_TEXT_SIZE_MAP,
   GLASS_BUTTON_WIDTH_MAP,
 } from "./constants";
-import { GLASS_BUTTON_FALLBACK_SHADOW, glassButtonVariants } from "./styles";
+import {
+  GLASS_BUTTON_FALLBACK_SHADOW,
+  GLASS_BUTTON_PRIMARY_SHADOW,
+  glassButtonVariants,
+} from "./styles";
 import type { GlassButtonProps } from "./types";
 
 cssInterop(LiquidGlassView, { className: "style" });
@@ -37,6 +43,7 @@ cssInterop(LiquidGlassView, { className: "style" });
  */
 export function GlassButton({
   size = "icon",
+  variant = "default",
   effect,
   colorScheme = "system",
   tintColor,
@@ -83,11 +90,13 @@ export function GlassButton({
     ? { height: buttonHeight, borderRadius }
     : { width: buttonWidth as number, height: buttonHeight, borderRadius };
 
+  const textColor = GLASS_BUTTON_TEXT_COLOR_MAP[variant];
+
   const renderContent = () => {
     if (isTextContent(children)) {
       const textVariant = GLASS_BUTTON_TEXT_SIZE_MAP[size];
       return (
-        <Text variant={textVariant} color="default" weight="medium">
+        <Text variant={textVariant} color={textColor} weight="medium">
           {children}
         </Text>
       );
@@ -104,7 +113,7 @@ export function GlassButton({
       className={cnx(
         "items-center justify-center rounded-full",
         isBadge && "flex-row gap-1 px-3",
-        !shouldUseLiquidGlass && glassButtonVariants({ size, isDisabled: disabled }),
+        !shouldUseLiquidGlass && glassButtonVariants({ size, variant, isDisabled: disabled }),
       )}
       disabled={disabled}
       onPress={onPress}
@@ -118,7 +127,7 @@ export function GlassButton({
       {!shouldUseLiquidGlass && (
         <PressableHighlight
           isPressed={isPressed}
-          colorKey="glass-highlight"
+          colorKey={GLASS_BUTTON_HIGHLIGHT_COLOR_MAP[variant]}
           isDisabled={disabled}
         />
       )}
@@ -141,8 +150,11 @@ export function GlassButton({
     );
   }
 
+  const fallbackShadow =
+    variant === "primary" ? GLASS_BUTTON_PRIMARY_SHADOW : GLASS_BUTTON_FALLBACK_SHADOW;
+
   return (
-    <View className={className} style={[glassStyle, GLASS_BUTTON_FALLBACK_SHADOW, style]}>
+    <View className={className} style={[glassStyle, fallbackShadow, style]}>
       {renderButtonContent()}
     </View>
   );
