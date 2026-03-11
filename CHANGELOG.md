@@ -1,5 +1,11 @@
 # @byarcadia-app/aether
 
+## 0.1.3
+
+### Patch Changes
+
+- [`a928b39`](https://github.com/byarcadia-app/aether/commit/a928b393d0438df5fba58a5f50b32374ef924bf7) Thanks [@dominikwozniak](https://github.com/dominikwozniak)! - Add color `variant` prop to GlassButton with `primary`, `secondary`, `success`, `warning`, `danger`, and `info` options. Each variant applies a matching tint to both the iOS 26+ Liquid Glass effect and the pre-iOS 26 fallback style.
+
 ## 0.1.2
 
 ### Patch Changes
