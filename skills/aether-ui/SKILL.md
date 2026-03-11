@@ -127,6 +127,7 @@ All sub-components are **flat named exports** — import them directly (e.g., `i
 All component styling uses `tailwind-variants` (`tv()`) from the `tailwind-variants` package. Variant constants are exported as named exports for external access (e.g., `buttonVariants`, `textVariants`).
 
 **Class name utilities:**
+
 - `cn(...classes)` — Fast string join. No conflict resolution. Use for simple concatenation.
 - `cnx(...classes)` — Merge with Tailwind conflict resolution via `tailwind-merge`. **Prefer this** when accepting `className` from component props to avoid class conflicts.
 
@@ -139,25 +140,30 @@ All component styling uses `tailwind-variants` (`tv()`) from the `tailwind-varia
 HSLA-based semantic color system. Colors are CSS variables at runtime via NativeWind `vars()` API.
 
 **Base tokens:**
+
 - `background` / `foreground` — App background and primary text
 - `surface` — Card and container backgrounds
 - `overlay` — Modal/sheet overlay
 
 **Semantic tokens** (each has a `-foreground` variant for text on colored backgrounds):
+
 - `primary` / `secondary` — Brand and secondary actions
 - `success` / `warning` / `danger` / `info` — Status colors
 
 **UI tokens:**
+
 - `muted` — Subtle backgrounds and secondary text (`muted-foreground`)
 - `border` — Default border color
 - `input` — Input field borders
 - `ring` — Focus ring color
 
 **Special tokens:**
+
 - `glass` / `glass-border` / `glass-highlight` — Glass effect colors
 - Tag colors: `tag-coral`, `tag-amber`, `tag-sky`, `tag-lavender`, `tag-slate`, `tag-mint`, `tag-stone` (each with `-foreground`)
 
 **Usage in Tailwind classes:**
+
 ```
 bg-primary          — Primary background
 text-foreground     — Default text color
@@ -187,6 +193,7 @@ The package exports `hapticsImpact(style: HapticFeedbackStyle)` for triggering h
 All aether components require `AetherProvider` at the root of your app. It composes theme injection, animation control, and global text configuration.
 
 Key props:
+
 - `colorPalette` — Custom light/dark color overrides
 - `disableAnimations` — Globally disable all animations (also respects iOS Reduce Motion)
 - `allowFontScaling` — Control text font scaling (default: `true`)

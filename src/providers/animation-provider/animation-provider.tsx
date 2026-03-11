@@ -20,7 +20,10 @@ import type { AnimationProviderProps } from "./types";
  * // Use AetherProvider's disableAnimations prop, not AnimationProvider directly.
  * ```
  */
-export const AnimationProvider = ({ children, disableAnimations = false }: AnimationProviderProps) => {
+export const AnimationProvider = ({
+  children,
+  disableAnimations = false,
+}: AnimationProviderProps) => {
   const reducedMotion = useReducedMotion();
   const isAnimationDisabled = disableAnimations || reducedMotion;
 

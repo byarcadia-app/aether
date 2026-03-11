@@ -6,7 +6,6 @@ import { AnimationProvider } from "../animation-provider";
 import { ThemeProvider } from "../theme-provider";
 import { ColorPaletteConfig } from "../../theme/colors";
 
-
 export interface AetherProviderProps {
   children: React.ReactNode;
   /**
@@ -83,7 +82,12 @@ export interface AetherProviderProps {
  * }
  * ```
  */
-export const AetherProvider = ({ children, textConfig, colorPalette, disableAnimations }: AetherProviderProps) => {
+export const AetherProvider = ({
+  children,
+  textConfig,
+  colorPalette,
+  disableAnimations,
+}: AetherProviderProps) => {
   return (
     <ThemeProvider colorPalette={colorPalette}>
       <AnimationProvider disableAnimations={disableAnimations}>

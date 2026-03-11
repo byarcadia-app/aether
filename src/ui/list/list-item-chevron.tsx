@@ -1,4 +1,9 @@
-import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import Animated, {
+  Easing,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 import { cnx } from "../../utils";
 import { useAnimationDisabled } from "../../hooks";
 import { IconSymbol } from "../icons";

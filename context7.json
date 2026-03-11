@@ -3,7 +3,16 @@
   "projectTitle": "@byarcadia-app/aether",
   "description": "iOS-first React Native UI component library with Tailwind CSS / NativeWind preset and theming for Expo",
   "folders": ["src", "docs", "skills/aether-ui", "skills/aether-setup"],
-  "excludeFolders": ["dist", "node_modules", "example", ".github", ".changeset", ".sisyphus", ".agents", "evals"],
+  "excludeFolders": [
+    "dist",
+    "node_modules",
+    "example",
+    ".github",
+    ".changeset",
+    ".sisyphus",
+    ".agents",
+    "evals"
+  ],
   "excludeFiles": ["pnpm-lock.yaml", "skills-lock.json", "nativewind-env.d.ts"],
   "rules": [
     "iOS only — do not add Android or web platform checks",

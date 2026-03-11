@@ -42,7 +42,12 @@ import { TextField, TextFieldLabel, TextFieldInput } from "@byarcadia-app/aether
 ### With Validation
 
 ```tsx
-import { TextField, TextFieldLabel, TextFieldInput, TextFieldErrorMessage } from "@byarcadia-app/aether";
+import {
+  TextField,
+  TextFieldLabel,
+  TextFieldInput,
+  TextFieldErrorMessage,
+} from "@byarcadia-app/aether";
 
 <TextField isInvalid={true} isRequired>
   <TextFieldLabel>Email</TextFieldLabel>

@@ -28,7 +28,10 @@ pnpm add @callstack/liquid-glass expo-haptics expo-linear-gradient
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./node_modules/@byarcadia-app/aether/dist/**/*.{js,mjs}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@byarcadia-app/aether/dist/**/*.{js,mjs}",
+  ],
   presets: [require("nativewind/preset"), require("@byarcadia-app/aether/tailwind-preset").preset],
   theme: {
     extend: {},

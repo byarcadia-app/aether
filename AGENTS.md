@@ -255,13 +255,13 @@ This library publishes two skills to [skills.sh](https://skills.sh) in the `skil
 
 When modifying the codebase, keep skills in sync:
 
-| Change | Skill Update |
-| --- | --- |
-| New/modified component | Copy updated `.md` to `skills/aether-ui/references/`, update component catalog in `skills/aether-ui/SKILL.md` |
-| Changed component API (props, variants, sub-components) | Copy updated `.md` to `skills/aether-ui/references/` |
-| New hook or utility | Update relevant section in `skills/aether-ui/SKILL.md` |
-| New peer dependency | Update install step and peer deps list in `skills/aether-setup/SKILL.md` |
-| New color tokens | Update color tokens section in `skills/aether-ui/SKILL.md` |
+| Change                                                  | Skill Update                                                                                                  |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| New/modified component                                  | Copy updated `.md` to `skills/aether-ui/references/`, update component catalog in `skills/aether-ui/SKILL.md` |
+| Changed component API (props, variants, sub-components) | Copy updated `.md` to `skills/aether-ui/references/`                                                          |
+| New hook or utility                                     | Update relevant section in `skills/aether-ui/SKILL.md`                                                        |
+| New peer dependency                                     | Update install step and peer deps list in `skills/aether-setup/SKILL.md`                                      |
+| New color tokens                                        | Update color tokens section in `skills/aether-ui/SKILL.md`                                                    |
 
 Reference files in `skills/aether-ui/references/` are snapshots of the per-component `.md` docs. After updating a source `.md` file, copy it to the matching reference file.
 
