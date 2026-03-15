@@ -25,3 +25,5 @@ jobs:
       - run: pnpm check
       - run: pnpm lint
       - run: pnpm build
+      - run: pnpm fmt:check
+      - run: pnpm --filter @byarcadia-app/example exec tsc --noEmit

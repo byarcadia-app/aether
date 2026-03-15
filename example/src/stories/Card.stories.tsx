@@ -73,7 +73,7 @@ export const WithImage: Story = {
         </CardImage>
         <CardBody className="p-4">
           <Text variant="headline">Card with Image</Text>
-          <Text color="muted" className="mt-2">
+          <Text color="muted" style={{ marginTop: 8 }}>
             Image positioned at the top
           </Text>
         </CardBody>
