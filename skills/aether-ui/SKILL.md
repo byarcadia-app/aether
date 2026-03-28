@@ -7,6 +7,11 @@ description: "Full API knowledge for building screens with @byarcadia-app/aether
 
 iOS-first React Native component library built as a Tailwind CSS / NativeWind preset for Expo. All components use `tailwind-variants` for styling and NativeWind CSS variables for theming.
 
+**Color tokens**: See [colors.md](references/colors.md)
+**Hooks & utilities**: See [hooks.md](references/hooks.md), [utilities.md](references/utilities.md)
+**Provider setup**: See [provider.md](references/provider.md)
+**Detailed component API**: See `references/` directory
+
 ## iOS Only
 
 This library targets **iOS exclusively**. Android and web are not supported and won't be. Do not add platform checks or cross-platform fallbacks.
@@ -25,178 +30,91 @@ Icons are a separate entrypoint:
 import { IconSymbol } from "@byarcadia-app/aether/icons";
 ```
 
-## Component Catalog
+## Compound Components
 
-### Typography
-
-**Heading** — H1–H4 components following iOS Human Interface Guidelines sizing. Inter font family with configurable weight.
-→ Read `references/heading.md` for full API
-
-**Text** — Body text component with size variants (lg, md, sm, xs) and weight variants (regular, medium, semibold, bold).
-→ Read `references/text.md` for full API
-
-**Caption** — Small auxiliary text in two sizes (md, sm). Uses muted foreground color by default.
-→ Read `references/caption.md` for full API
-
-### Buttons
-
-**Button** — Primary interactive element with 5 variants: `primary`, `secondary`, `outline`, `ghost`, `destructive`. Supports shimmer effect, loading state with spinner, haptic feedback, and press animation. Compound component with `ButtonLabel` and `ButtonShimmer`.
-→ Read `references/button.md` for full API
-
-**GlassButton** — iOS 26+ LiquidGlass button using `@callstack/liquid-glass`. Automatically falls back to a standard primary Button on older iOS versions. Use for hero actions where the translucent glass effect fits.
-→ Read `references/glass-button.md` for full API
-
-**HighlightTappable** — Lightweight press feedback wrapper that shows a subtle background highlight on touch. Use for custom tappable areas that don't need full button styling.
-→ Read `references/highlight-tappable.md` for full API
-
-### Forms
-
-**TextField** — Compound input component with sub-components: `TextFieldLabel`, `TextFieldInput`, `TextFieldInputStartContent`, `TextFieldInputEndContent`, `TextFieldDescription`, `TextFieldErrorMessage`. Features animated focus border, clearable input, multiline mode, and validation error display.
-→ Read `references/text-field.md` for full API
-
-**ErrorView** — Conditional error message display. Renders an error message with danger color when an error string is provided, renders nothing when error is undefined/null.
-→ Read `references/error-view.md` for full API
-
-### Layout and Structure
-
-**VStack / HStack** — Polymorphic flexbox layout primitives. VStack arranges children vertically, HStack horizontally. Accept an `as` prop to render as any React Native component (View, ScrollView, Pressable, etc.).
-→ Read `references/layout.md` for full API
-
-**Card** — Compound card component with sub-components: `CardHeader`, `CardTitle`, `CardDescription`, `CardBody`, `CardImage`, `CardFooter`. Optionally pressable with haptic feedback via `onPress` prop. Uses Surface-based `variant` (`solid`, `glass`, `fog`) and `level` for visual hierarchy.
-→ Read `references/card.md` for full API
-
-**Surface** — Layered background container with visual hierarchy support. Three variants: `solid` (opaque), `glass` (translucent blur), `fog` (subtle gradient). Surfaces auto-darken based on nesting depth via the `level` prop.
-→ Read `references/surface.md` for full API
-
-**List** — Compound list component following iOS Settings patterns. Sub-components: `ListItem`, `ListItemContent`, `ListItemIcon`, `ListItemAccessory`, `ListSectionHeader`, `ListItemChevron` (animated rotation), `ListItemCollapse` (animated expand/collapse). Items support press highlighting and navigation chevrons.
-→ Read `references/list.md` for full API
-
-### Feedback
-
-**Skeleton** — Pulsing loading placeholder with theme-aware colors. Renders a rounded rectangle that pulses between two opacity values. Respects global animation-disabled state (shows static block when animations off).
-→ Read `references/skeleton.md` for full API
-
-**ScrollFade** — Gradient fade overlay for scroll container edges. Place as a sibling to your ScrollView and position with `position="top"` or `position="bottom"` to fade content at scroll boundaries.
-→ Read `references/scroll-fade.md` for full API
-
-**AnimationWrapper** — Declarative enter/exit/layout animation wrapper using `react-native-reanimated`. Configure entering, exiting, and layout transitions via props. Consumer-controlled — not affected by the global animation-disabled state.
-→ Read `references/animation-wrapper.md` for full API
-
-### Icons
-
-**IconSymbol** — SF Symbols component for iOS. Requires `expo-symbols` (optional peer dependency). Available from a separate entrypoint: `import { IconSymbol } from "@byarcadia-app/aether/icons"`. Supports symbol weight, scale, and theme color integration.
-→ Read `references/icon-symbol.md` for full API
-
-## Compound Component Patterns
-
-Card, TextField, and List are **compound components** — they use sub-components composed as children rather than configuration props.
-
-All sub-components are **flat named exports** — import them directly (e.g., `import { Card, CardHeader, CardTitle } from "@byarcadia-app/aether"`). Internally, each has a `displayName` like `Aether.Card.CardTitle` used by `getElementByDisplayName()` to extract and position children.
-
-```tsx
-<Card>
-  <CardHeader>
-    <CardTitle>Account Settings</CardTitle>
-    <CardDescription>Manage your preferences</CardDescription>
-  </CardHeader>
-  <CardBody>
-    <Text>Content goes here</Text>
-  </CardBody>
-  <CardFooter>
-    <Button variant="primary">
-      <ButtonLabel>Save</ButtonLabel>
-    </Button>
-  </CardFooter>
-</Card>
-```
-
-```tsx
-<TextField>
-  <TextFieldLabel>Email</TextFieldLabel>
-  <TextFieldInput
-    placeholder="you@example.com"
-    keyboardType="email-address"
-    autoCapitalize="none"
-  />
-  <TextFieldErrorMessage>{errors.email}</TextFieldErrorMessage>
-</TextField>
-```
+Card, TextField, and List use sub-components composed as children (not configuration props). All sub-components are **flat named exports** — import them directly. Internally, each has a `displayName` like `Aether.Card.CardTitle` used by `getElementByDisplayName()` to extract and position children. See individual reference files for usage examples.
 
 ## Styling System
 
 All component styling uses `tailwind-variants` (`tv()`) from the `tailwind-variants` package. Variant constants are exported as named exports for external access (e.g., `buttonVariants`, `textVariants`).
 
-**Class name utilities:**
-
 - `cn(...classes)` — Fast string join. No conflict resolution. Use for simple concatenation.
-- `cnx(...classes)` — Merge with Tailwind conflict resolution via `tailwind-merge`. **Prefer this** when accepting `className` from component props to avoid class conflicts.
+- `cnx(...classes)` — Merge with Tailwind conflict resolution via `tailwind-merge`. **Prefer this** when accepting `className` from component props.
+- Custom color palettes via `colorPalette` prop on `AetherProvider`.
 
-**Custom color palettes:** Pass a `colorPalette` prop to `AetherProvider` to override default color tokens. This injects custom CSS variables for both light and dark themes.
-
-→ Read `references/utilities.md` for full utility API
+-> [utilities.md](references/utilities.md) for full utility API.
 
 ## Color Tokens
 
-HSLA-based semantic color system. Colors are CSS variables at runtime via NativeWind `vars()` API.
+HSLA-based semantic color system via NativeWind CSS variables. Tokens: base (`background`, `foreground`, `surface`), semantic (`primary`, `secondary`, `success`, `warning`, `danger`, `info`), UI (`muted`, `border`, `input`, `ring`), special (`glass`, tag colors). Every semantic color has a `-foreground` variant.
 
-**Base tokens:**
+Usage: `bg-primary`, `text-foreground`, `text-danger-foreground`, `border-border`, `bg-muted`.
 
-- `background` / `foreground` — App background and primary text
-- `surface` — Card and container backgrounds
-- `overlay` — Modal/sheet overlay
-
-**Semantic tokens** (each has a `-foreground` variant for text on colored backgrounds):
-
-- `primary` / `secondary` — Brand and secondary actions
-- `success` / `warning` / `danger` / `info` — Status colors
-
-**UI tokens:**
-
-- `muted` — Subtle backgrounds and secondary text (`muted-foreground`)
-- `border` — Default border color
-- `input` — Input field borders
-- `ring` — Focus ring color
-
-**Special tokens:**
-
-- `glass` / `glass-border` / `glass-highlight` — Glass effect colors
-- Tag colors: `tag-coral`, `tag-amber`, `tag-sky`, `tag-lavender`, `tag-slate`, `tag-mint`, `tag-stone` (each with `-foreground`)
-
-**Usage in Tailwind classes:**
-
-```
-bg-primary          — Primary background
-text-foreground     — Default text color
-text-danger-foreground — Text on danger-colored background
-border-border       — Default border
-bg-muted            — Subtle background
-```
-
-→ Read `references/colors.md` for the complete token table
+-> [colors.md](references/colors.md) for the complete token table.
 
 ## Hooks
 
-- `useInterFonts()` — Load the Inter font family. Returns `{ fontsLoaded: boolean, fontError: Error | null }`. Call in your root layout before rendering components.
-- `useColorScheme()` — Get current color scheme. Returns `"light"` or `"dark"`.
-- `useThemeColor(token, opts?)` — Resolve a semantic color token to its runtime HSLA string value. Useful for places that need a raw color value (e.g., StatusBar, native APIs).
-- `useNavigationTheme()` — Returns a React Navigation `Theme` object with aether colors applied. Pass to `<ThemeProvider value={...}>`.
-- `useAnimationDisabled()` — Returns `true` when animations are globally disabled (via `disableAnimations` prop on AetherProvider or iOS Reduce Motion setting).
+- `useInterFonts()` — Load Inter font family
+- `useColorScheme()` — Get `"light"` or `"dark"`
+- `useThemeColor(token)` — Resolve token to runtime HSLA string
+- `useNavigationTheme()` — React Navigation theme with aether colors
+- `useAnimationDisabled()` — Check global animation-disabled state
 
-→ Read `references/hooks.md` for full hook signatures and examples
+-> [hooks.md](references/hooks.md) for full signatures and examples.
 
 ## Haptics
 
-The package exports `hapticsImpact(style: HapticFeedbackStyle)` for triggering haptic feedback. The `Button` component has a built-in `haptics` prop that handles this automatically. Use `hapticsImpact()` directly when building custom interactive components that need tactile feedback.
+Exports `hapticsImpact(style: HapticFeedbackStyle)` for triggering haptic feedback. `Button` has a built-in `haptics` prop. Use `hapticsImpact()` directly for custom interactive components.
 
 ## Provider Setup
 
-All aether components require `AetherProvider` at the root of your app. It composes theme injection, animation control, and global text configuration.
+All aether components require `AetherProvider` at the root. Key props: `colorPalette`, `disableAnimations`, `allowFontScaling`, `maxFontSizeMultiplier`.
 
-Key props:
+-> [provider.md](references/provider.md) for full configuration options.
 
-- `colorPalette` — Custom light/dark color overrides
-- `disableAnimations` — Globally disable all animations (also respects iOS Reduce Motion)
-- `allowFontScaling` — Control text font scaling (default: `true`)
-- `maxFontSizeMultiplier` — Cap font scaling multiplier
+## References
 
-→ Read `references/provider.md` for full configuration options
+[$REFERENCES_START$]: #
+
+### Typography
+
+[Heading](references/heading.md): H1–H4 components following iOS Human Interface Guidelines sizing. Inter font family with configurable weight.
+[Text](references/text.md): Body text with size variants (lg, md, sm, xs) and weight variants (regular, medium, semibold, bold).
+[Caption](references/caption.md): Small auxiliary text in two sizes (md, sm). Muted foreground color by default.
+
+### Buttons
+
+[Button](references/button.md): Primary interactive element with 5 variants (primary, secondary, outline, ghost, destructive). Supports shimmer, loading spinner, haptic feedback, press animation. Compound: ButtonLabel, ButtonShimmer.
+[GlassButton](references/glass-button.md): iOS 26+ LiquidGlass button via @callstack/liquid-glass. Falls back to standard primary Button on older iOS.
+[HighlightTappable](references/highlight-tappable.md): Lightweight press feedback wrapper with subtle background highlight on touch.
+
+### Forms
+
+[TextField](references/text-field.md): Compound input with TextFieldLabel, TextFieldInput, TextFieldInputStartContent, TextFieldInputEndContent, TextFieldDescription, TextFieldErrorMessage. Animated focus border, clearable, multiline, validation.
+[ErrorView](references/error-view.md): Conditional error message display. Renders danger-colored message when error string provided, nothing otherwise.
+
+### Layout & Structure
+
+[Layout (VStack / HStack)](references/layout.md): Polymorphic flexbox primitives. Accept `as` prop to render as any React Native component.
+[Card](references/card.md): Compound card with CardHeader, CardTitle, CardDescription, CardBody, CardImage, CardFooter. Optionally pressable with haptics. Surface-based variants (solid, glass, fog).
+[Surface](references/surface.md): Layered background container. Three variants: solid (opaque), glass (translucent blur), fog (subtle gradient). Auto-darkens by nesting depth via `level` prop.
+[List](references/list.md): Compound list following iOS Settings patterns. ListItem, ListItemContent, ListItemIcon, ListItemAccessory, ListSectionHeader, ListItemChevron (animated), ListItemCollapse (animated expand/collapse).
+
+### Feedback
+
+[Skeleton](references/skeleton.md): Pulsing loading placeholder. Theme-aware, respects global animation-disabled state.
+[ScrollFade](references/scroll-fade.md): Gradient fade overlay for scroll container edges. Position top or bottom.
+[AnimationWrapper](references/animation-wrapper.md): Declarative enter/exit/layout animation via react-native-reanimated. Consumer-controlled, not affected by global animation-disabled state.
+
+### Icons
+
+[IconSymbol](references/icon-symbol.md): SF Symbols component for iOS via expo-symbols. Separate entrypoint: `@byarcadia-app/aether/icons`.
+
+### Theming & Configuration
+
+[Colors](references/colors.md): Complete HSLA color token table for light and dark themes.
+[Provider](references/provider.md): AetherProvider configuration — theme injection, animation control, text config.
+[Hooks](references/hooks.md): All hook signatures and usage examples.
+[Utilities](references/utilities.md): cn(), cnx() class name utilities and other helpers.
+
+[$REFERENCES_END$]: #
