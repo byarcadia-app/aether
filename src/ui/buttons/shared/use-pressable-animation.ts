@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { GestureResponderEvent } from "react-native";
 import type { SharedValue } from "react-native-reanimated";
 import {
@@ -131,7 +132,9 @@ export function usePressableAnimation(
 
   // Bridge animation-disabled state to worklet-readable shared value
   const animDisabledRef = useSharedValue(isAnimationDisabled);
-  animDisabledRef.value = isAnimationDisabled;
+  useEffect(() => {
+    animDisabledRef.value = isAnimationDisabled;
+  }, [isAnimationDisabled]);
 
   const scale = useSharedValue(0);
   const isPressed = useSharedValue(0);

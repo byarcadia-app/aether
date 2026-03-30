@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { StyleSheet } from "react-native";
 import type { SharedValue } from "react-native-reanimated";
 import Animated, {
@@ -87,7 +88,9 @@ export function PressableHighlight({
 
   // Bridge to worklet-readable value
   const animDisabledRef = useSharedValue(isAnimationDisabled);
-  animDisabledRef.value = isAnimationDisabled; // sync on each render
+  useEffect(() => {
+    animDisabledRef.value = isAnimationDisabled;
+  }, [isAnimationDisabled]);
 
   const animatedStyle = useAnimatedStyle(() => {
     if (isDisabled) {

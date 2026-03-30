@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -40,7 +41,9 @@ export function ListItemChevron({
   const { isExpanded } = useListItemContext();
   const isAnimationDisabled = useAnimationDisabled();
   const animDisabledRef = useSharedValue(isAnimationDisabled);
-  animDisabledRef.value = isAnimationDisabled;
+  useEffect(() => {
+    animDisabledRef.value = isAnimationDisabled;
+  }, [isAnimationDisabled]);
 
   const animatedStyle = useAnimatedStyle(() => {
     const targetRotation = isExpanded ? "90deg" : "0deg";
