@@ -1,5 +1,11 @@
 # @byarcadia-app/aether
 
+## 0.1.4
+
+### Patch Changes
+
+- [`91d666b`](https://github.com/byarcadia-app/aether/commit/91d666bdc9f683e99afb7f167560c178b1f4fd5e) Thanks [@dominikwozniak](https://github.com/dominikwozniak)! - Fix Reanimated "Writing to value during component render" warnings by moving shared value syncs into useEffect
+
 ## 0.1.3
 
 ### Patch Changes
