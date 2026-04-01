@@ -1,5 +1,11 @@
 # @byarcadia-app/aether
 
+## 0.1.5
+
+### Patch Changes
+
+- [`60a27a6`](https://github.com/byarcadia-app/aether/commit/60a27a68540abcd8d840984dc62a7497c2fbcd02) Thanks [@dominikwozniak](https://github.com/dominikwozniak)! - Fix multiline TextField horizontal padding by moving it from inputWrapper to input
+
 ## 0.1.4
 
 ### Patch Changes
