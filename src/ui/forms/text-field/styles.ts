@@ -33,8 +33,8 @@ export const textFieldStyles = tv({
     },
     isMultiline: {
       true: {
-        inputWrapper: "items-start",
-        input: "min-h-[100px] py-2",
+        inputWrapper: "items-start px-0",
+				input: "min-h-[100px] py-2 px-4",
       },
     },
   },
