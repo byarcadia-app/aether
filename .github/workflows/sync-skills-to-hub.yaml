@@ -9,7 +9,7 @@ on:
 
 jobs:
   aether-setup:
-    uses: byarcadia-app/gh-actions/.github/workflows/sync-skill-to-hub.yaml@main
+    uses: byarcadia-app/gh-actions-public/.github/workflows/sync-skill-to-hub.yaml@main
     with:
       skill-name: aether-setup
       skill-path: skills/aether-setup
@@ -17,7 +17,7 @@ jobs:
       target-repo-token: ${{ secrets.HUB_WRITE_TOKEN }}
 
   aether-ui:
-    uses: byarcadia-app/gh-actions/.github/workflows/sync-skill-to-hub.yaml@main
+    uses: byarcadia-app/gh-actions-public/.github/workflows/sync-skill-to-hub.yaml@main
     with:
       skill-name: aether-ui
       skill-path: skills/aether-ui
