@@ -1,0 +1,25 @@
+name: Sync skills to hub
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+  workflow_dispatch:
+
+jobs:
+  aether-setup:
+    uses: byarcadia-app/gh-actions/.github/workflows/sync-skill-to-hub.yaml@main
+    with:
+      skill-name: aether-setup
+      skill-path: skills/aether-setup
+    secrets:
+      target-repo-token: ${{ secrets.HUB_WRITE_TOKEN }}
+
+  aether-ui:
+    uses: byarcadia-app/gh-actions/.github/workflows/sync-skill-to-hub.yaml@main
+    with:
+      skill-name: aether-ui
+      skill-path: skills/aether-ui
+    secrets:
+      target-repo-token: ${{ secrets.HUB_WRITE_TOKEN }}
