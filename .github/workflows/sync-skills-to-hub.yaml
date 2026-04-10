@@ -6,6 +6,11 @@ on:
     paths:
       - "skills/**"
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Show changes without creating PR"
+        type: boolean
+        default: false
 
 jobs:
   aether-setup:
@@ -14,6 +19,7 @@ jobs:
       skill-name: aether-setup
       skill-path: skills/aether-setup
       pr-labels: "automated,sync"
+      dry-run: ${{ inputs.dry_run || false }}
     secrets:
       target-repo-token: ${{ secrets.HUB_WRITE_TOKEN }}
 
@@ -23,5 +29,6 @@ jobs:
       skill-name: aether-ui
       skill-path: skills/aether-ui
       pr-labels: "automated,sync"
+      dry-run: ${{ inputs.dry_run || false }}
     secrets:
       target-repo-token: ${{ secrets.HUB_WRITE_TOKEN }}
