@@ -1,4 +1,4 @@
-name: CI
+name: Quality Gate
 
 on:
   pull_request:
